@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/new/icons">
+        <file>icons/sklad.png</file>
+        <file>icons/in_stock.png</file>
+        <file>icons/prihod.png</file>
+        <file>icons/rashod.png</file>
+        <file>icons/podr.png</file>
+        <file>icons/remont.png</file>
+        <file>icons/users.png</file>
+        <file>icons/podr_edit.png</file>
+        <file>icons/ATS.png</file>
+        <file>icons/enter.png</file>
+    </qresource>
+</RCC>

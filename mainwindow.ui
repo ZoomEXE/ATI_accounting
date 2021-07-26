@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>881</width>
+    <height>574</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ATI Accounting</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normalon>:/new/icons/icons/ATS.png</normalon>
+   </iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>881</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Учет</string>
+    </property>
+    <widget class="QMenu" name="menu_2">
+     <property name="title">
+      <string>Наличие</string>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/new/icons/icons/in_stock.png</normaloff>:/new/icons/icons/in_stock.png</iconset>
+     </property>
+     <addaction name="action_sklad"/>
+     <addaction name="action_podr"/>
+     <addaction name="action_remont"/>
+    </widget>
+    <addaction name="menu_2"/>
+    <addaction name="action_prihod"/>
+    <addaction name="action_rashod"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>Помощь</string>
+    </property>
+    <addaction name="spr_ati"/>
+    <addaction name="spr_pptn"/>
+    <addaction name="info"/>
+   </widget>
+   <widget class="QMenu" name="menu_4">
+    <property name="title">
+     <string>Администрирование</string>
+    </property>
+    <addaction name="action_users_edit"/>
+    <addaction name="action_podr_edit"/>
+   </widget>
+   <widget class="QMenu" name="menu_5">
+    <property name="title">
+     <string>Профиль</string>
+    </property>
+    <addaction name="edit_profile_data"/>
+    <addaction name="change_pass"/>
+    <addaction name="log_out"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_4"/>
+   <addaction name="menu_5"/>
+   <addaction name="menu_3"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+  </widget>
+  <action name="action_prihod">
+   <property name="icon">
+    <iconset>
+     <normalon>:/new/icons/icons/prihod.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Приход</string>
+   </property>
+  </action>
+  <action name="action_rashod">
+   <property name="icon">
+    <iconset>
+     <normalon>:/new/icons/icons/rashod.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Расход</string>
+   </property>
+  </action>
+  <action name="action_sklad">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/new/icons/icons/sklad.png</normaloff>:/new/icons/icons/sklad.png</iconset>
+   </property>
+   <property name="text">
+    <string>Склад</string>
+   </property>
+  </action>
+  <action name="action_podr">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/new/icons/icons/podr.png</normaloff>:/new/icons/icons/podr.png</iconset>
+   </property>
+   <property name="text">
+    <string>Подразделения</string>
+   </property>
+  </action>
+  <action name="action_remont">
+   <property name="icon">
+    <iconset>
+     <normalon>:/new/icons/icons/remont.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>В ремонте</string>
+   </property>
+   <property name="toolTip">
+    <string>В ремонте</string>
+   </property>
+  </action>
+  <action name="action_users_edit">
+   <property name="icon">
+    <iconset>
+     <normalon>:/new/icons/icons/users.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Пользователи</string>
+   </property>
+   <property name="toolTip">
+    <string>Управление данными пользователей</string>
+   </property>
+  </action>
+  <action name="action_podr_edit">
+   <property name="icon">
+    <iconset>
+     <normalon>:/new/icons/icons/podr_edit.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Подразделения</string>
+   </property>
+   <property name="toolTip">
+    <string>Управление подразделениями</string>
+   </property>
+  </action>
+  <action name="edit_profile_data">
+   <property name="text">
+    <string>Редактировать данные</string>
+   </property>
+  </action>
+  <action name="change_pass">
+   <property name="text">
+    <string>Изменить пароль</string>
+   </property>
+  </action>
+  <action name="log_out">
+   <property name="text">
+    <string>Выйти</string>
+   </property>
+  </action>
+  <action name="spr_ati">
+   <property name="text">
+    <string>Справочник АТИ</string>
+   </property>
+  </action>
+  <action name="spr_pptn">
+   <property name="text">
+    <string>Справочник ППТН</string>
+   </property>
+  </action>
+  <action name="info">
+   <property name="text">
+    <string>О программе</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

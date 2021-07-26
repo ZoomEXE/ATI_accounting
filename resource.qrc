@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../../Users/пользователь/Downloads/sklad.png</file>
+    </qresource>
+    <qresource prefix="/new/icons"/>
+</RCC>
