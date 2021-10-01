@@ -11,4 +11,7 @@
         <file>icons/ATS.png</file>
         <file>icons/enter.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>ats_db.db</file>
+    </qresource>
 </RCC>

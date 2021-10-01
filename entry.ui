@@ -99,15 +99,29 @@
            <verstretch>40</verstretch>
           </sizepolicy>
          </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>52</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>9</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="autoFillBackground">
           <bool>false</bool>
          </property>
-         <property name="text">
-          <string/>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(34, 122, 255);
+color: rgb(255, 255, 255);
+</string>
          </property>
-         <property name="icon">
-          <iconset resource="resources.qrc">
-           <normaloff>:/new/icons/icons/enter.png</normaloff>:/new/icons/icons/enter.png</iconset>
+         <property name="text">
+          <string>Войти</string>
          </property>
          <property name="iconSize">
           <size>
@@ -119,7 +133,7 @@
           <bool>false</bool>
          </property>
          <property name="flat">
-          <bool>true</bool>
+          <bool>false</bool>
          </property>
         </widget>
        </item>

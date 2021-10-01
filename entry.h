@@ -18,8 +18,8 @@ public:
     ~Entry();
 
 private slots:
-    void on_forget_pswd_clicked();
-    void on_enter_button_clicked();
+    void on_forget_pswd_clicked(); //Забыли пароль
+    void on_enter_button_clicked(); //Вход
 signals:
     void close_signal();
 private:

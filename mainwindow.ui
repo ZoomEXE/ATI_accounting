@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>881</width>
+    <width>1293</width>
     <height>574</height>
    </rect>
   </property>
@@ -18,21 +18,2130 @@
     <normalon>:/new/icons/icons/ATS.png</normalon>
    </iconset>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>44</height>
+       </size>
+      </property>
+      <property name="sizeIncrement">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>16</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="elideMode">
+       <enum>Qt::ElideNone</enum>
+      </property>
+      <property name="tabsClosable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="sklad_tab">
+       <attribute name="title">
+        <string>Учет в в/ч</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_26">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_17">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_25">
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Выберите лицевой счет (МОЛ):</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBox_3">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>309</width>
+                <height>38</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>10</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_23">
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Выберите тип имущества (АТИ, ППТН):</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBox">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>38</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>10</width>
+              <height>10</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_24">
+            <item>
+             <widget class="QLabel" name="label_2">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Выберите категорию (I - V):</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="category_comboBox">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>309</width>
+                <height>38</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Expanding</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>5</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_20">
+          <item>
+           <widget class="QLabel" name="selectGoupInSklad">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Выберите группу:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_13">
+            <item>
+             <widget class="QComboBox" name="comboBoxGroupInSklad">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>38</height>
+               </size>
+              </property>
+              <property name="sizeIncrement">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="contextMenuPolicy">
+               <enum>Qt::DefaultContextMenu</enum>
+              </property>
+              <item>
+               <property name="text">
+                <string>102 | Подвесные топливные баки</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>104 | Наземное оборудование и инструмент для самолетов</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>105 | Наземное оборудование и инструмент для самолетов</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>106 | Наземное оборудование и инструмент для самолетов</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>107 | Наземное оборудование и инструмент для вертолетов</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>108 | Наземное оборудование и инструмент общий для всех типов ЛА (верт.)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>110 | Ведомость потребности и обеспеченности авиадвигателями</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>121 | Агрегаты летательных аппаратов</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>122 | Обогреватели, радиаторы,турбохолодильники, клапаны, регуляторы ре</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>123 | Фильтры и фильтрующие элементы к ним</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>127 | Авиаколеса</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>128 | Агрегаты управления тормозами колес и запчасти к колесам</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>129 | Авиарезина</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>137 | Воздушные винты самолетов (вертолетов) и лопасти</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>139 | Агрегаты зажигания авиационных двигателей, выключателей стартеров</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>141 | Ремонтно-монтажный инструмент</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>145 | Нормализованные детали к летательным аппаратам и их агрегатам</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>151 | Групповые комплекты для капитального ремонта агрегатов летательных аппаратов и двигателей</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>152 | Групповые комплекты для капитального ремонта агрегатов летательных аппаратов и двигателей</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>153 | Групповые комплекты для капитального ремонта фильтров</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>157 | Групповые комплекты для капитального ремонта авивколес, агрегатов управления тормозами колес и инерционных датчиков</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>158 | Групповые комплекты для капитального ремонта авивколес, агрегатов управления тормозами колес и инерционных датчиков</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>162 | Групповые комплекты для капитального ремонта агрегатов летательных аппаратов и двигателей</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>165 | Групповые комплекты к воздушным винтам</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>167 | Групповые комплекты к агрегатам зажигания</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>311 | Запчасти к изд. &quot;76&quot;,&quot;94&quot;,&quot;94Р&quot;,&quot;95&quot;,&quot;15&quot;,&quot;50&quot;,&quot;75&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>313 | Запчасти к изд.&quot;2М&quot;(23-11),&quot;2БМ&quot;(32-25),&quot;2БН&quot;(32-24),&quot;3&quot;(23-12),&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>314 | Запчасти к изд. &quot;01&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>315 | Запчасти к изд. &quot;02&quot;,&quot;84&quot;,&quot;22&quot;,&quot;39&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>317 | Запчасти к изд. 9-12</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>320 | Запчасти к изд. &quot;66&quot;,&quot;68&quot;,&quot;69&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>322 | Запчасти к изд. &quot;Т-8&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>327 | Запчасти к &quot;Т-10&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>331 | Запчасти изд. &quot;40&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>338 | Запчасти к изд. &quot;Л-29&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>345 | Запчасти к изд. &quot;Л-39&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>356 | Запчасти к изд. &quot;Т-6&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>357 | Запчасти к изд. &quot;С-32&quot;,&quot;С-32М&quot;,&quot;С-32М2&quot;,&quot;С-32МК&quot;,&quot;С-52&quot;,&quot;С-52У&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>365 | Запасные части изд. &quot;28Б&quot;,&quot;Л&quot;,&quot;И&quot;,&quot;У&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>390 | Запчасти к изд. &quot;143&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>403 | Запчасти к вертолету В-2</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>407 | Запчасти к изд. МИ-8, МИ-8МТ, металлич. и фторопластовые рукава</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>409 | Запчасти к изд. МИ-6, МИ-10</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>415 | Запчасти к изд. &quot;242&quot;,&quot;245&quot;,&quot;246&quot;,&quot;249&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>416 | Агрегаты трансмиссии, запчасти к изд.&quot;90&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>421 | Запчасти к изд. АН-12</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>433 | Запчасти к изд. АН-2</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>436 | Запчасти к самолету ИЛ-14</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>437 | Запчасти к самолету ИЛ-18</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>438 | Запчасти к изд. 76</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>440 | Запчасти к изд.ТУ-134Ш, ТУ-134, ТУ-134А</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>442 | Запчасти к АН-72</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>446 | Запчасти к АН-24, АН-26</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>500 | Запчасти к изд. &quot;500&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>600 | Самолетное радиоэлектронное оборудование (РЭО) с дополнением</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>601 | Электротехнические изделия</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>602 | Запчасти к самолетному РЭО (агрегаты и блоки) с дополнением</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>603 | Электротехнические изделия</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>604 | Запчасти к самолетному РЭО</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>605 | Мощные полупроводниковые приборы</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>610 | Аэронавигационное оборудование ЛА (самолетов, вертолетов)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>611 | Электровакуумные приборы (ЭВП)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>612 | Полупроводниковые приборы (ППП)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>615 | Электрооборудование самолетов (вертолетов) с дополнением</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>616 | Контрольно-поверочная апаратура по электрооборудованию</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>620 | Самолетное противопожарное оборудование</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>625 | Запасные части к аэронавигационному оборудованию и установкам</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>626 | Табельные техн. сред. контроля и обучения и др.фотолаб. оборудов.</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>630 | Запасные части электрооборудования самолетов (вертолетов)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>651 | Приборы СВЧ</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>652 | Приборы СВЧ</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>653 | Приборы СВЧ</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>654 | Приборы СВЧ</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>655 | Приборы СВЧ</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>663 | Запчасти к наземным средствам связи и светотехническому имуществу</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>664 | Штатно-табельные средства связи и РТО (номенклатура ВВС)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>665 | Запчасти к радиосредствам (блоки и узлы)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>666 | Штатно-табельные средства связи общего применения (НВС)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>668 | Табельное метеорологическое оборудование</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>670 | Запчасти к метеорологическим приборам (расходные материалы к метеоимуществу</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>672 | Источники питания</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>673 | Телефонно-телеграфная аппаратура, ЗИП и продукция промышленных ср.</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>677 | Светотехническое имущество с дополнением</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>679 | Кабельные изделия</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>681 | Подвижные комплексы контроля</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>682 | Штатно-табельное фотооборудование с дополнением (самолетное и наземное)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>683 | Авиационные тренажеры и ЗИПы к ним</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>684 | Запчасти к штатно-табельному фотооборудованию с дополнением</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>686 | Расходные аэрофотоматериалы с дополнением</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>687 | Самолетная (сервисная) контрольно-поверочная апаратура</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>688 | Запчасти к контрольно-поверочной аппаратуре (ЗИП)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>689 | КПА к аэронавигационному оборудованию</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>690 | Реле слаботочные</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>692 | Радиоизмерительные приборы и образцовые средства измерений и поверки</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>693 | Образцовые средства измерений и поверочные установки</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>694 | Изделия квантовой электроники</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>695 | Электро-измерительные приборы (фондируемые)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>696 | Магнитные носители</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>725 | Электроугольные изделия</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>730 | Предохранители</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>732 | Микросхемы интегральные спец. назначения</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>735 | Электролампы</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>761 | ЛТО, высотное и штурманское снаряжение</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>762 | ЛТО, высотное и штурманское снаряжение.</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>763 | ПДИ, спасательные средства и носимые аварийные запасы</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>764 | Запчасти к парашютно-десантному имуществу</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>765 | Кислородное самолетное имущество</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>767 | Палатки, тенты, АСИ</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>771 | Самолетные чехлы</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>772 | Чехлы герметичные для авиационных двигателей</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="findGroupInSklad">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>160</width>
+                <height>44</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>9</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(34, 122, 255);
+color: rgb(255, 255, 255);</string>
+              </property>
+              <property name="text">
+               <string>Показать группу</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>5</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_14">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_21">
+            <item>
+             <widget class="QLabel" name="findTypeLabelInSklad">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Выберите критерий поиска:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBoxFindtypeInSklad">
+              <property name="minimumSize">
+               <size>
+                <width>309</width>
+                <height>38</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <item>
+               <property name="text">
+                <string>По номенклатурному номеру</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>По наименованию</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>10</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_22">
+            <item>
+             <widget class="QLabel" name="labelFindInSklad">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Введите номенклатурный номер:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_15">
+              <item>
+               <widget class="QLineEdit" name="lineEditFindInSklad">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>38</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="findInAtiInSkladButton">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>44</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>9</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(34, 122, 255);
+color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Поиск</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableView" name="tableView"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="spr_tab">
+       <attribute name="title">
+        <string>Справочник АТИ</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QLabel" name="selectGoupAtiLabel">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Выберите группу:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QComboBox" name="comboBoxGroup_spr_ati">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>38</height>
+               </size>
+              </property>
+              <property name="sizeIncrement">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="contextMenuPolicy">
+               <enum>Qt::DefaultContextMenu</enum>
+              </property>
+              <property name="inputMethodHints">
+               <set>Qt::ImhHiddenText</set>
+              </property>
+              <property name="editable">
+               <bool>false</bool>
+              </property>
+              <property name="insertPolicy">
+               <enum>QComboBox::InsertAlphabetically</enum>
+              </property>
+              <item>
+               <property name="text">
+                <string>102 | Подвесные топливные баки</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>104 | Наземное оборудование и инструмент для самолетов</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>105 | Наземное оборудование и инструмент для самолетов</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>106 | Наземное оборудование и инструмент для самолетов</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>107 | Наземное оборудование и инструмент для вертолетов</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>108 | Наземное оборудование и инструмент общий для всех типов ЛА (верт.)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>110 | Ведомость потребности и обеспеченности авиадвигателями</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>121 | Агрегаты летательных аппаратов</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>122 | Обогреватели, радиаторы,турбохолодильники, клапаны, регуляторы ре</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>123 | Фильтры и фильтрующие элементы к ним</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>127 | Авиаколеса</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>128 | Агрегаты управления тормозами колес и запчасти к колесам</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>129 | Авиарезина</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>137 | Воздушные винты самолетов (вертолетов) и лопасти</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>139 | Агрегаты зажигания авиационных двигателей, выключателей стартеров</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>141 | Ремонтно-монтажный инструмент</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>145 | Нормализованные детали к летательным аппаратам и их агрегатам</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>151 | Групповые комплекты для капитального ремонта агрегатов летательных аппаратов и двигателей</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>152 | Групповые комплекты для капитального ремонта агрегатов летательных аппаратов и двигателей</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>153 | Групповые комплекты для капитального ремонта фильтров</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>157 | Групповые комплекты для капитального ремонта авивколес, агрегатов управления тормозами колес и инерционных датчиков</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>158 | Групповые комплекты для капитального ремонта авивколес, агрегатов управления тормозами колес и инерционных датчиков</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>162 | Групповые комплекты для капитального ремонта агрегатов летательных аппаратов и двигателей</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>165 | Групповые комплекты к воздушным винтам</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>167 | Групповые комплекты к агрегатам зажигания</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>311 | Запчасти к изд. &quot;76&quot;,&quot;94&quot;,&quot;94Р&quot;,&quot;95&quot;,&quot;15&quot;,&quot;50&quot;,&quot;75&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>313 | Запчасти к изд.&quot;2М&quot;(23-11),&quot;2БМ&quot;(32-25),&quot;2БН&quot;(32-24),&quot;3&quot;(23-12),&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>314 | Запчасти к изд. &quot;01&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>315 | Запчасти к изд. &quot;02&quot;,&quot;84&quot;,&quot;22&quot;,&quot;39&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>317 | Запчасти к изд. 9-12</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>320 | Запчасти к изд. &quot;66&quot;,&quot;68&quot;,&quot;69&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>322 | Запчасти к изд. &quot;Т-8&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>327 | Запчасти к &quot;Т-10&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>331 | Запчасти изд. &quot;40&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>338 | Запчасти к изд. &quot;Л-29&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>345 | Запчасти к изд. &quot;Л-39&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>356 | Запчасти к изд. &quot;Т-6&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>357 | Запчасти к изд. &quot;С-32&quot;,&quot;С-32М&quot;,&quot;С-32М2&quot;,&quot;С-32МК&quot;,&quot;С-52&quot;,&quot;С-52У&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>365 | Запасные части изд. &quot;28Б&quot;,&quot;Л&quot;,&quot;И&quot;,&quot;У&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>390 | Запчасти к изд. &quot;143&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>403 | Запчасти к вертолету В-2</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>407 | Запчасти к изд. МИ-8, МИ-8МТ, металлич. и фторопластовые рукава</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>409 | Запчасти к изд. МИ-6, МИ-10</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>415 | Запчасти к изд. &quot;242&quot;,&quot;245&quot;,&quot;246&quot;,&quot;249&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>416 | Агрегаты трансмиссии, запчасти к изд.&quot;90&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>421 | Запчасти к изд. АН-12</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>433 | Запчасти к изд. АН-2</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>436 | Запчасти к самолету ИЛ-14</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>437 | Запчасти к самолету ИЛ-18</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>438 | Запчасти к изд. 76</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>440 | Запчасти к изд.ТУ-134Ш, ТУ-134, ТУ-134А</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>442 | Запчасти к АН-72</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>446 | Запчасти к АН-24, АН-26</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>500 | Запчасти к изд. &quot;500&quot;</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>600 | Самолетное радиоэлектронное оборудование (РЭО) с дополнением</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>601 | Электротехнические изделия</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>602 | Запчасти к самолетному РЭО (агрегаты и блоки) с дополнением</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>603 | Электротехнические изделия</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>604 | Запчасти к самолетному РЭО</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>605 | Мощные полупроводниковые приборы</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>610 | Аэронавигационное оборудование ЛА (самолетов, вертолетов)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>611 | Электровакуумные приборы (ЭВП)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>612 | Полупроводниковые приборы (ППП)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>615 | Электрооборудование самолетов (вертолетов) с дополнением</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>616 | Контрольно-поверочная апаратура по электрооборудованию</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>620 | Самолетное противопожарное оборудование</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>625 | Запасные части к аэронавигационному оборудованию и установкам</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>626 | Табельные техн. сред. контроля и обучения и др.фотолаб. оборудов.</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>630 | Запасные части электрооборудования самолетов (вертолетов)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>651 | Приборы СВЧ</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>652 | Приборы СВЧ</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>653 | Приборы СВЧ</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>654 | Приборы СВЧ</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>655 | Приборы СВЧ</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>663 | Запчасти к наземным средствам связи и светотехническому имуществу</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>664 | Штатно-табельные средства связи и РТО (номенклатура ВВС)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>665 | Запчасти к радиосредствам (блоки и узлы)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>666 | Штатно-табельные средства связи общего применения (НВС)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>668 | Табельное метеорологическое оборудование</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>670 | Запчасти к метеорологическим приборам (расходные материалы к метеоимуществу</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>672 | Источники питания</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>673 | Телефонно-телеграфная аппаратура, ЗИП и продукция промышленных ср.</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>677 | Светотехническое имущество с дополнением</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>679 | Кабельные изделия</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>681 | Подвижные комплексы контроля</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>682 | Штатно-табельное фотооборудование с дополнением (самолетное и наземное)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>683 | Авиационные тренажеры и ЗИПы к ним</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>684 | Запчасти к штатно-табельному фотооборудованию с дополнением</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>686 | Расходные аэрофотоматериалы с дополнением</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>687 | Самолетная (сервисная) контрольно-поверочная апаратура</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>688 | Запчасти к контрольно-поверочной аппаратуре (ЗИП)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>689 | КПА к аэронавигационному оборудованию</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>690 | Реле слаботочные</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>692 | Радиоизмерительные приборы и образцовые средства измерений и поверки</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>693 | Образцовые средства измерений и поверочные установки</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>694 | Изделия квантовой электроники</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>695 | Электро-измерительные приборы (фондируемые)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>696 | Магнитные носители</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>725 | Электроугольные изделия</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>730 | Предохранители</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>732 | Микросхемы интегральные спец. назначения</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>735 | Электролампы</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>761 | ЛТО, высотное и штурманское снаряжение</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>762 | ЛТО, высотное и штурманское снаряжение.</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>763 | ПДИ, спасательные средства и носимые аварийные запасы</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>764 | Запчасти к парашютно-десантному имуществу</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>765 | Кислородное самолетное имущество</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>767 | Палатки, тенты, АСИ</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>771 | Самолетные чехлы</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>772 | Чехлы герметичные для авиационных двигателей</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="findGroup_inAtiButton">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>160</width>
+                <height>44</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>9</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(34, 122, 255);
+color: rgb(255, 255, 255);</string>
+              </property>
+              <property name="text">
+               <string>Показать группу</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>10</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <item>
+             <widget class="QLabel" name="findTypeLabelAti">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Выберите критерий поиска:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBoxFindtypeAti">
+              <property name="minimumSize">
+               <size>
+                <width>300</width>
+                <height>38</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <item>
+               <property name="text">
+                <string>По номенклатурному номеру</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>По наименованию</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <widget class="QLabel" name="labelSprAti">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Введите номенклатурный номер:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <widget class="QLineEdit" name="lineEdit_sprAti">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>38</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="findInAtiButton">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>44</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>9</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(34, 122, 255);
+color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Поиск</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableView" name="spr_ati_tableView">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="midLineWidth">
+           <number>1</number>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::ExtendedSelection</enum>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectItems</enum>
+          </property>
+          <property name="gridStyle">
+           <enum>Qt::SolidLine</enum>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+          <attribute name="horizontalHeaderCascadingSectionResizes">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="horizontalHeaderMinimumSectionSize">
+           <number>48</number>
+          </attribute>
+          <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="verticalHeaderCascadingSectionResizes">
+           <bool>true</bool>
+          </attribute>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="spr_pptn">
+       <attribute name="title">
+        <string>Справочник ППТН</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_9">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_10">
+          <item>
+           <widget class="QLabel" name="selectGroupPptnLabel">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Выберите группу:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QComboBox" name="comboBoxGroupPptn">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>38</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="findGroupPptnButton">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>160</width>
+                <height>44</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>9</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(34, 122, 255);
+color: rgb(255, 255, 255);</string>
+              </property>
+              <property name="text">
+               <string>Показать группу</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>10</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_8">
+            <item>
+             <widget class="QLabel" name="findTypePptnLabel">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Выберите критерий поиска:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBoxfindTypePptn">
+              <property name="minimumSize">
+               <size>
+                <width>300</width>
+                <height>38</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <item>
+               <property name="text">
+                <string>По номенклатурному номеру</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>По наименованию</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_7">
+            <item>
+             <widget class="QLabel" name="labelSprPptn">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Введите номенклатурный номер:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <item>
+               <widget class="QLineEdit" name="lineEdit_sprPptn">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>38</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="findInPptnButton">
+                <property name="minimumSize">
+                 <size>
+                  <width>160</width>
+                  <height>44</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>9</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(34, 122, 255);
+color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Поиск</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableView" name="spr_pptn_tableView"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>881</width>
-     <height>25</height>
+     <width>1293</width>
+     <height>26</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>MS Shell Dlg 2</family>
+     <pointsize>10</pointsize>
+    </font>
    </property>
    <widget class="QMenu" name="menu">
     <property name="title">
      <string>Учет</string>
     </property>
     <widget class="QMenu" name="menu_2">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
      <property name="title">
       <string>Наличие</string>
      </property>
@@ -41,7 +2150,6 @@
        <normaloff>:/new/icons/icons/in_stock.png</normaloff>:/new/icons/icons/in_stock.png</iconset>
      </property>
      <addaction name="action_sklad"/>
-     <addaction name="action_podr"/>
      <addaction name="action_remont"/>
     </widget>
     <addaction name="menu_2"/>
@@ -52,8 +2160,6 @@
     <property name="title">
      <string>Помощь</string>
     </property>
-    <addaction name="spr_ati"/>
-    <addaction name="spr_pptn"/>
     <addaction name="info"/>
    </widget>
    <widget class="QMenu" name="menu_4">
@@ -62,6 +2168,8 @@
     </property>
     <addaction name="action_users_edit"/>
     <addaction name="action_podr_edit"/>
+    <addaction name="import_Excel"/>
+    <addaction name="export_Excel"/>
    </widget>
    <widget class="QMenu" name="menu_5">
     <property name="title">
@@ -71,8 +2179,16 @@
     <addaction name="change_pass"/>
     <addaction name="log_out"/>
    </widget>
+   <widget class="QMenu" name="menu_6">
+    <property name="title">
+     <string>Справочники</string>
+    </property>
+    <addaction name="spr_ati"/>
+    <addaction name="spr_pptn_2"/>
+   </widget>
    <addaction name="menu"/>
    <addaction name="menu_4"/>
+   <addaction name="menu_6"/>
    <addaction name="menu_5"/>
    <addaction name="menu_3"/>
   </widget>
@@ -116,16 +2232,7 @@
      <normaloff>:/new/icons/icons/sklad.png</normaloff>:/new/icons/icons/sklad.png</iconset>
    </property>
    <property name="text">
-    <string>Склад</string>
-   </property>
-  </action>
-  <action name="action_podr">
-   <property name="icon">
-    <iconset resource="resources.qrc">
-     <normaloff>:/new/icons/icons/podr.png</normaloff>:/new/icons/icons/podr.png</iconset>
-   </property>
-   <property name="text">
-    <string>Подразделения</string>
+    <string>В воинской части</string>
    </property>
   </action>
   <action name="action_remont">
@@ -161,7 +2268,7 @@
     </iconset>
    </property>
    <property name="text">
-    <string>Подразделения</string>
+    <string>Лицевые счета</string>
    </property>
    <property name="toolTip">
     <string>Управление подразделениями</string>
@@ -182,19 +2289,29 @@
     <string>Выйти</string>
    </property>
   </action>
-  <action name="spr_ati">
-   <property name="text">
-    <string>Справочник АТИ</string>
-   </property>
-  </action>
-  <action name="spr_pptn">
-   <property name="text">
-    <string>Справочник ППТН</string>
-   </property>
-  </action>
   <action name="info">
    <property name="text">
     <string>О программе</string>
+   </property>
+  </action>
+  <action name="spr_ati">
+   <property name="text">
+    <string>АТИ</string>
+   </property>
+  </action>
+  <action name="spr_pptn_2">
+   <property name="text">
+    <string>ППТН</string>
+   </property>
+  </action>
+  <action name="import_Excel">
+   <property name="text">
+    <string>Импортировать из Excel</string>
+   </property>
+  </action>
+  <action name="export_Excel">
+   <property name="text">
+    <string>Экспортировать в Excel</string>
    </property>
   </action>
  </widget>

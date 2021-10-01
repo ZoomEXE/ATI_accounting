@@ -2,13 +2,13 @@
 #include <QApplication>
 #include <entry.h>
 
-/*#include "xlsxdocument.h"
-#include "xlsxchartsheet.h"
-#include "xlsxcellrange.h"
-#include "xlsxchart.h"
-#include "xlsxrichstring.h"
-#include "xlsxworkbook.h"*/
-//using namespace QXlsx;
+#include "header/xlsxdocument.h"
+#include "header/xlsxchartsheet.h"
+#include "header/xlsxcellrange.h"
+#include "header/xlsxchart.h"
+#include "header/xlsxrichstring.h"
+#include "header/xlsxworkbook.h"
+using namespace QXlsx;
 
 int main(int argc, char *argv[])
 {
