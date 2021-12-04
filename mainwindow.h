@@ -6,6 +6,12 @@
 #include <QObject>
 #include <QMap>
 #include <QStandardItem>
+#include <entry.h>
+#include <QtSql>
+#include <QFileDialog>
+#include "xlsxdocument.h"
+#include "product.h"
+#include "doc.h"
 //#include <QtSql>
 
 namespace Ui {
@@ -19,7 +25,10 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    QMap <QString, QWidget*> *hidden_tabs = new QMap <QString, QWidget*>;
+    QMap <QString, QVector <product>> scheta, dataATI, dataPPTN; //Мап для хранения лицевых счетов с имуществом
+    QMap <QString, QWidget*> *hidden_tabs = new QMap <QString, QWidget*>; // Мап для хранения вкладок
+    QVector <order> orders; //Вектор для хранения нарядов
+    QVector <doc> inputDocs, outputDocs; // Вектор для хранения приходных и расходных документов
 
 private slots:
 
@@ -63,6 +72,28 @@ private slots:
     void on_comboBoxfindTypePptn_activated(int index);
 
     void slotModelItemChanged(QStandardItem *item);
+    void on_import_Excel_triggered();
+
+    void on_importExcelpushButton_clicked();
+
+    void on_comboBox_2_activated(const QString &arg1);
+
+    void on_pushButton_3_clicked();
+
+    void add_lic_schet(QString arg);
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_4_clicked();
+
+    void on_comboBoxScheta_activated(const QString &arg1);
+
+    void on_checkBoxAllDocumentsPrihod_stateChanged(int arg1);
+
+    void on_checkBoxAllDocumentsRashod_stateChanged(int arg1);
+
+    void on_orders_triggered();
+
+    void importBD();
 private:
     Ui::MainWindow *ui;
 

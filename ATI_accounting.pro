@@ -3,6 +3,7 @@
 # Project created by QtCreator 2021-04-01T22:51:36
 #
 #-------------------------------------------------
+include (C:\Qt_projects\ATI_accounting\xslx\src\xlsx\qtxlsx.pri)
 
 QT       += core gui sql #xlsx
 
@@ -24,20 +25,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG += c++11
 
-# QXlsx code for Application Qt project
-QXLSX_PARENTPATH=./         # current QXlsx path is . (. means curret directory)
-QXLSX_HEADERPATH=./header/  # current QXlsx header path is ./header/
-QXLSX_SOURCEPATH=./source/  # current QXlsx source path is ./source/
-include(./QXlsx.pri)
-
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-        entry.cpp
+        entry.cpp \
+        product.cpp \
+    order.cpp \
+    doc.cpp \
+    human.cpp \
+    organisation.cpp
 
 HEADERS += \
         mainwindow.h \
-        entry.h
+        entry.h \
+        product.h \
+    order.h \
+    doc.h \
+    human.h \
+    organisation.h
 
 FORMS += \
         mainwindow.ui \
