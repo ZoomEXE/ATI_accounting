@@ -2,17 +2,23 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "entry.h"
 #include <QObject>
 #include <QMap>
 #include <QStandardItem>
-#include <entry.h>
 #include <QtSql>
 #include <QFileDialog>
+
 #include "xlsxdocument.h"
 #include "product.h"
 #include "doc.h"
+#include "entry.h"
+#include "organisation.h"
+
 //#include <QtSql>
+//class product;
+//class doc;
+//class Entry;
+//class order;
 
 namespace Ui {
 class MainWindow;
@@ -26,9 +32,15 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     QMap <QString, QVector <product>> scheta, dataATI, dataPPTN; //Мап для хранения лицевых счетов с имуществом
-    QMap <QString, QWidget*> *hidden_tabs = new QMap <QString, QWidget*>; // Мап для хранения вкладок
+    QMap <QString, QWidget*>* hidden_tabs = new QMap <QString, QWidget*>; //Мап для хранения вкладок
     QVector <order> orders; //Вектор для хранения нарядов
-    QVector <doc> inputDocs, outputDocs; // Вектор для хранения приходных и расходных документов
+    QVector <doc> inputDocs, outputDocs; //Вектор для хранения приходных и расходных документов
+    QVector <QImage> tempScans; //Вектор для хранения сканов
+    int currentScanIndex = 0; //Индекс текущего отображаемого скана
+
+    QMap <QString, QMap <QString, QVector <human> > > organisations; //Мап организаций с подразделениями и векторами их сотрудников
+    QMap <QString, QVector <human> > tempDeps; //Временное хранилище подразделений и сотрудников
+    QMap <QString, organisation> orgsContainer; //Контейнер для хранения данных об организациях
 
 private slots:
 
@@ -94,6 +106,37 @@ private slots:
     void on_orders_triggered();
 
     void importBD();
+    void on_pushButtonNextPrihod_2_clicked();
+
+    void on_pushButtonScanOrder_clicked();
+    void add_scans();
+
+    void on_pushButtonRightOrder_clicked();
+
+    void on_pushButtonLeftOrder_clicked();
+
+    void on_organisations_triggered();
+
+    void on_buttonAddWorker_clicked();
+
+    void on_buttonAddDepart_clicked();
+
+    void on_buttonRemoveDepart_clicked();
+
+    void on_buttonResetWorker_clicked();
+
+    void on_buttonSaveWorker_clicked();
+
+    void on_comboboxEditDepart_activated(const QString &arg1);
+
+    void on_buttonRemoveWorker_clicked();
+
+    void on_comboboxEditWorker_activated(int index);
+
+    void on_buttonSaveOrg_clicked();
+
+    void on_buttonCancelAddOrg_clicked();
+
 private:
     Ui::MainWindow *ui;
 

@@ -3,9 +3,11 @@
 #define PRODUCT_H
 #include <QString>
 #include <QDate>
+//#include "doc.h"
+
 //#include "xlsxdocument.h"
 
-class doc;
+//class doc;
 class product
 {
 public:
@@ -18,9 +20,10 @@ public:
     QString factoryNumber; //Заводской номер имущества
     int category; //Категория имущества
     QDate releaseDate; //Дата изготовления имущества
-    bool ordered = false; // Флаг: true - на данное имущество выписан наряд/разнарядка/план сдачи, false - на данное имущество не выписан наряд/разнарядка/план сдачи
-    doc* prihodDoc; //Приходный документ, на основании которого поступило имущество
-    //QXlsx::Document importDoc; //Файл из которого было импортировано имущество (если было импортировано)
+    bool ordered = false; //Флаг: true - на данное имущество выписан наряд/разнарядка/план сдачи, false - на данное имущество не выписан наряд/разнарядка/план сдачи
+    QString prihodDoc; //Приходный документ, на основании которого поступило имущество
+    QString importDoc; //Путь до файла из которого было импортировано имущество (если было импортировано)
+
 };
 
 #endif // PRODUCT_H

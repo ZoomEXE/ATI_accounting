@@ -6,15 +6,14 @@
 #include <QVector>
 #include "human.h"
 
+//class human;
 class organisation
 {
 public:
     organisation();
     QString name; //Наименование организации
-    int index; //Почтовый индекс организации
-    QVector <QString> departments; //Подразделения в организации
-    int inn; //ИНН организации
-    human comannder; //"Командир" организации
+    QString index; //Почтовый индекс организации
+    QString inn; //ИНН организации
     QString phoneNumber; //Номер телефона
     QString city; //Местоположение организации
     QString vpMORF; //Военное представительство (при наличии)

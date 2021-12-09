@@ -1,13 +1,13 @@
 //Класс приходных/расходных документов
 #ifndef DOC_H
 #define DOC_H
-//#include "product.h"
-//#include "order.h"
+#include "product.h"
+#include "order.h"
 #include <QString>
 #include <QDate>
 
-class product;
-class order;
+//class product;
+//class order;
 class doc
 {
 public:
@@ -20,7 +20,7 @@ public:
     QString commanderPosition; //Должность командира, утверждающего документ
     QString commanderName; //ФИО командира
     QString base; //Основание
-    QVector <product> *items; //Вектор имущества входящего в документ
+    QVector <product> items; //Вектор имущества входящего в документ
     QString senderOrg; //Организация отправитель
     QString senderDepart; //Стуктурное подразделение отправителя
     QString recipientOrg; //Организация получатель
@@ -32,7 +32,7 @@ public:
     QString senderName; //ФИО отпустившего имущество
     QString recipientPosition; //Должность получившего имущество
     QString recipientName; //ФИО получившего имущество
-    order* baseOrder; //Распоряжение на основании которого выписан первичный документ
+    order baseOrder; //Распоряжение на основании которого выписан первичный документ
 };
 
 #endif // DOC_H

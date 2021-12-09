@@ -15,8 +15,6 @@ public:
     QString rank; //Воинское звание при наличии
     QString phoneNumber; // Номер телефона
     QString email; // Электронная почта
-    QString workOrganisation; //Место работы
-
 };
 
 #endif // HUMAN_H

@@ -52,7 +52,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>7</number>
       </property>
       <property name="iconSize">
        <size>
@@ -2539,7 +2539,7 @@ color: rgb(255, 255, 255);</string>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_2">
+      <widget class="QWidget" name="tabPrihodDocs">
        <attribute name="title">
         <string>Приходные документы</string>
        </attribute>
@@ -2550,7 +2550,7 @@ color: rgb(255, 255, 255);</string>
         <item>
          <widget class="QTabWidget" name="tabWidgetPrihod">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="tab_3">
            <attribute name="title">
@@ -4049,7 +4049,7 @@ color: rgb(255, 255, 255);</string>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_6">
+      <widget class="QWidget" name="tabRashodDocs">
        <attribute name="title">
         <string>Расходные документы</string>
        </attribute>
@@ -4057,7 +4057,7 @@ color: rgb(255, 255, 255);</string>
         <item>
          <widget class="QTabWidget" name="tabWidgetRashod">
           <property name="currentIndex">
-           <number>1</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="tab_7">
            <attribute name="title">
@@ -4435,7 +4435,7 @@ color: rgb(255, 255, 255);</string>
                <enum>QTabWidget::Rounded</enum>
               </property>
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <property name="elideMode">
                <enum>Qt::ElideNone</enum>
@@ -5997,6 +5997,9 @@ color: rgb(34, 122, 255)</string>
                           <height>38</height>
                          </size>
                         </property>
+                        <property name="editable">
+                         <bool>true</bool>
+                        </property>
                        </widget>
                       </item>
                       <item>
@@ -6049,6 +6052,16 @@ color: rgb(34, 122, 255)</string>
                           <height>38</height>
                          </size>
                         </property>
+                        <item>
+                         <property name="text">
+                          <string>в/ч 45118</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>в/ч 45121</string>
+                         </property>
+                        </item>
                        </widget>
                       </item>
                       <item>
@@ -6064,6 +6077,9 @@ color: rgb(34, 122, 255)</string>
                           <width>360</width>
                           <height>38</height>
                          </size>
+                        </property>
+                        <property name="editable">
+                         <bool>true</bool>
                         </property>
                         <item>
                          <property name="text">
@@ -6163,16 +6179,21 @@ color: rgb(34, 122, 255)</string>
                      <widget class="QComboBox" name="comboBox">
                       <property name="minimumSize">
                        <size>
-                        <width>360</width>
+                        <width>600</width>
                         <height>38</height>
                        </size>
                       </property>
                       <property name="maximumSize">
                        <size>
-                        <width>360</width>
+                        <width>600</width>
                         <height>38</height>
                        </size>
                       </property>
+                      <item>
+                       <property name="text">
+                        <string>Начальник АТС УМТО в/ч 09436 подполковник                   Г. Козлов</string>
+                       </property>
+                      </item>
                      </widget>
                     </item>
                     <item>
@@ -6218,16 +6239,21 @@ color: rgb(34, 122, 255)</string>
                      <widget class="QComboBox" name="comboBox_3">
                       <property name="minimumSize">
                        <size>
-                        <width>360</width>
-                        <height>38</height>
+                        <width>600</width>
+                        <height>0</height>
                        </size>
                       </property>
                       <property name="maximumSize">
                        <size>
-                        <width>360</width>
+                        <width>600</width>
                         <height>38</height>
                        </size>
                       </property>
+                      <item>
+                       <property name="text">
+                        <string>Старший офицер АТС УМТО в/ч 09436 майор                     С. Волков</string>
+                       </property>
+                      </item>
                      </widget>
                     </item>
                     <item>
@@ -6507,11 +6533,90 @@ color: rgb(255, 255, 255);</string>
                  </layout>
                 </item>
                 <item>
-                 <widget class="QTableWidget" name="tableWidgetMakeOrder">
+                 <widget class="QTableWidget" name="tableWidget_2">
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Sunken</enum>
+                  </property>
+                  <property name="midLineWidth">
+                   <number>1</number>
+                  </property>
+                  <property name="alternatingRowColors">
+                   <bool>true</bool>
+                  </property>
+                  <property name="gridStyle">
+                   <enum>Qt::SolidLine</enum>
+                  </property>
                   <property name="sortingEnabled">
                    <bool>true</bool>
                   </property>
                   <attribute name="horizontalHeaderStretchLastSection">
+                   <bool>true</bool>
+                  </attribute>
+                  <attribute name="verticalHeaderStretchLastSection">
+                   <bool>false</bool>
+                  </attribute>
+                  <row>
+                   <property name="text">
+                    <string>1</string>
+                   </property>
+                  </row>
+                  <column>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Наименование</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Номенклатурный номер</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Заводской номер</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Дата выпуска</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Категория</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Ед. измерения</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Выдать</string>
+                   </property>
+                  </column>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QTableWidget" name="tableWidgetMakeOrder">
+                  <property name="alternatingRowColors">
+                   <bool>true</bool>
+                  </property>
+                  <property name="sortingEnabled">
+                   <bool>true</bool>
+                  </property>
+                  <attribute name="horizontalHeaderStretchLastSection">
+                   <bool>true</bool>
+                  </attribute>
+                  <attribute name="verticalHeaderShowSortIndicator" stdset="0">
                    <bool>true</bool>
                   </attribute>
                   <row>
@@ -6519,6 +6624,11 @@ color: rgb(255, 255, 255);</string>
                     <string>1</string>
                    </property>
                   </row>
+                  <column>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </column>
                   <column>
                    <property name="text">
                     <string>Наименование</string>
@@ -7024,7 +7134,7 @@ color: rgb(255, 255, 255);</string>
                </size>
               </property>
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="tab_16">
                <attribute name="title">
@@ -7152,7 +7262,7 @@ color: rgb(34, 122, 255)</string>
                     <item>
                      <layout class="QVBoxLayout" name="verticalLayout_67">
                       <item>
-                       <widget class="QComboBox" name="comboBoxTypeDocPrihod_2">
+                       <widget class="QComboBox" name="comboBoxTypeOrder">
                         <property name="minimumSize">
                          <size>
                           <width>360</width>
@@ -7183,7 +7293,7 @@ color: rgb(34, 122, 255)</string>
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLineEdit" name="lineEditOutputNumberPrihod_2">
+                       <widget class="QLineEdit" name="lineEditOutputOrder">
                         <property name="minimumSize">
                          <size>
                           <width>360</width>
@@ -7199,7 +7309,7 @@ color: rgb(34, 122, 255)</string>
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLineEdit" name="lineEditInputNumberPrihod_2">
+                       <widget class="QLineEdit" name="lineEditInputOrder">
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
@@ -7278,7 +7388,7 @@ color: rgb(34, 122, 255)</string>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QDateEdit" name="dateInputPrihod_2">
+                         <widget class="QDateEdit" name="dateInputOrder">
                           <property name="minimumSize">
                            <size>
                             <width>0</width>
@@ -7320,7 +7430,7 @@ color: rgb(34, 122, 255)</string>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QDateEdit" name="dateOutputPrihod_2">
+                         <widget class="QDateEdit" name="dateOutputOrder">
                           <property name="minimumSize">
                            <size>
                             <width>0</width>
@@ -7442,7 +7552,7 @@ color: rgb(34, 122, 255)</string>
                     <item>
                      <layout class="QVBoxLayout" name="verticalLayout_64">
                       <item>
-                       <widget class="QComboBox" name="comboBoxOrderPrihod_2">
+                       <widget class="QComboBox" name="comboBoxBaseOrder">
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
@@ -7455,10 +7565,13 @@ color: rgb(34, 122, 255)</string>
                           <height>38</height>
                          </size>
                         </property>
+                        <property name="editable">
+                         <bool>true</bool>
+                        </property>
                        </widget>
                       </item>
                       <item>
-                       <widget class="QComboBox" name="comboBoxRecipientPrihod_2">
+                       <widget class="QComboBox" name="comboBoxRecipientOrder">
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
@@ -7471,10 +7584,23 @@ color: rgb(34, 122, 255)</string>
                           <height>38</height>
                          </size>
                         </property>
+                        <property name="editable">
+                         <bool>true</bool>
+                        </property>
+                        <item>
+                         <property name="text">
+                          <string>в/ч 45118</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>в/ч 45121</string>
+                         </property>
+                        </item>
                        </widget>
                       </item>
                       <item>
-                       <widget class="QComboBox" name="comboBoxSenderPrihod_2">
+                       <widget class="QComboBox" name="comboBoxSenderOrder">
                         <property name="minimumSize">
                          <size>
                           <width>360</width>
@@ -7487,6 +7613,19 @@ color: rgb(34, 122, 255)</string>
                           <height>38</height>
                          </size>
                         </property>
+                        <property name="editable">
+                         <bool>true</bool>
+                        </property>
+                        <item>
+                         <property name="text">
+                          <string>в/ч 45118</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>в/ч 45121</string>
+                         </property>
+                        </item>
                        </widget>
                       </item>
                      </layout>
@@ -7571,7 +7710,7 @@ color: rgb(34, 122, 255)</string>
                   <item>
                    <layout class="QHBoxLayout" name="horizontalLayout_52">
                     <item>
-                     <widget class="QPushButton" name="pushButtonScanPrihod_2">
+                     <widget class="QPushButton" name="pushButtonScanOrder">
                       <property name="minimumSize">
                        <size>
                         <width>50</width>
@@ -7622,48 +7761,7 @@ color: rgb(34, 122, 255)</string>
                      </widget>
                     </item>
                     <item>
-                     <layout class="QHBoxLayout" name="pictureLayout_3">
-                      <item>
-                       <widget class="QPushButton" name="pushButton_6">
-                        <property name="minimumSize">
-                         <size>
-                          <width>50</width>
-                          <height>50</height>
-                         </size>
-                        </property>
-                        <property name="maximumSize">
-                         <size>
-                          <width>50</width>
-                          <height>50</height>
-                         </size>
-                        </property>
-                        <property name="sizeIncrement">
-                         <size>
-                          <width>0</width>
-                          <height>0</height>
-                         </size>
-                        </property>
-                        <property name="baseSize">
-                         <size>
-                          <width>0</width>
-                          <height>1</height>
-                         </size>
-                        </property>
-                        <property name="text">
-                         <string/>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../../Users/пользователь/Pictures/zTzk5biFIY8.jpg</normaloff>../../Users/пользователь/Pictures/zTzk5biFIY8.jpg</iconset>
-                        </property>
-                        <property name="iconSize">
-                         <size>
-                          <width>40</width>
-                          <height>40</height>
-                         </size>
-                        </property>
-                       </widget>
-                      </item>
+                     <layout class="QHBoxLayout" name="pictureLayoutOrder">
                       <item>
                        <spacer name="horizontalSpacer_35">
                         <property name="orientation">
@@ -7701,7 +7799,7 @@ color: rgb(34, 122, 255)</string>
                      </spacer>
                     </item>
                     <item>
-                     <widget class="QLabel" name="scanPrihodDoc_2">
+                     <widget class="QLabel" name="scanOrder">
                       <property name="minimumSize">
                        <size>
                         <width>0</width>
@@ -7765,7 +7863,7 @@ color: rgb(34, 122, 255)</string>
                      </spacer>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="pushButtonLeftPrihod_2">
+                     <widget class="QPushButton" name="pushButtonLeftOrder">
                       <property name="text">
                        <string/>
                       </property>
@@ -7776,7 +7874,7 @@ color: rgb(34, 122, 255)</string>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="pushButtonRightPrihod_2">
+                     <widget class="QPushButton" name="pushButtonRightOrder">
                       <property name="text">
                        <string/>
                       </property>
@@ -7817,7 +7915,7 @@ color: rgb(34, 122, 255)</string>
                      </spacer>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="pushButtonCancelPrihod_3">
+                     <widget class="QPushButton" name="pushButtonCancelOrder">
                       <property name="minimumSize">
                        <size>
                         <width>0</width>
@@ -7847,7 +7945,7 @@ color: rgb(255, 255, 255);</string>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="pushButtonNextPrihod_2">
+                     <widget class="QPushButton" name="pushButtonNextOrder">
                       <property name="minimumSize">
                        <size>
                         <width>0</width>
@@ -7890,7 +7988,7 @@ color: rgb(255, 255, 255);</string>
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_55">
                   <item>
-                   <widget class="QPushButton" name="pushButtonAddLinePrihod_2">
+                   <widget class="QPushButton" name="pushButtonAddLineOrder">
                     <property name="minimumSize">
                      <size>
                       <width>30</width>
@@ -7922,7 +8020,7 @@ color: rgb(255, 255, 255);</string>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="pushButtonRemoveLinePrihod_2">
+                   <widget class="QPushButton" name="pushButtonRemoveLineOrder">
                     <property name="minimumSize">
                      <size>
                       <width>30</width>
@@ -7954,7 +8052,7 @@ color: rgb(255, 255, 255);</string>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="pushButtonDownPrihod_2">
+                   <widget class="QPushButton" name="pushButtonDownOrder">
                     <property name="minimumSize">
                      <size>
                       <width>30</width>
@@ -7986,7 +8084,7 @@ color: rgb(255, 255, 255);</string>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="pushButtonUpPrihod_2">
+                   <widget class="QPushButton" name="pushButtonUpPOrder">
                     <property name="minimumSize">
                      <size>
                       <width>30</width>
@@ -8033,7 +8131,7 @@ color: rgb(255, 255, 255);</string>
                  </layout>
                 </item>
                 <item>
-                 <widget class="QTableWidget" name="tableWidgetProductsPrihodDoc_2"/>
+                 <widget class="QTableWidget" name="tableWidgetProductsOrder"/>
                 </item>
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_56">
@@ -8051,7 +8149,7 @@ color: rgb(255, 255, 255);</string>
                    </spacer>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="pushButtonCancelPrihod_4">
+                   <widget class="QPushButton" name="pushButtonCancelOderMC">
                     <property name="minimumSize">
                      <size>
                       <width>0</width>
@@ -8081,7 +8179,7 @@ color: rgb(255, 255, 255);</string>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="pushButtonBackPrihod_2">
+                   <widget class="QPushButton" name="pushButtonBackOrder">
                     <property name="minimumSize">
                      <size>
                       <width>0</width>
@@ -8111,7 +8209,7 @@ color: rgb(255, 255, 255);</string>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="pushButtonDonePrihod_2">
+                   <widget class="QPushButton" name="pushButtonDoneOrder">
                     <property name="minimumSize">
                      <size>
                       <width>0</width>
@@ -8152,6 +8250,2063 @@ color: rgb(255, 255, 255);</string>
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="tabOrganisations">
+       <attribute name="title">
+        <string>Организации</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_84">
+        <item>
+         <widget class="QTabWidget" name="tabWidgetOrganisations">
+          <property name="currentIndex">
+           <number>1</number>
+          </property>
+          <widget class="QWidget" name="tabListOrgs">
+           <attribute name="title">
+            <string>Перечень организаций</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_100">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_70">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_85">
+                <item>
+                 <widget class="QLabel" name="labelChooseOrg">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Выберите организацию:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboboxSelectOrg">
+                  <property name="minimumSize">
+                   <size>
+                    <width>500</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_48">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_69">
+              <property name="spacing">
+               <number>20</number>
+              </property>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_98">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_95">
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_88">
+                    <item>
+                     <widget class="QLabel" name="label_69">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(34, 122, 255)</string>
+                      </property>
+                      <property name="text">
+                       <string>Основная информация</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="Line" name="line_9">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_63">
+                    <item>
+                     <layout class="QVBoxLayout" name="verticalLayout_86">
+                      <item>
+                       <widget class="QLabel" name="label_34">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>Наименование:</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_64">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>Населенный пункт:</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_63">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>Почтовый индекс:</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_68">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>ИНН:</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_65">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>Номер телефона:</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_67">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>Военное представительство:</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QVBoxLayout" name="verticalLayout_87">
+                      <item>
+                       <widget class="QLineEdit" name="nameOrg">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="cytyOrg">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="postcodeOrg">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="innOrg">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="phonenumberOrg">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="vpMORFOrg">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_66">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>38</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_96">
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_89">
+                    <item>
+                     <widget class="QLabel" name="label_70">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(34, 122, 255)</string>
+                      </property>
+                      <property name="text">
+                       <string>Подразделения и сотрудники</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="Line" name="line_10">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_90">
+                    <item>
+                     <widget class="QLabel" name="labelChooseOrg_2">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Выберите подразделение:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="comboboxSelectDepart">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_91">
+                    <item>
+                     <widget class="QLabel" name="labelChooseOrg_3">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Выберите сотрудника:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="comboboxSelectWorker">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer_12">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="Line" name="line_20">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_99">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_97">
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_94">
+                    <item>
+                     <widget class="QLabel" name="label_78">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(34, 122, 255)</string>
+                      </property>
+                      <property name="text">
+                       <string>Информация о сотруднике</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="Line" name="line_11">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_67">
+                    <item>
+                     <layout class="QVBoxLayout" name="verticalLayout_92">
+                      <item>
+                       <widget class="QLabel" name="label_71">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>Должность:</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_76">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>Воинское звание:</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_72">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>Фамилия:</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_73">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>Имя:</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_74">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>Отчество:</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_75">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>Номер телефона:</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="label_77">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>Электронная почта:</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QVBoxLayout" name="verticalLayout_93">
+                      <item>
+                       <widget class="QLineEdit" name="workerPosition">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="workerRank">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="workerSecName">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="workerName">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="workerMidName">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="workerPhoneNumber">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="workerEmail">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <spacer name="verticalSpacer_4">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_68">
+                  <item>
+                   <spacer name="horizontalSpacer_47">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="buttonDelOrg">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>38</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>38</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>9</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(160, 10, 10);
+color: rgb(255, 255, 255);</string>
+                    </property>
+                    <property name="text">
+                     <string>Удалить</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="buttonChangeOrg">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>38</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>38</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>9</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(34, 122, 255);
+color: rgb(255, 255, 255);</string>
+                    </property>
+                    <property name="text">
+                     <string>Изменить</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tabAddOrg">
+           <attribute name="title">
+            <string>Добавить организацию</string>
+           </attribute>
+           <layout class="QHBoxLayout" name="horizontalLayout_85">
+            <property name="spacing">
+             <number>20</number>
+            </property>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_134">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_101">
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_102">
+                  <item>
+                   <widget class="QLabel" name="label_79">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>38</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>38</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(34, 122, 255)</string>
+                    </property>
+                    <property name="text">
+                     <string>Основная информация</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="Line" name="line_12">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_71">
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_103">
+                    <item>
+                     <widget class="QLabel" name="label_80">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Наименование:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_81">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Населенный пункт:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_82">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Почтовый индекс:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_83">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>ИНН:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_84">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Номер телефона:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_86">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Военное представительство:</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_104">
+                    <item>
+                     <widget class="QLineEdit" name="addNameOrg">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="placeholderText">
+                       <string>Введите наименование организации...</string>
+                      </property>
+                      <property name="clearButtonEnabled">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="addCityOrg">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="placeholderText">
+                       <string>Введите населенный пункт, в котором расположена организация...</string>
+                      </property>
+                      <property name="clearButtonEnabled">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="addPostcodeOrg">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="placeholderText">
+                       <string>Введите почтовый индекс организации...</string>
+                      </property>
+                      <property name="clearButtonEnabled">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="addInnOrg">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="placeholderText">
+                       <string>Введите ИНН организации...</string>
+                      </property>
+                      <property name="clearButtonEnabled">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="addPhonenumberOrg">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="placeholderText">
+                       <string>Введите контактный номер телефона организации...</string>
+                      </property>
+                      <property name="clearButtonEnabled">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="addVpMORFOrg">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="placeholderText">
+                       <string>Введите наименование военного представительства...</string>
+                      </property>
+                      <property name="clearButtonEnabled">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_121">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_85">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_128">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_126">
+                  <item>
+                   <widget class="QLabel" name="label_112">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>38</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>38</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(34, 122, 255)</string>
+                    </property>
+                    <property name="text">
+                     <string>Подразделения и сотрудники</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="Line" name="line_17">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_125">
+                  <item>
+                   <widget class="QLabel" name="labelChooseOrg_7">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>38</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>38</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Выберите подразделение:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_80">
+                    <item>
+                     <widget class="QComboBox" name="comboboxEditDepart">
+                      <property name="minimumSize">
+                       <size>
+                        <width>300</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="editable">
+                       <bool>true</bool>
+                      </property>
+                      <property name="currentText">
+                       <string/>
+                      </property>
+                      <property name="modelColumn">
+                       <number>0</number>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_78">
+                      <item>
+                       <widget class="QPushButton" name="buttonAddDepart">
+                        <property name="minimumSize">
+                         <size>
+                          <width>30</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>30</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string/>
+                        </property>
+                        <property name="icon">
+                         <iconset resource="resources.qrc">
+                          <normaloff>:/new/icons/icons/add.png</normaloff>:/new/icons/icons/add.png</iconset>
+                        </property>
+                        <property name="iconSize">
+                         <size>
+                          <width>30</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="flat">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="buttonRemoveDepart">
+                        <property name="minimumSize">
+                         <size>
+                          <width>30</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>30</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string/>
+                        </property>
+                        <property name="icon">
+                         <iconset resource="resources.qrc">
+                          <normaloff>:/new/icons/icons/remove.png</normaloff>:/new/icons/icons/remove.png</iconset>
+                        </property>
+                        <property name="iconSize">
+                         <size>
+                          <width>30</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="flat">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <spacer name="horizontalSpacer_54">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_127">
+                  <item>
+                   <widget class="QLabel" name="labelChooseOrg_8">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>38</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>38</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Выберите сотрудника:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_81">
+                    <item>
+                     <widget class="QComboBox" name="comboboxEditWorker">
+                      <property name="minimumSize">
+                       <size>
+                        <width>300</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="inputMethodHints">
+                       <set>Qt::ImhNone</set>
+                      </property>
+                      <property name="currentText">
+                       <string/>
+                      </property>
+                      <property name="currentIndex">
+                       <number>-1</number>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_79">
+                      <item>
+                       <widget class="QPushButton" name="buttonAddWorker">
+                        <property name="minimumSize">
+                         <size>
+                          <width>30</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>30</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string/>
+                        </property>
+                        <property name="icon">
+                         <iconset resource="resources.qrc">
+                          <normaloff>:/new/icons/icons/add.png</normaloff>:/new/icons/icons/add.png</iconset>
+                        </property>
+                        <property name="iconSize">
+                         <size>
+                          <width>30</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="flat">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="buttonRemoveWorker">
+                        <property name="minimumSize">
+                         <size>
+                          <width>30</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>30</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string/>
+                        </property>
+                        <property name="icon">
+                         <iconset resource="resources.qrc">
+                          <normaloff>:/new/icons/icons/remove.png</normaloff>:/new/icons/icons/remove.png</iconset>
+                        </property>
+                        <property name="iconSize">
+                         <size>
+                          <width>30</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="flat">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <spacer name="horizontalSpacer_55">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <spacer name="verticalSpacer_19">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="Line" name="line_19">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_133">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_129">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_130">
+                  <item>
+                   <widget class="QLabel" name="label_113">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>38</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>38</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(34, 122, 255)</string>
+                    </property>
+                    <property name="text">
+                     <string>Информация о сотруднике</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="Line" name="line_18">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_82">
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_131">
+                    <item>
+                     <widget class="QLabel" name="label_114">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Должность:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_115">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Воинское звание:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_116">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Фамилия:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_117">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Имя:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_118">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Отчество:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_119">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Номер телефона:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_120">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Электронная почта:</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_132">
+                    <item>
+                     <widget class="QLineEdit" name="addWorkerPosition">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="readOnly">
+                       <bool>true</bool>
+                      </property>
+                      <property name="clearButtonEnabled">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="addWorkerRank">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="readOnly">
+                       <bool>true</bool>
+                      </property>
+                      <property name="clearButtonEnabled">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="addWorkerSecName">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="readOnly">
+                       <bool>true</bool>
+                      </property>
+                      <property name="clearButtonEnabled">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="addWorkerName">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="readOnly">
+                       <bool>true</bool>
+                      </property>
+                      <property name="clearButtonEnabled">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="addWorkerMidName">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="readOnly">
+                       <bool>true</bool>
+                      </property>
+                      <property name="clearButtonEnabled">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="addWorkerPhonenumber">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="readOnly">
+                       <bool>true</bool>
+                      </property>
+                      <property name="clearButtonEnabled">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="addWorkerEmail">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                      <property name="readOnly">
+                       <bool>true</bool>
+                      </property>
+                      <property name="clearButtonEnabled">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_84">
+                  <item>
+                   <spacer name="horizontalSpacer_57">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="buttonResetWorker">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>38</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>38</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>9</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(160, 10, 10);
+color: rgb(255, 255, 255);</string>
+                    </property>
+                    <property name="text">
+                     <string>Сбросить</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="buttonSaveWorker">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>38</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>38</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>9</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(0, 160,10);
+color: rgb(255, 255, 255);</string>
+                    </property>
+                    <property name="text">
+                     <string>Сохранить</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_18">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_83">
+                <item>
+                 <spacer name="horizontalSpacer_56">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="buttonCancelAddOrg">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>9</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(160, 10, 10);
+color: rgb(255, 255, 255);</string>
+                  </property>
+                  <property name="text">
+                   <string>Отмена</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="buttonSaveOrg">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>9</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(0, 160,10);
+color: rgb(255, 255, 255);</string>
+                  </property>
+                  <property name="text">
+                   <string>Сохранить</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -8162,7 +10317,7 @@ color: rgb(255, 255, 255);</string>
      <x>0</x>
      <y>0</y>
      <width>1510</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
@@ -8209,6 +10364,7 @@ color: rgb(255, 255, 255);</string>
     <addaction name="action_users_edit"/>
     <addaction name="action_podr_edit"/>
     <addaction name="import_Excel"/>
+    <addaction name="organisations"/>
    </widget>
    <widget class="QMenu" name="menu_5">
     <property name="title">
@@ -8351,6 +10507,11 @@ color: rgb(255, 255, 255);</string>
   <action name="orders">
    <property name="text">
     <string>Распоряжения</string>
+   </property>
+  </action>
+  <action name="organisations">
+   <property name="text">
+    <string>Организации</string>
    </property>
   </action>
  </widget>

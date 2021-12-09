@@ -3,32 +3,33 @@
 #define ORDER_H
 #include <QVector>
 #include <QDate>
+#include <QImage>
 
-class product;
+#include "product.h"
+#include "human.h"
+
+//class product;
 class order
 {
 public:
     order();
     QString name; //Наименование распоряжения (наряд/разнарядка/план сдачи)
-    QVector <product>* items; //Вектор имущества на которое выписано распоряжение
+    QVector <product> items; //Вектор имущества на которое выписано распоряжение
     QDate dateInput; //Дата входящего
     QDate dateOutput; //Дата исходящего
     QString numberInput; //Номер входящего
     QString numberOutput; //Номер исходящего
-    QString chiefName; //ФИО начальника утвердившего распоряжение
-    QString chiefRank; //Звание начальника -//-
-    QString chiefPosition; //Должность начальника -//-
-    QString oficierName; //ФИО офицера выписавшего распоряжение
-    QString oficierRank; //Звание офицера -//-
-    QString oficierPosition; //Должность офицера -//-
+    human chief; //Начальник утвердивший распоряжение
+    human oficier; //Офицер выписавший распоряжение
     QString sendType = "средствами получателя"; //Порядок отправки
     QString base; //Основание
-    QVector <QString> senders; //Отправители
-    QVector <QString> recipients; //Получатели
+    QVector <human> senders; //Отправители
+    QVector <human> recipients; //Получатели
     QDate expirationDate; //Годен до
     QString tlg; //Подтверждение телефонограммы
     QString typeProduct; //Тип имущества АТИ/ППТН
     int completion; //Процент выполнения
+    QVector <QImage> scans; //Сканы распоряжения
 };
 
 #endif // ORDER_H

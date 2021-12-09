@@ -292,6 +292,16 @@ void MainWindow::on_orders_triggered()
     }
 }
 
+//Открыть вкладку "Организации"
+void MainWindow::on_organisations_triggered()
+{
+    if (check_available_tab("Организации"))
+    {
+        new_tab("Организации");
+        //Переключение фокуса на вкладку с организациями
+        ui->tabWidgetOrganisations->setCurrentIndex(0);
+    }
+}
 /////////////////////////////////////////////////////////////////
 
 //Изменение критериев поиска
@@ -630,4 +640,370 @@ void MainWindow::on_checkBoxAllDocumentsRashod_stateChanged(int arg1)
         ui->dateEditBeginRashod->setEnabled(true);
         ui->dateEditEndRashod->setEnabled(true);
     }
+}
+
+void MainWindow::on_pushButtonNextPrihod_2_clicked()
+{
+    order temp;
+    temp.name = ui->comboBoxTypeOrder->currentText();
+    temp.base = ui->comboBoxBaseOrder->currentText();
+    temp.numberOutput = ui->lineEditOutputOrder->text();
+    temp.numberInput = ui->lineEditInputOrder->text();
+    temp.dateOutput = ui->dateOutputOrder->date();
+    temp.dateInput = ui->dateInputOrder->date();
+    temp.completion = 0;
+    //temp.senders.push_back(ui->comboBoxSenderOrder->currentText());
+    //temp.recipients.push_back(ui->comboBoxRecipientOrder->currentText());
+
+}
+
+//Выбор файлов фото или сканов
+void MainWindow::add_scans()
+{
+    tempScans.clear();
+    QStringList scansList = QFileDialog::getOpenFileNames(this, "Выберите сканы или фотографии документа...", "", "*.png, *.jpeg");
+    for (int i = 0; i < scansList.size(); ++i)
+    {
+        QImage temp(scansList[i]);
+        tempScans.push_back(temp);
+    }
+}
+
+//Нажатие кнопки "Добавить сканы или фото наряда"
+void MainWindow::on_pushButtonScanOrder_clicked()
+{
+    add_scans();
+    currentScanIndex = 0;
+    ui->scanOrder->setPixmap(QPixmap::fromImage(tempScans[0]));
+}
+
+//Нажатие стрелки "Вправо"
+void MainWindow::on_pushButtonRightOrder_clicked()
+{
+    if(currentScanIndex == tempScans.size())
+    {
+        currentScanIndex = 0;
+    }
+    ui->scanOrder->setPixmap(QPixmap::fromImage((tempScans[currentScanIndex])));
+    currentScanIndex ++;
+}
+
+//Нажатие кнопки "Влево"
+void MainWindow::on_pushButtonLeftOrder_clicked()
+{
+    if(currentScanIndex == -1)
+    {
+        currentScanIndex = tempScans.size() - 1;
+    }
+    ui->scanOrder->setPixmap(QPixmap::fromImage((tempScans[currentScanIndex])));
+    currentScanIndex --;
+}
+
+
+//Нажатие кнопки "Добавить сотрудника"
+void MainWindow::on_buttonAddWorker_clicked()
+{
+    if(ui->comboboxEditDepart->currentText() == "")
+    {
+        QMessageBox msg;
+        msg.setWindowTitle("Внимание!");
+        msg.setText("Выберите подразделение или добавьте новое!");
+        msg.exec();
+        ui->comboboxEditDepart->setToolTip("Введите наименование нового подразделения!");
+        ui->comboboxEditDepart->setFocus();
+    }else{
+        ui->comboboxEditWorker->setCurrentIndex(-1);
+        ui->addWorkerPosition->setReadOnly(false);
+        ui->addWorkerPosition->setPlaceholderText("Введите должность сотрудника...");
+        ui->addWorkerPosition->setFocus();
+
+        ui->addWorkerRank->setReadOnly(false);
+        ui->addWorkerRank->setPlaceholderText("Введите воинское звание сотрудника (при наличии)...");
+
+        ui->addWorkerSecName->setReadOnly(false);
+        ui->addWorkerSecName->setPlaceholderText("Введите фамилию сотрудника...");
+
+        ui->addWorkerName->setReadOnly(false);
+        ui->addWorkerName->setPlaceholderText("Введите имя сотрудника...");
+
+        ui->addWorkerMidName->setReadOnly(false);
+        ui->addWorkerMidName->setPlaceholderText("Введите отчество сотрудника...");
+
+        ui->addWorkerPhonenumber->setReadOnly(false);
+        ui->addWorkerPhonenumber->setPlaceholderText("Введите номер телефона сотрудника...");
+
+        ui->addWorkerEmail->setReadOnly(false);
+        ui->addWorkerEmail->setPlaceholderText("Введите электронную почту сотрудника...");
+
+    }
+}
+
+// Нажатие кнопки "Добавить подразделение"
+void MainWindow::on_buttonAddDepart_clicked()
+{
+    QString temp = ui->comboboxEditDepart->currentText();
+    if(temp == "")
+    {
+        QMessageBox msg;
+        msg.setWindowTitle("Внимание!");
+        msg.setText("Выберите подразделение или добавьте новое!");
+        msg.exec();
+        ui->comboboxEditDepart->setToolTip("Введите наименование нового подразделения!");
+        ui->comboboxEditDepart->setFocus();
+    }else{
+        if(ui->comboboxEditDepart->findText(temp) != -1)
+        {
+            QMessageBox msg;
+            msg.setWindowTitle("Внимание!");
+            msg.setText("Данное подразделение уже существует в этой организации! Добавьте новое или выберите другое подразделение из списка!");
+            msg.exec();
+        }else {
+            ui->comboboxEditDepart->addItem(temp);
+            QVector <human> tempHumans;
+            tempDeps.insert(temp, tempHumans); //Добавление подразделения и пустого списка сотрудников во временное хранилище
+            ui->statusBar->showMessage("Подразделение \"" + temp + "\" добавлено.");
+
+            //Удаление с экрана данных сотрудника
+            ui->addWorkerPosition->clear();
+            ui->addWorkerRank->clear();
+            ui->addWorkerSecName->clear();
+            ui->addWorkerName->clear();
+            ui->addWorkerMidName->clear();
+            ui->addWorkerPhonenumber->clear();
+            ui->addWorkerEmail->clear();
+        }
+    }
+}
+
+// Нажатие кнопки "Удалить подразделение"
+void MainWindow::on_buttonRemoveDepart_clicked()
+{
+    QString currentDep = ui->comboboxEditDepart->currentText();
+    if(currentDep == "")
+    {
+        QMessageBox msg;
+        msg.setWindowTitle("Внимание!");
+        msg.setText("Выберите подразделение или добавьте новое!");
+        msg.exec();
+    }else{
+        tempDeps.remove(currentDep);
+        ui->comboboxEditDepart->removeItem(ui->comboboxEditDepart->currentIndex());
+        ui->statusBar->showMessage("Подразделение \"" + currentDep + "\" удалено.");
+        ui->comboboxEditWorker->clear();
+        for(int i = 0; i < tempDeps[currentDep].size(); ++i)
+        {
+            ui->comboboxEditWorker->addItem(tempDeps[currentDep][i].position + " - " + tempDeps[currentDep][i].rank + " " + tempDeps[currentDep][i].FIO);
+        }
+        //Удаление с экрана данных сотрудника
+        ui->addWorkerPosition->clear();
+        ui->addWorkerRank->clear();
+        ui->addWorkerSecName->clear();
+        ui->addWorkerName->clear();
+        ui->addWorkerMidName->clear();
+        ui->addWorkerPhonenumber->clear();
+        ui->addWorkerEmail->clear();
+    }
+}
+
+// Нажатие кнопки "Сбросить данные сотрудника"
+void MainWindow::on_buttonResetWorker_clicked()
+{
+    ui->addWorkerPosition->clear();
+
+    ui->addWorkerRank->clear();
+
+    ui->addWorkerSecName->clear();
+
+    ui->addWorkerName->clear();
+
+    ui->addWorkerMidName->clear();
+
+    ui->addWorkerPhonenumber->clear();
+
+    ui->addWorkerEmail->clear();
+}
+
+//Нажатие кнопки "Сохранить сотрудника"
+void MainWindow::on_buttonSaveWorker_clicked()
+{
+    human tempHuman;
+    tempHuman.position = ui->addWorkerPosition->text();
+    ui->addWorkerPosition->clear();
+    ui->addWorkerPosition->setReadOnly(true);
+
+    tempHuman.rank = ui->addWorkerRank->text();
+    ui->addWorkerRank->clear();
+    ui->addWorkerRank->setReadOnly(true);
+
+    tempHuman.secondName = ui->addWorkerSecName->text();
+    ui->addWorkerSecName->clear();
+    ui->addWorkerSecName->setReadOnly(true);
+
+    tempHuman.firstName = ui->addWorkerName->text();
+    ui->addWorkerName->clear();
+    ui->addWorkerName->setReadOnly(true);
+
+    tempHuman.middleName = ui->addWorkerMidName->text();
+    ui->addWorkerMidName->clear();
+    ui->addWorkerMidName->setReadOnly(true);
+
+    tempHuman.phoneNumber = ui->addWorkerPhonenumber->text();
+    ui->addWorkerPhonenumber->clear();
+    ui->addWorkerPhonenumber->setReadOnly(true);
+
+    tempHuman.email = ui->addWorkerEmail->text();
+    ui->addWorkerEmail->clear();
+    ui->addWorkerEmail->setReadOnly(true);
+
+    tempHuman.FIO = tempHuman.secondName + " " + tempHuman.firstName [0] + ". " + tempHuman.middleName[0] + ".";
+
+    if(ui->comboboxEditWorker->currentIndex() == -1)
+    {
+        tempDeps[ui->comboboxEditDepart->currentText()].push_back(tempHuman);
+        ui->comboboxEditWorker->addItem(tempHuman.position + " - " + tempHuman.rank + " " + tempHuman.FIO);
+        ui->statusBar->showMessage("Сотрудник \"" + tempHuman.FIO + "\" добавлен.");
+    }else{
+        tempDeps[ui->comboboxEditDepart->currentText()][ui->comboboxEditWorker->currentIndex()] = tempHuman;
+        ui->comboboxEditWorker->setCurrentText(tempHuman.position + " - " + tempHuman.rank + " " + tempHuman.FIO);
+        ui->statusBar->showMessage("Данные сотрудника \"" + tempHuman.FIO + "\" изменен.");
+    }
+}
+
+//Загрузка сотрудников при выборе подразделения
+void MainWindow::on_comboboxEditDepart_activated(const QString &arg1)
+{
+    ui->comboboxEditWorker->clear();
+    for(int i = 0; i < tempDeps[arg1].size(); ++i)
+    {
+        ui->comboboxEditWorker->addItem(tempDeps[arg1][i].position + " - " + tempDeps[arg1][i].rank + " " + tempDeps[arg1][i].FIO);
+    }
+}
+
+//Нажатие кнопки "Удалить выбранного сотрудника"
+void MainWindow::on_buttonRemoveWorker_clicked()
+{
+    int currentWorkerIndex = ui->comboboxEditWorker->currentIndex();
+    ui->comboboxEditWorker->removeItem(currentWorkerIndex);
+    tempDeps[ui->comboboxEditDepart->currentText()].remove(currentWorkerIndex);
+
+    //Удаление с экрана данных сотрудника
+    ui->addWorkerPosition->clear();
+    ui->addWorkerRank->clear();
+    ui->addWorkerSecName->clear();
+    ui->addWorkerName->clear();
+    ui->addWorkerMidName->clear();
+    ui->addWorkerPhonenumber->clear();
+    ui->addWorkerEmail->clear();
+}
+
+// Загрузка данных о сотруднике при выборе его из списка
+void MainWindow::on_comboboxEditWorker_activated(int index)
+{
+    ui->addWorkerPosition->setText(tempDeps[ui->comboboxEditDepart->currentText()][index].position);
+
+    ui->addWorkerRank->setText(tempDeps[ui->comboboxEditDepart->currentText()][index].rank);
+
+    ui->addWorkerSecName->setText(tempDeps[ui->comboboxEditDepart->currentText()][index].secondName);
+
+    ui->addWorkerName->setText(tempDeps[ui->comboboxEditDepart->currentText()][index].firstName);
+
+    ui->addWorkerMidName->setText(tempDeps[ui->comboboxEditDepart->currentText()][index].middleName);
+
+    ui->addWorkerPhonenumber->setText(tempDeps[ui->comboboxEditDepart->currentText()][index].phoneNumber);
+
+    ui->addWorkerEmail->setText(tempDeps[ui->comboboxEditDepart->currentText()][index].email);
+
+    ui->addWorkerPosition->setReadOnly(false);
+    ui->addWorkerPosition->setFocus();
+
+    ui->addWorkerRank->setReadOnly(false);
+
+    ui->addWorkerSecName->setReadOnly(false);
+
+    ui->addWorkerName->setReadOnly(false);
+
+    ui->addWorkerMidName->setReadOnly(false);
+
+    ui->addWorkerPhonenumber->setReadOnly(false);
+
+    ui->addWorkerEmail->setReadOnly(false);
+}
+
+//Нажатие кнопки "Сохранить организацию"
+void MainWindow::on_buttonSaveOrg_clicked()
+{
+    organisation tempOrg;
+    tempOrg.name = ui->addNameOrg->text();
+    tempOrg.city = ui->addCityOrg->text();
+    tempOrg.index = ui->addPostcodeOrg->text();
+    tempOrg.inn = ui->addInnOrg->text();
+    tempOrg.phoneNumber = ui->addPhonenumberOrg->text();
+    tempOrg.vpMORF = ui->addVpMORFOrg->text();
+
+    organisations.insert(tempOrg.name, tempDeps);
+    orgsContainer.insert(tempOrg.name, tempOrg);
+
+    QSqlQuery query;
+
+    QString queryText = "INSERT INTO organisations (name, inn, phoneNumber, city, postCode, vpMORF) VALUES (\""
+            + tempOrg.name + "\", \"" + tempOrg.inn + "\", \"" + tempOrg.phoneNumber + "\", \"" + tempOrg.city + "\", \"" + tempOrg.index + "\", \"" + tempOrg.vpMORF + "\")";
+    query.exec(queryText);
+    qDebug() << query.lastError();
+
+    queryText = "SELECT id FROM organisations WHERE name = \"" + tempOrg.name + "\"";
+    query.exec(queryText);
+    qDebug() << query.lastError();
+    int idOrg = query.value(0).toInt();
+
+    QMapIterator <QString, QVector <human> > it(tempDeps);
+    while(it.hasNext())
+    {
+        it.next();
+        QString depName = it.key();
+        queryText = "INSERT INTO departments_of_org (name, id_organisation) VALUES (\""
+                + depName + "\", " + QString::number(idOrg) + ")";
+        query.exec(queryText);
+        qDebug() << query.lastError();
+
+        queryText = "SELECT id FROM departments_of_org WHERE name = \"" + it.key() + "\"";
+        query.exec(queryText);
+        qDebug() << query.lastError();
+        int idDep = query.value(0).toInt();
+
+        for(int i = 0; i < it.value().size(); ++i)
+        {
+            queryText = "INSERT INTO humans (position, FIO, firstName, secondName, middleName, rank, phoneNumber, email, id_department) VALUES (\"" +
+                    it.value()[i].position + "\", \"" + it.value()[i].FIO + "\", \"" + it.value()[i].firstName + "\", \"" + it.value()[i].secondName + "\", \"" +
+                    it.value()[i].middleName + "\", \"" + it.value()[i].rank + "\", \"" + it.value()[i].phoneNumber + "\", \"" + it.value()[i].email + "\", " +
+                    QString::number(idDep) + ")";
+            query.exec(queryText);
+        }
+    }
+    tempDeps.clear();
+    //Переключение фокуса на вкладку с организациями
+    ui->tabWidgetOrganisations->setCurrentIndex(0);
+}
+
+//Нажатие кнопки "Отмена" на вкладке добавления организации
+void MainWindow::on_buttonCancelAddOrg_clicked()
+{
+    //Удаление с экрана данных о сотруднике
+    ui->addWorkerPosition->clear();
+    ui->addWorkerRank->clear();
+    ui->addWorkerSecName->clear();
+    ui->addWorkerName->clear();
+    ui->addWorkerMidName->clear();
+    ui->addWorkerPhonenumber->clear();
+    ui->addWorkerEmail->clear();
+
+    //Удаление с экрана данных об организации
+    ui->addNameOrg->clear();
+    ui->addCityOrg->clear();
+    ui->addPostcodeOrg->clear();
+    ui->addInnOrg->clear();
+    ui->addPhonenumberOrg->clear();
+    ui->addVpMORFOrg->clear();
+
+    //Переключение фокуса на вкладку с организациями
+    ui->tabWidgetOrganisations->setCurrentIndex(0);
 }
