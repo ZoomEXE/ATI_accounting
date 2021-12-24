@@ -52,7 +52,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>7</number>
+       <number>6</number>
       </property>
       <property name="iconSize">
        <size>
@@ -2550,7 +2550,7 @@ color: rgb(255, 255, 255);</string>
         <item>
          <widget class="QTabWidget" name="tabWidgetPrihod">
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_3">
            <attribute name="title">
@@ -4057,7 +4057,7 @@ color: rgb(255, 255, 255);</string>
         <item>
          <widget class="QTabWidget" name="tabWidgetRashod">
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_7">
            <attribute name="title">
@@ -4435,7 +4435,7 @@ color: rgb(255, 255, 255);</string>
                <enum>QTabWidget::Rounded</enum>
               </property>
               <property name="currentIndex">
-               <number>1</number>
+               <number>0</number>
               </property>
               <property name="elideMode">
                <enum>Qt::ElideNone</enum>
@@ -5603,12 +5603,12 @@ color: rgb(255, 255, 255);</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_72">
         <item>
-         <widget class="QTabWidget" name="tabWidgetPrihod_2">
+         <widget class="QTabWidget" name="tabWidgetOrders">
           <property name="tabPosition">
            <enum>QTabWidget::North</enum>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="tab_18">
            <attribute name="title">
@@ -6054,12 +6054,12 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <item>
                          <property name="text">
-                          <string>в/ч 45118</string>
+                          <string>в/ч 45121 (аэр. Бесовец)</string>
                          </property>
                         </item>
                         <item>
                          <property name="text">
-                          <string>в/ч 45121</string>
+                          <string>в/ч 45118 (аэр. Хотилово)</string>
                          </property>
                         </item>
                        </widget>
@@ -6810,7 +6810,7 @@ color: rgb(255, 255, 255);</string>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QDateEdit" name="dateEditBeginPrihod_2">
+                 <widget class="QDateEdit" name="dateEditBeginOrder">
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
@@ -6851,7 +6851,7 @@ color: rgb(255, 255, 255);</string>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QDateEdit" name="dateEditEndPrihod_2">
+                 <widget class="QDateEdit" name="dateEditEndOrder">
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
@@ -7112,10 +7112,63 @@ color: rgb(255, 255, 255);</string>
              </layout>
             </item>
             <item>
-             <widget class="QTableWidget" name="tableWidgetPrihod_2">
+             <widget class="QTableWidget" name="tableWidgetOrders">
               <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
                <bool>true</bool>
               </attribute>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>true</bool>
+              </attribute>
+              <column>
+               <property name="text">
+                <string>Наименование</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Исходящий №</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Дата</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Входящий №</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Действителен до</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Грузоотправитель</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Грузополучатель</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Основание</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>% выполнения</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Перечень МЦ</string>
+               </property>
+              </column>
              </widget>
             </item>
            </layout>
@@ -7126,7 +7179,7 @@ color: rgb(255, 255, 255);</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_61">
             <item>
-             <widget class="QTabWidget" name="tabWidgetProvodPrihod_2">
+             <widget class="QTabWidget" name="tabWidgetRegOrder">
               <property name="minimumSize">
                <size>
                 <width>40</width>
@@ -7275,6 +7328,12 @@ color: rgb(34, 122, 255)</string>
                           <height>38</height>
                          </size>
                         </property>
+                        <property name="currentIndex">
+                         <number>0</number>
+                        </property>
+                        <property name="modelColumn">
+                         <number>0</number>
+                        </property>
                         <item>
                          <property name="text">
                           <string>Наряд</string>
@@ -7325,7 +7384,7 @@ color: rgb(34, 122, 255)</string>
                        </widget>
                       </item>
                       <item>
-                       <widget class="QDateEdit" name="dateEdit">
+                       <widget class="QDateEdit" name="dateEditExpiration">
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
@@ -7388,7 +7447,7 @@ color: rgb(34, 122, 255)</string>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QDateEdit" name="dateInputOrder">
+                         <widget class="QDateEdit" name="dateOutputOrder">
                           <property name="minimumSize">
                            <size>
                             <width>0</width>
@@ -7430,7 +7489,7 @@ color: rgb(34, 122, 255)</string>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QDateEdit" name="dateOutputOrder">
+                         <widget class="QDateEdit" name="dateInputOrder">
                           <property name="minimumSize">
                            <size>
                             <width>0</width>
@@ -7547,12 +7606,8 @@ color: rgb(34, 122, 255)</string>
                         </property>
                        </widget>
                       </item>
-                     </layout>
-                    </item>
-                    <item>
-                     <layout class="QVBoxLayout" name="verticalLayout_64">
                       <item>
-                       <widget class="QComboBox" name="comboBoxBaseOrder">
+                       <widget class="QLabel" name="label_87">
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
@@ -7565,9 +7620,58 @@ color: rgb(34, 122, 255)</string>
                           <height>38</height>
                          </size>
                         </property>
+                        <property name="text">
+                         <string>Порядок отправки:</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QVBoxLayout" name="verticalLayout_64">
+                      <item>
+                       <widget class="QLineEdit" name="lineEditBaseOrder">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QComboBox" name="comboBoxSenderOrder">
+                        <property name="minimumSize">
+                         <size>
+                          <width>360</width>
+                          <height>38</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>360</width>
+                          <height>38</height>
+                         </size>
+                        </property>
                         <property name="editable">
                          <bool>true</bool>
                         </property>
+                        <item>
+                         <property name="text">
+                          <string>в/ч 45118</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>в/ч 45121</string>
+                         </property>
+                        </item>
                        </widget>
                       </item>
                       <item>
@@ -7600,30 +7704,22 @@ color: rgb(34, 122, 255)</string>
                        </widget>
                       </item>
                       <item>
-                       <widget class="QComboBox" name="comboBoxSenderOrder">
+                       <widget class="QComboBox" name="comboBoxSendType">
                         <property name="minimumSize">
                          <size>
-                          <width>360</width>
+                          <width>0</width>
                           <height>38</height>
                          </size>
                         </property>
                         <property name="maximumSize">
                          <size>
-                          <width>360</width>
+                          <width>16777215</width>
                           <height>38</height>
                          </size>
                         </property>
-                        <property name="editable">
-                         <bool>true</bool>
-                        </property>
                         <item>
                          <property name="text">
-                          <string>в/ч 45118</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>в/ч 45121</string>
+                          <string>средствами отправителя за счет средств получателя с последующим возвратом отправителю</string>
                          </property>
                         </item>
                        </widget>
@@ -8131,7 +8227,49 @@ color: rgb(255, 255, 255);</string>
                  </layout>
                 </item>
                 <item>
-                 <widget class="QTableWidget" name="tableWidgetProductsOrder"/>
+                 <widget class="QTableWidget" name="tableWidgetProductsOrder">
+                  <attribute name="horizontalHeaderStretchLastSection">
+                   <bool>true</bool>
+                  </attribute>
+                  <attribute name="verticalHeaderStretchLastSection">
+                   <bool>false</bool>
+                  </attribute>
+                  <column>
+                   <property name="text">
+                    <string>Наименование</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Код по КВТ МО</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Заводской №</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Дата выпуска</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Категория</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Единица изм.</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Выдать (передать)</string>
+                   </property>
+                  </column>
+                 </widget>
                 </item>
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_56">
@@ -8258,7 +8396,7 @@ color: rgb(255, 255, 255);</string>
         <item>
          <widget class="QTabWidget" name="tabWidgetOrganisations">
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tabListOrgs">
            <attribute name="title">
@@ -8500,10 +8638,13 @@ color: rgb(34, 122, 255)</string>
                           <height>38</height>
                          </size>
                         </property>
+                        <property name="readOnly">
+                         <bool>true</bool>
+                        </property>
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLineEdit" name="cytyOrg">
+                       <widget class="QLineEdit" name="cityOrg">
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
@@ -9440,7 +9581,7 @@ color: rgb(34, 122, 255)</string>
                  </layout>
                 </item>
                 <item>
-                 <widget class="QLabel" name="label_121">
+                 <widget class="QCheckBox" name="checkBoxMyOrg">
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
@@ -9448,7 +9589,7 @@ color: rgb(34, 122, 255)</string>
                    </size>
                   </property>
                   <property name="text">
-                   <string/>
+                   <string>Моя организация</string>
                   </property>
                  </widget>
                 </item>
@@ -10372,6 +10513,7 @@ color: rgb(255, 255, 255);</string>
     </property>
     <addaction name="edit_profile_data"/>
     <addaction name="change_pass"/>
+    <addaction name="infoAboutOrg"/>
     <addaction name="log_out"/>
    </widget>
    <widget class="QMenu" name="menu_6">
@@ -10512,6 +10654,11 @@ color: rgb(255, 255, 255);</string>
   <action name="organisations">
    <property name="text">
     <string>Организации</string>
+   </property>
+  </action>
+  <action name="infoAboutOrg">
+   <property name="text">
+    <string>Информация об организации</string>
    </property>
   </action>
  </widget>

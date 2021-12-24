@@ -17,7 +17,7 @@ public:
     QString phoneNumber; //Номер телефона
     QString city; //Местоположение организации
     QString vpMORF; //Военное представительство (при наличии)
-
+    bool checkMyOrg; //Флаг - моя организация или нет?
 };
 
 #endif // ORGANISATION_H

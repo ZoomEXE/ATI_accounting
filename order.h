@@ -7,6 +7,7 @@
 
 #include "product.h"
 #include "human.h"
+#include "organisation.h"
 
 //class product;
 class order
@@ -19,17 +20,19 @@ public:
     QDate dateOutput; //Дата исходящего
     QString numberInput; //Номер входящего
     QString numberOutput; //Номер исходящего
-    human chief; //Начальник утвердивший распоряжение
-    human oficier; //Офицер выписавший распоряжение
+    QString chief; //Начальник утвердивший распоряжение
+    QString oficier; //Офицер выписавший распоряжение
     QString sendType = "средствами получателя"; //Порядок отправки
     QString base; //Основание
-    QVector <human> senders; //Отправители
-    QVector <human> recipients; //Получатели
+    QVector <QString> senders; //Отправители
+    QVector <QString> recipients; //Получатели
     QDate expirationDate; //Годен до
     QString tlg; //Подтверждение телефонограммы
     QString typeProduct; //Тип имущества АТИ/ППТН
     int completion; //Процент выполнения
     QVector <QImage> scans; //Сканы распоряжения
+
+    void clear(); //Очистить переменную
 };
 
 #endif // ORDER_H

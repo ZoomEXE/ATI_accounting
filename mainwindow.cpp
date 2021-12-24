@@ -13,6 +13,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ent->exec();
     ui->setupUi(this);
     save_first_tabs();
+
+    // Подключение к БД
     QSqlDatabase sdb = QSqlDatabase::addDatabase("QSQLITE");
     sdb.setDatabaseName("ats_db.db");
     if(!sdb.open()) {
@@ -20,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
     }else{
         qDebug() << "It's OK!";
     }
+
 
     ui->pushButton_2->setText("Удалить текущий \n лицевой счет");
     ui->pushButton_3->setText("Добавить текущий \n лицевой счет");
@@ -125,6 +128,89 @@ void MainWindow::importBD()
     while(it.hasNext()) {
         it.next();
         ui->comboBoxScheta->addItem(it.key());
+    }
+
+    //Забираем данные о нарядах из БД
+    QString textQuery = "SELECT * FROM orders";
+    query.exec(textQuery);
+    qDebug() << query.lastError();
+
+    while(query.next())
+    {
+        order tmp;
+        tmp.name = query.value(1).toString();
+        tmp.numberOutput = query.value(2).toString();
+        tmp.dateOutput = QDate::fromString(query.value(3).toString(), "dd.MM.yyyy");
+        tmp.numberInput = query.value(4).toString();
+        tmp.dateInput = QDate::fromString(query.value(5).toString(), "dd.MM.yyyy");
+        tmp.chief = query.value(6).toString();
+        tmp.oficier = query.value(7).toString();
+        tmp.sendType = query.value(8).toString();
+        tmp.base = query.value(9).toString();
+        tmp.expirationDate = QDate::fromString(query.value(10).toString(), "dd.MM.yyyy");
+        tmp.tlg = query.value(11).toString();
+        tmp.typeProduct = query.value(12).toString();
+        tmp.completion = query.value(13).toInt();
+
+        //Забираем отправителей наряда из БД
+        QString id_orders = query.value(0).toString();
+        QSqlQuery query2;
+        query2.exec("SELECT sender FROM orderSenders WHERE id_orders = " + id_orders);
+        while(query2.next())
+        {
+            tmp.senders.push_back(query2.value(0).toString());
+        }
+
+        //Забираем получателей наряда из БД
+        query2.exec("SELECT recipient FROM recipientsOrder WHERE id_orders = " + id_orders);
+        while(query2.next())
+        {
+            tmp.recipients.push_back(query2.value(0).toString());
+        }
+
+        //Забираем имущество наряда из БД
+        query2.exec("SELECT * FROM product_orders WHERE id_orders = " + id_orders);
+        while(query2.next())
+        {
+            product tmpProd;
+            tmpProd.name = query2.value(1).toString();
+            tmpProd.nomNumber = query2.value(2).toString();
+            tmpProd.measure = query2.value(4).toString();
+            tmpProd.count = query2.value(5).toDouble();
+            tmpProd.factoryNumber = query2.value(6).toString();
+            tmpProd.category = query2.value(7).toInt();
+            tmpProd.releaseDate = query2.value(8).toDate();
+            tmp.items.push_back(tmpProd);
+        }
+        orders.push_back(tmp);
+    }
+
+    //Добавляем в таблицу данные о нарядах
+    ui->tableWidgetOrders->setRowCount(orders.size());
+    for(int i = 0; i < orders.size(); ++i)
+    {
+        ui->tableWidgetOrders->setItem(i, 0, new QTableWidgetItem(orders[i].name));
+        ui->tableWidgetOrders->setItem(i, 1, new QTableWidgetItem(orders[i].numberOutput));
+        ui->tableWidgetOrders->setItem(i, 2, new QTableWidgetItem(orders[i].dateOutput.toString("dd.MM.yyyy")));
+        ui->tableWidgetOrders->setItem(i, 3, new QTableWidgetItem(orders[i].numberInput + " от " + orders[i].dateInput.toString("dd.MM.yyyy")));
+        ui->tableWidgetOrders->setItem(i, 4, new QTableWidgetItem(orders[i].expirationDate.toString("dd.MM.yyyy")));
+        ui->tableWidgetOrders->setItem(i, 5, new QTableWidgetItem(orders[i].senders[0]));
+        ui->tableWidgetOrders->setItem(i, 6, new QTableWidgetItem(orders[i].recipients[0]));
+        ui->tableWidgetOrders->setItem(i, 7, new QTableWidgetItem(orders[i].base));
+        ui->tableWidgetOrders->setItem(i, 8, new QTableWidgetItem(QString::number(orders[i].completion)));
+
+        QComboBox *comboOrderProducts = new QComboBox;
+        for(int j = 0; j < orders[i].items.size(); ++j)
+        {
+            QString productName = orders[i].items[j].nomNumber + " | " + orders[i].items[j].name;
+            if(productName.size() > 60)
+            {
+                productName.resize(60);
+                productName += " ...";
+            }
+            comboOrderProducts->addItem(productName);
+        }
+        ui->tableWidgetOrders->setCellWidget(i, 9, comboOrderProducts);
     }
 }
 void MainWindow::slotModelItemChanged(QStandardItem *item)
@@ -289,6 +375,8 @@ void MainWindow::on_orders_triggered()
     if (check_available_tab("Распоряжения"))
     {
         new_tab("Распоряжения");
+
+        //ui->tableWidgetOrders->setRowCount(orders.size());
     }
 }
 
@@ -300,7 +388,14 @@ void MainWindow::on_organisations_triggered()
         new_tab("Организации");
         //Переключение фокуса на вкладку с организациями
         ui->tabWidgetOrganisations->setCurrentIndex(0);
+        importOrgsAndHumans();
     }
+}
+
+//Информация о текущей организации
+void MainWindow::on_infoAboutOrg_triggered()
+{
+
 }
 /////////////////////////////////////////////////////////////////
 
@@ -584,7 +679,8 @@ void MainWindow::on_pushButton_4_clicked()
             progress = (maxcount - count) / maxcount * 100;
         }
         ui->statusBar->showMessage("Прогресс выполнения - " + QString::number(progress, 'g', 2) + " %.", 100);
-*/
+        */
+
         add_lic_schet(ui->comboBox_2->currentText());
         ui->comboBox_2->removeItem(ui->comboBox_2->currentIndex());
     }
@@ -618,6 +714,7 @@ void MainWindow::on_comboBoxScheta_activated(const QString &arg1)
     ui->tableAccount->horizontalHeader()->setStretchLastSection(true);
 }
 
+//Нажатие кнопки "Показать все приходные документы
 void MainWindow::on_checkBoxAllDocumentsPrihod_stateChanged(int arg1)
 {
     if(arg1)
@@ -630,6 +727,7 @@ void MainWindow::on_checkBoxAllDocumentsPrihod_stateChanged(int arg1)
     }
 }
 
+//Нажатие кнопки "Показать все расходные документы
 void MainWindow::on_checkBoxAllDocumentsRashod_stateChanged(int arg1)
 {
     if(arg1)
@@ -642,11 +740,23 @@ void MainWindow::on_checkBoxAllDocumentsRashod_stateChanged(int arg1)
     }
 }
 
+//Нажатие чекбокса "Показать распоряжения за все время"
+void MainWindow::on_checkBoxAllDocumentsPrihod_2_stateChanged(int arg1)
+{
+    if(arg1)
+    {
+        ui->dateEditBeginOrder->setEnabled(false);
+        ui->dateEditEndOrder->setEnabled(false);
+    }else{
+        ui->dateEditBeginOrder->setEnabled(true);
+        ui->dateEditEndOrder->setEnabled(true);
+    }
+}
 void MainWindow::on_pushButtonNextPrihod_2_clicked()
 {
     order temp;
     temp.name = ui->comboBoxTypeOrder->currentText();
-    temp.base = ui->comboBoxBaseOrder->currentText();
+    temp.base = ui->lineEditBaseOrder->text();
     temp.numberOutput = ui->lineEditOutputOrder->text();
     temp.numberInput = ui->lineEditInputOrder->text();
     temp.dateOutput = ui->dateOutputOrder->date();
@@ -674,7 +784,10 @@ void MainWindow::on_pushButtonScanOrder_clicked()
 {
     add_scans();
     currentScanIndex = 0;
-    ui->scanOrder->setPixmap(QPixmap::fromImage(tempScans[0]));
+    if(!tempScans.isEmpty())
+    {
+        ui->scanOrder->setPixmap(QPixmap::fromImage(tempScans[0]));
+    }
 }
 
 //Нажатие стрелки "Вправо"
@@ -869,7 +982,7 @@ void MainWindow::on_buttonSaveWorker_clicked()
     }
 }
 
-//Загрузка сотрудников при выборе подразделения
+//Загрузка сотрудников при выборе подразделения (изменение организаций)
 void MainWindow::on_comboboxEditDepart_activated(const QString &arg1)
 {
     ui->comboboxEditWorker->clear();
@@ -896,7 +1009,7 @@ void MainWindow::on_buttonRemoveWorker_clicked()
     ui->addWorkerEmail->clear();
 }
 
-// Загрузка данных о сотруднике при выборе его из списка
+// Загрузка данных о сотруднике при выборе его из списка (изменение организаций)
 void MainWindow::on_comboboxEditWorker_activated(int index)
 {
     ui->addWorkerPosition->setText(tempDeps[ui->comboboxEditDepart->currentText()][index].position);
@@ -953,6 +1066,8 @@ void MainWindow::on_buttonSaveOrg_clicked()
     queryText = "SELECT id FROM organisations WHERE name = \"" + tempOrg.name + "\"";
     query.exec(queryText);
     qDebug() << query.lastError();
+
+    query.next();  // Добавить отлов возможных ошибок
     int idOrg = query.value(0).toInt();
 
     QMapIterator <QString, QVector <human> > it(tempDeps);
@@ -965,9 +1080,11 @@ void MainWindow::on_buttonSaveOrg_clicked()
         query.exec(queryText);
         qDebug() << query.lastError();
 
-        queryText = "SELECT id FROM departments_of_org WHERE name = \"" + it.key() + "\"";
+        queryText = "SELECT id FROM departments_of_org WHERE name = \"" + depName + "\"";
         query.exec(queryText);
         qDebug() << query.lastError();
+
+        query.next();  // Добавить отлов возможных ошибок
         int idDep = query.value(0).toInt();
 
         for(int i = 0; i < it.value().size(); ++i)
@@ -979,6 +1096,7 @@ void MainWindow::on_buttonSaveOrg_clicked()
             query.exec(queryText);
         }
     }
+
     tempDeps.clear();
     //Переключение фокуса на вкладку с организациями
     ui->tabWidgetOrganisations->setCurrentIndex(0);
@@ -1007,3 +1125,418 @@ void MainWindow::on_buttonCancelAddOrg_clicked()
     //Переключение фокуса на вкладку с организациями
     ui->tabWidgetOrganisations->setCurrentIndex(0);
 }
+
+//Импорт организаций и сотрудников
+void MainWindow::importOrgsAndHumans()
+{
+    QSqlQuery query, query2, query3;
+    QString textQuery = "SELECT * FROM organisations";
+    query.exec(textQuery);
+    qDebug() << query.lastError();
+
+    while(query.next())
+    {
+        organisation tempOrg;
+        tempOrg.name = query.value(1).toString();
+        tempOrg.inn = query.value(2).toString();
+        tempOrg.phoneNumber = query.value(3).toString();
+        tempOrg.city = query.value(4).toString();
+        tempOrg.index = query.value(5).toString();
+        tempOrg.vpMORF = query.value(6).toString();
+        tempOrg.checkMyOrg = query.value(7).toBool();
+        orgsContainer.insert(tempOrg.name, tempOrg);
+
+        textQuery = "SELECT * FROM departments_of_org WHERE id_organisation = " + query.value(0).toString();
+        query2.exec(textQuery);
+        qDebug() << query2.lastError();
+        while(query2.next())
+        {
+            QString nameDepart = query2.value(1).toString();
+
+            textQuery = "SELECT * FROM humans WHERE id_department = " + query2.value(0).toString();
+            query3.exec(textQuery);
+            qDebug() << query3.lastError();
+            QVector <human> tmpHumans;
+            while(query3.next())
+            {
+                human tmpHuman;
+                tmpHuman.position = query3.value(1).toString();
+                tmpHuman.FIO = query3.value(2).toString();
+                tmpHuman.firstName = query3.value(3).toString();
+                tmpHuman.secondName = query3.value(4).toString();
+                tmpHuman.middleName = query3.value(5).toString();
+                tmpHuman.rank = query3.value(6).toString();
+                tmpHuman.phoneNumber = query3.value(7).toString();
+                tmpHuman.email = query3.value(8).toString();
+                tmpHumans.push_back(tmpHuman);
+            }
+            tempDeps.insert(nameDepart, tmpHumans);
+        }
+        organisations.insert(tempOrg.name, tempDeps);
+        tempDeps.clear();
+    }
+
+    QMapIterator <QString, QMap <QString, QVector <human> > > it (organisations);
+
+    while(it.hasNext())
+    {
+        it.next();
+        ui->comboboxSelectOrg->addItem(it.key());
+    }
+
+    if(orgsContainer[it.key()].checkMyOrg)
+    {
+        ui->nameOrg->setText(orgsContainer[ui->comboboxSelectOrg->currentText()].name + " - моя организация");
+    }else{
+        ui->nameOrg->setText(orgsContainer[ui->comboboxSelectOrg->currentText()].name);
+    }
+    ui->cityOrg->setText(orgsContainer[ui->comboboxSelectOrg->currentText()].city);
+    ui->cityOrg->setReadOnly(true);
+    ui->postcodeOrg->setText(orgsContainer[ui->comboboxSelectOrg->currentText()].index);
+    ui->postcodeOrg->setReadOnly(true);
+    ui->innOrg->setText(orgsContainer[ui->comboboxSelectOrg->currentText()].inn);
+    ui->innOrg->setReadOnly(true);
+    ui->phonenumberOrg->setText(orgsContainer[ui->comboboxSelectOrg->currentText()].phoneNumber);
+    ui->phonenumberOrg->setReadOnly(true);
+    ui->vpMORFOrg->setText(orgsContainer[ui->comboboxSelectOrg->currentText()].vpMORF);
+    ui->vpMORFOrg->setReadOnly(true);
+
+    QMapIterator <QString, QVector <human> > iter(organisations[ui->comboboxSelectOrg->currentText()]);
+
+    while(iter.hasNext())
+    {
+        iter.next();
+        ui->comboboxSelectDepart->addItem(iter.key());
+    }
+
+    QVectorIterator <human> vectIT (organisations[ui->comboboxSelectOrg->currentText()][ui->comboboxSelectDepart->currentText()]);
+
+    while(vectIT.hasNext())
+    {
+        human hum = vectIT.next();
+        ui->comboboxSelectWorker->addItem(hum.position + " - " + hum.rank + " " + hum.FIO);
+    }
+}
+
+//Загрузка сотрудников при выборе подразделения (просмотр организаций)
+void MainWindow::on_comboboxSelectDepart_activated(const QString &arg1)
+{
+    ui->comboboxSelectWorker->clear();
+    for(int i = 0; i < organisations[ui->comboboxSelectOrg->currentText()][arg1].size(); ++i)
+    {
+        ui->comboboxSelectWorker->addItem(organisations[ui->comboboxSelectOrg->currentText()][arg1][i].position + " - " + organisations[ui->comboboxSelectOrg->currentText()][arg1][i].rank + " " + organisations[ui->comboboxSelectOrg->currentText()][arg1][i].FIO);
+    }
+}
+
+// Загрузка данных о сотруднике при выборе его из списка (просмотр организаций)
+void MainWindow::on_comboboxSelectWorker_activated(int index)
+{
+
+    ui->workerPosition->setText(organisations[ui->comboboxSelectOrg->currentText()][ui->comboboxSelectDepart->currentText()][index].position);
+
+    ui->workerRank->setText(organisations[ui->comboboxSelectOrg->currentText()][ui->comboboxSelectDepart->currentText()][index].rank);
+
+    ui->workerSecName->setText(organisations[ui->comboboxSelectOrg->currentText()][ui->comboboxSelectDepart->currentText()][index].secondName);
+
+    ui->workerName->setText(organisations[ui->comboboxSelectOrg->currentText()][ui->comboboxSelectDepart->currentText()][index].firstName);
+
+    ui->workerMidName->setText(organisations[ui->comboboxSelectOrg->currentText()][ui->comboboxSelectDepart->currentText()][index].middleName);
+
+    ui->workerPhoneNumber->setText(organisations[ui->comboboxSelectOrg->currentText()][ui->comboboxSelectDepart->currentText()][index].phoneNumber);
+
+    ui->workerEmail->setText(organisations[ui->comboboxSelectOrg->currentText()][ui->comboboxSelectDepart->currentText()][index].email);
+
+    ui->workerPosition->setReadOnly(true);
+
+    ui->workerRank->setReadOnly(true);
+
+    ui->workerSecName->setReadOnly(true);
+
+    ui->workerName->setReadOnly(true);
+
+    ui->workerMidName->setReadOnly(true);
+
+    ui->workerPhoneNumber->setReadOnly(true);
+
+    ui->workerEmail->setReadOnly(true);
+}
+
+//Нажатие кнопки изменить организацию
+void MainWindow::on_buttonChangeOrg_clicked()
+{
+    ui->tabWidgetOrganisations->setTabText(1, "Изменить данные организации");
+    ui->tabWidgetOrganisations->setCurrentIndex(1);
+}
+
+//Нажатие кнопки "Далее" на вкладке регистрации распоряжения (Основная информация)
+void MainWindow::on_pushButtonNextOrder_clicked()
+{
+    tempOrder.clear();
+
+    tempOrder.name = ui->comboBoxTypeOrder->currentText();
+    tempOrder.numberOutput = ui->lineEditOutputOrder->text();
+    tempOrder.dateOutput = ui->dateOutputOrder->date();
+    tempOrder.numberInput = ui->lineEditInputOrder->text();
+    tempOrder.dateInput = ui->dateInputOrder->date();
+    tempOrder.expirationDate = ui->dateEditExpiration->date();
+    tempOrder.base = ui->lineEditBaseOrder->text();
+    tempOrder.senders.push_back(ui->comboBoxSenderOrder->currentText());
+    tempOrder.recipients.push_back(ui->comboBoxRecipientOrder->currentText());
+    tempOrder.scans = tempScans;
+    tempOrder.sendType = ui->comboBoxSendType->currentText();
+    ui->tabWidgetRegOrder->setCurrentIndex(1);
+}
+
+//Нажатие кнопки "Назад" на вкладке регистрации распоряжения (Перечень МЦ)
+void MainWindow::on_pushButtonBackOrder_clicked()
+{
+    ui->tabWidgetRegOrder->setCurrentIndex(0);
+}
+
+//Нажатие кнопки "Отмена" на вкладке регистрации распоряжения (Основная информация)
+void MainWindow::on_pushButtonCancelOrder_clicked()
+{
+    ui->comboBoxTypeOrder->clear();
+    ui->lineEditOutputOrder->clear();
+    ui->dateOutputOrder->setDate(QDate(2000, 1, 1));
+    ui->lineEditInputOrder->clear();
+    ui->dateInputOrder->setDate(QDate(2000, 1, 1));
+    ui->dateEditExpiration->setDate(QDate(2000, 1, 1));
+    ui->lineEditBaseOrder->clear();
+    ui->comboBoxSenderOrder->clear();
+    ui->comboBoxRecipientOrder->clear();
+
+    ui->tabWidgetRegOrder->setCurrentIndex(0);
+    ui->tabWidgetOrders->setCurrentIndex(1);
+}
+
+//Нажатие кнопки "Отмена" на вкладке регистрации распоряжения (Перечень МЦ)
+void MainWindow::on_pushButtonCancelOderMC_clicked()
+{
+    ui->comboBoxTypeOrder->clear();
+    ui->lineEditOutputOrder->clear();
+    ui->dateOutputOrder->setDate(QDate(2000, 1, 1));
+    ui->lineEditInputOrder->clear();
+    ui->dateInputOrder->setDate(QDate(2000, 1, 1));
+    ui->dateEditExpiration->setDate(QDate(2000, 1, 1));
+    ui->lineEditBaseOrder->clear();
+    ui->comboBoxSenderOrder->clear();
+    ui->comboBoxRecipientOrder->clear();
+    ui->tableWidgetProductsOrder->clearContents();
+    ui->tableWidgetProductsOrder->setRowCount(1);
+
+    ui->tabWidgetRegOrder->setCurrentIndex(0);
+    ui->tabWidgetOrders->setCurrentIndex(1);
+}
+
+//Нажатие кнопки "+" на вкладке Перечень МЦ при регистрации распоряжения
+void MainWindow::on_pushButtonAddLineOrder_clicked()
+{
+    int currentRow = ui->tableWidgetProductsOrder->rowCount();
+    ui->tableWidgetProductsOrder->setRowCount(currentRow + 1);
+
+    ui->tableWidgetProductsOrder->setItem(currentRow, 0, new QTableWidgetItem(""));
+    ui->tableWidgetProductsOrder->setItem(currentRow, 1, new QTableWidgetItem(""));
+    ui->tableWidgetProductsOrder->setItem(currentRow, 2, new QTableWidgetItem(""));
+    ui->tableWidgetProductsOrder->setItem(currentRow, 3, new QTableWidgetItem(""));
+    ui->tableWidgetProductsOrder->setItem(currentRow, 4, new QTableWidgetItem(""));
+    ui->tableWidgetProductsOrder->setItem(currentRow, 5, new QTableWidgetItem(""));
+    ui->tableWidgetProductsOrder->setItem(currentRow, 6, new QTableWidgetItem(""));
+
+    //Добавление в таблицу ComboBox с категориями
+    /*QComboBox *comboCategory = new QComboBox;
+    comboCategory->addItem("I");
+    comboCategory->addItem("II");
+    comboCategory->addItem("III");
+    comboCategory->addItem("IV");
+    comboCategory->addItem("V");
+    ui->tableWidgetProductsOrder->setCellWidget(currentRow, 4, comboCategory);
+    */
+
+    /*QSqlQuery query;
+    query.exec("SELECT nomkl_nom, name, ed_izm FROM spr_ati");
+    qDebug() << query.lastError();
+
+    QMap <QString, QPair <QString, QString>> tempProducts;
+    QComboBox *comboNomNumb = new QComboBox;
+
+    while(query.next())
+    {
+        tempProducts.insert(query.value(0).toString(), qMakePair(query.value(1).toString(), query.value(2).toString()));
+        comboNomNumb->addItem(query.value(0).toString() + " | " + query.value(1).toString());
+    }
+*/
+    //comboNomNumb->setcu
+    //ui->tableWidgetProductsOrder->setCellWidget(currentRow, 1, comboNomNumb);
+
+}
+
+//Нажатие кнопки "Вниз" на вкладке распоряжения (Перечень МЦ)
+void MainWindow::on_pushButtonDownOrder_clicked()
+{
+    int row = ui->tableWidgetProductsOrder->currentRow(), rowCount = ui->tableWidgetProductsOrder->rowCount();
+
+    if(rowCount > 0)
+    {
+        if(row < rowCount - 1)
+        {
+            //ui->tableWidgetProductsOrder->setCurrentCell(row + 1, column);
+            ui->tableWidgetProductsOrder->selectRow(row + 1);
+        }else{
+            //ui->tableWidgetProductsOrder->setCurrentCell(0, column);
+            ui->tableWidgetProductsOrder->selectRow(0);
+        }
+    }
+}
+
+//Нажатие кнопки "Вверх" на вкладке распоржения (Перечень МЦ)
+void MainWindow::on_pushButtonUpPOrder_clicked()
+{
+    int row = ui->tableWidgetProductsOrder->currentRow(), rowCount = ui->tableWidgetProductsOrder->rowCount();
+
+    if(rowCount > 0)
+    {
+        if(row > 0)
+        {
+            //ui->tableWidgetProductsOrder->setCurrentCell(row + 1, column);
+            ui->tableWidgetProductsOrder->selectRow(row - 1);
+        }else{
+            //ui->tableWidgetProductsOrder->setCurrentCell(0, column);
+            ui->tableWidgetProductsOrder->selectRow(rowCount - 1);
+        }
+    }
+}
+
+//Нажатие кнопки "Удалить" на вкладке распоряжения (Перечень МЦ)
+void MainWindow::on_pushButtonRemoveLineOrder_clicked()
+{
+    int row = ui->tableWidgetProductsOrder->currentRow();
+    if(row > -1)
+    {
+        ui->tableWidgetProductsOrder->removeRow(row);
+        ui->tableWidgetProductsOrder->selectRow(ui->tableWidgetProductsOrder->currentRow());
+    }
+}
+
+//Нажатие кнопки "Зарегистрировать" на вкладке распоряжения (Перечень МЦ)
+void MainWindow::on_pushButtonDoneOrder_clicked()
+{
+    QVector <product> tempProdContainer;
+
+    for(int i = 0; i < ui->tableWidgetProductsOrder->rowCount(); ++i)
+    {
+        product tempProd;
+
+        tempProd.name = ui->tableWidgetProductsOrder->item(i, 0)->text();
+        if(ui->tableWidgetProductsOrder->item(i, 1)->text() != "")
+        {
+            tempProd.nomNumber = ui->tableWidgetProductsOrder->item(i, 1)->text();
+        }else{
+            tempProd.nomNumber = "б/н";
+        }
+
+        tempProd.factoryNumber = ui->tableWidgetProductsOrder->item(i, 2)->text();
+
+        if(ui->tableWidgetProductsOrder->item(i, 3)->text() != "")
+        {
+            tempProd.releaseDate = QDate::fromString(ui->tableWidgetProductsOrder->item(i, 3)->text(),"dd.MM.yyyy");
+        }
+        /*QString category = ui->tableWidgetProductsOrder->item(i, 4);
+
+        QComboBox *tempCombo = ui->tableWidgetProductsOrder->item(i,4);
+        if(category == "I") tempProd.category = 1;
+        if(category == "II") tempProd.category = 2;
+        if(category == "III") tempProd.category = 3;
+        if(category == "IV") tempProd.category = 4;
+        if(category == "V") tempProd.category = 5;
+        */
+        tempProd.category = ui->tableWidgetProductsOrder->item(i, 4)->text().toInt();
+        tempProd.measure = ui->tableWidgetProductsOrder->item(i, 5)->text();
+        tempProd.count =  ui->tableWidgetProductsOrder->item(i, 6)->text().toDouble();
+        tempProd.orderNumber = tempOrder.name + " №" + tempOrder.numberOutput + " от " + tempOrder.dateOutput.toString("dd.MM.yyyy"); // ????
+
+        tempProdContainer.push_back(tempProd);
+    }
+    tempOrder.items = tempProdContainer;
+    orders.push_back(tempOrder);
+
+    //Добавление распоряжения в БД
+    QSqlQuery query;
+    QString textQuery = "INSERT INTO orders (name, numberOutput, dateOutput, numberInput, dateInput, base, expirationDate, completion, sendType) VALUES (\"" +
+            tempOrder.name + "\", \"" + tempOrder.numberOutput + "\", \"" + tempOrder.dateOutput.toString("dd.MM.yyyy") + "\", \"" + tempOrder.numberInput + "\", \"" +
+            tempOrder.dateInput.toString("dd.MM.yyyy") + "\", \"" + tempOrder.base + "\", \"" + tempOrder.expirationDate.toString("dd.MM.yyyy") + "\", " + QString::number(tempOrder.completion) + ", \"" + tempOrder.sendType + "\")";
+    query.exec(textQuery);
+    qDebug() << query.lastError();
+
+    //Забираем из БД id распоряжения
+    query.exec("SELECT id FROM orders WHERE numberOutput = \"" + tempOrder.numberOutput + "\" AND dateOutput = \"" + tempOrder.dateOutput.toString("dd.MM.yyyy") + "\"");
+    qDebug() << query.lastError();
+    query.next();
+    qDebug() << query.lastError();
+    QString id_order = query.value(0).toString();
+    //Добавление Отправителей в наряд
+    for(int i = 0; i < tempOrder.senders.size(); ++i)
+    {
+        textQuery = "INSERT INTO orderSenders (sender, id_orders) VALUES (\"" + tempOrder.senders[i] + "\", " + id_order + ")";
+        query.exec(textQuery);
+        qDebug() << query.lastError();
+    }
+
+    //Добавление получателей в наряд
+    for(int i = 0; i < tempOrder.recipients.size(); ++i)
+    {
+        textQuery = "INSERT INTO recipientsOrder (recipient, id_orders) VALUES (\"" + tempOrder.recipients[i] + "\", " + id_order + ")";
+        query.exec(textQuery);
+        qDebug() << query.lastError();
+    }
+
+    for(int i = 0; i < tempOrder.items.size(); ++i)
+    {
+        textQuery = "INSERT INTO product_orders (name, nom_numb, measure, count, factoryNumber, category, releaseDate, id_orders) VALUES (\"" + tempOrder.items[i].name + "\", \""
+                + tempOrder.items[i].nomNumber + "\", \"" + tempOrder.items[i].measure + "\", \"" + QString::number(tempOrder.items[i].count, 'g', 2) + "\", \""
+                + tempOrder.items[i].factoryNumber + "\", \"" + QString::number(tempOrder.items[i].category) + "\", \"" + tempOrder.items[i].releaseDate.toString("dd.MM.yyyy") + "\", " + id_order + ")";
+        query.exec(textQuery);
+        qDebug() << query.lastError();
+        qDebug() << textQuery;
+    }
+    //Обновление списка зарегистрированных нарядов
+    ui->tableWidgetOrders->setRowCount(orders.size());
+    for(int i = 0; i < orders.size(); ++i)
+    {
+        ui->tableWidgetOrders->setItem(i, 0, new QTableWidgetItem(orders[i].name));
+        ui->tableWidgetOrders->setItem(i, 1, new QTableWidgetItem(orders[i].numberOutput));
+        ui->tableWidgetOrders->setItem(i, 2, new QTableWidgetItem(orders[i].dateOutput.toString("dd.MM.yyyy")));
+        ui->tableWidgetOrders->setItem(i, 3, new QTableWidgetItem(orders[i].numberInput + " от " + orders[i].dateInput.toString("dd.MM.yyyy")));
+        ui->tableWidgetOrders->setItem(i, 4, new QTableWidgetItem(orders[i].expirationDate.toString("dd.MM.yyyy")));
+        ui->tableWidgetOrders->setItem(i, 5, new QTableWidgetItem(orders[i].senders[0]));
+        ui->tableWidgetOrders->setItem(i, 6, new QTableWidgetItem(orders[i].recipients[0]));
+        ui->tableWidgetOrders->setItem(i, 7, new QTableWidgetItem(orders[i].base));
+        ui->tableWidgetOrders->setItem(i, 8, new QTableWidgetItem(QString::number(orders[i].completion)));
+
+        QComboBox *comboOrderProducts = new QComboBox;
+        for(int j = 0; j < orders[i].items.size(); ++j)
+        {
+            QString productName = orders[i].items[j].nomNumber + " | " + orders[i].items[j].name;
+            if(productName.size() > 60)
+            {
+                productName.resize(60);
+                productName += " ...";
+            }
+            comboOrderProducts->addItem(productName);
+        }
+        ui->tableWidgetOrders->setCellWidget(i, 9, comboOrderProducts);
+    }
+
+    tempOrder.clear();
+    ui->tabWidgetOrders->setCurrentIndex(1);
+
+    //Очистка вкладки регистрации
+    ui->lineEditOutputOrder->clear();
+    ui->dateOutputOrder->setDate(QDate(2000, 1, 1));
+    ui->lineEditInputOrder->clear();
+    ui->dateInputOrder->setDate(QDate(2000, 1, 1));
+    ui->dateEditExpiration->setDate(QDate(2000, 1, 1));
+    ui->lineEditBaseOrder->clear();
+    ui->tableWidgetProductsOrder->setRowCount(0);
+}
+

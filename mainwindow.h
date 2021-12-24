@@ -34,10 +34,10 @@ public:
     QMap <QString, QVector <product>> scheta, dataATI, dataPPTN; //Мап для хранения лицевых счетов с имуществом
     QMap <QString, QWidget*>* hidden_tabs = new QMap <QString, QWidget*>; //Мап для хранения вкладок
     QVector <order> orders; //Вектор для хранения нарядов
+    int currentScanIndex = 0; //Индекс текущего скана
     QVector <doc> inputDocs, outputDocs; //Вектор для хранения приходных и расходных документов
     QVector <QImage> tempScans; //Вектор для хранения сканов
-    int currentScanIndex = 0; //Индекс текущего отображаемого скана
-
+    order tempOrder; //Временное хранилище данных регистрируемого наряда
     QMap <QString, QMap <QString, QVector <human> > > organisations; //Мап организаций с подразделениями и векторами их сотрудников
     QMap <QString, QVector <human> > tempDeps; //Временное хранилище подразделений и сотрудников
     QMap <QString, organisation> orgsContainer; //Контейнер для хранения данных об организациях
@@ -136,6 +136,35 @@ private slots:
     void on_buttonSaveOrg_clicked();
 
     void on_buttonCancelAddOrg_clicked();
+
+    void importOrgsAndHumans(); //Функция считывания из БД информации об организациях, подразделениях и сотрудниках
+    void on_infoAboutOrg_triggered();
+
+    void on_comboboxSelectDepart_activated(const QString &arg1);
+
+    void on_comboboxSelectWorker_activated(int index);
+
+    void on_buttonChangeOrg_clicked();
+
+    void on_pushButtonNextOrder_clicked();
+
+    void on_pushButtonBackOrder_clicked();
+
+    void on_pushButtonCancelOrder_clicked();
+
+    void on_pushButtonCancelOderMC_clicked();
+
+    void on_pushButtonAddLineOrder_clicked();
+
+    void on_pushButtonDownOrder_clicked();
+
+    void on_pushButtonUpPOrder_clicked();
+
+    void on_pushButtonRemoveLineOrder_clicked();
+
+    void on_pushButtonDoneOrder_clicked();
+
+    void on_checkBoxAllDocumentsPrihod_2_stateChanged(int arg1);
 
 private:
     Ui::MainWindow *ui;
