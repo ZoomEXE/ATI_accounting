@@ -19,11 +19,11 @@ void order::clear()
     order::senders.clear();
     order::recipients.clear();
     order::sendType = "";
-    order::dateInput.setDate(2000,1,1);
+    order::dateInput = "";
     order::completion = 0;
-    order::dateOutput.setDate(2000,1,1);
+    order::dateOutput = "";
     order::numberInput = "";
     order::typeProduct = "";
     order::numberOutput = "";
-    order::expirationDate.setDate(2000,1,1);
+    order::expirationDate = "";
 }

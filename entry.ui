@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>460</width>
-    <height>115</height>
+    <width>482</width>
+    <height>355</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Авторизация</string>
@@ -17,15 +23,167 @@
    <iconset resource="resources.qrc">
     <normaloff>:/new/icons/icons/ATS.png</normaloff>:/new/icons/icons/ATS.png</iconset>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_2">
+  <property name="styleSheet">
+   <string notr="true">QDialog {
+background: rgba(249, 249, 249, 1);
+
+}
+
+QPushButton {
+	color: #FFFFFF;
+  background-color: rgba(47, 120, 231, 1);
+  font: 12pt &quot;Roboto&quot;;
+  border-radius: 2px;
+  padding: 10px 24px;
+  font-weight: 500;
+}
+
+QPushButton:hover {
+  background-color: rgba(30, 120, 255, 1);
+}
+
+QLineEdit {
+  font: 12pt &quot;Roboto&quot;;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 2px;
+  border: 1px solid rgba(204, 204, 204, 1)
+}
+
+QLineEdit:hover {
+   border: 1px solid rgba(47, 120, 231, 1);
+  background: white;
+}
+
+QLineEdit:focus {
+  border: 1px solid rgba(47, 120, 231, 1);
+  background: white;
+}
+
+
+
+
+QLabel {
+  font: 12pt &quot;Roboto&quot;;
+}
+
+QTabWidget {
+  font: 12pt &quot;Roboto&quot;;
+}
+
+QComboBox {
+  font:12pt &quot;Roboto&quot;;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 2px;
+  border: 1px solid rgba(204, 204, 204, 1);
+}
+
+QComboBox:hover {
+    border: 1px solid rgba(47, 120, 231, 1);
+  background: white;
+}
+
+QComboBox:focus {
+  border: 1px solid rgba(47, 120, 231, 1);
+  background: white;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+ 	margin-right: 8px;
+    width: 16px;
+    border-left-color: darkgray;
+    border-left-style: solid;
+    border-bottom-right-radius: 2px;
+}
+
+QComboBox::down-arrow {
+  image: url(:/icons/mdi_chevron-down.png);
+}
+
+QComboBox::down-arrow:on { 
+    top: 1px;
+}
+
+QComboBox QAbstractItemView {
+  border: 1px solid #D5D5D5;
+  background:  #FFFFFF;
+    selection-background-color: rgba(47, 120, 231, 1);
+}
+
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_5">
+   <property name="leftMargin">
+    <number>24</number>
+   </property>
+   <property name="topMargin">
+    <number>24</number>
+   </property>
+   <property name="rightMargin">
+    <number>24</number>
+   </property>
+   <property name="bottomMargin">
+    <number>24</number>
+   </property>
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout_3">
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
+    <widget class="QFrame" name="">
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <property name="spacing">
+       <number>24</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QFrame" name="User">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
           <widget class="QLabel" name="label">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Roboto</family>
+             <pointsize>12</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
            <property name="layoutDirection">
             <enum>Qt::LeftToRight</enum>
            </property>
@@ -36,24 +194,10 @@
             <enum>Qt::AutoText</enum>
            </property>
            <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QLabel" name="label_2">
-           <property name="text">
-            <string>Пароль</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout">
          <item>
           <widget class="QComboBox" name="select_user">
            <property name="sizePolicy">
@@ -65,11 +209,63 @@
            <property name="minimumSize">
             <size>
              <width>150</width>
-             <height>0</height>
+             <height>38</height>
             </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Roboto</family>
+             <pointsize>12</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
            </property>
            <property name="editable">
             <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="Pass">
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>31</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Roboto</family>
+             <pointsize>12</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Пароль</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
            </property>
           </widget>
          </item>
@@ -84,8 +280,17 @@
            <property name="minimumSize">
             <size>
              <width>150</width>
-             <height>0</height>
+             <height>38</height>
             </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Roboto</family>
+             <pointsize>12</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
            </property>
            <property name="echoMode">
             <enum>QLineEdit::Password</enum>
@@ -93,71 +298,103 @@
           </widget>
          </item>
         </layout>
-       </item>
-       <item>
-        <widget class="QPushButton" name="enter_button">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>40</horstretch>
-           <verstretch>40</verstretch>
-          </sizepolicy>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="Buttons">
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <property name="spacing">
+          <number>12</number>
          </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>52</height>
-          </size>
+         <property name="leftMargin">
+          <number>0</number>
          </property>
-         <property name="font">
-          <font>
-           <pointsize>9</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
+         <property name="topMargin">
+          <number>24</number>
          </property>
-         <property name="autoFillBackground">
-          <bool>false</bool>
+         <property name="rightMargin">
+          <number>0</number>
          </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(34, 122, 255);
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="enter_button">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>40</horstretch>
+             <verstretch>40</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>52</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Roboto</family>
+             <pointsize>12</pointsize>
+             <weight>62</weight>
+             <italic>false</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(34, 122, 255);
 color: rgb(255, 255, 255);
 </string>
-         </property>
-         <property name="text">
-          <string>Войти</string>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>40</width>
-           <height>40</height>
-          </size>
-         </property>
-         <property name="autoExclusive">
-          <bool>false</bool>
-         </property>
-         <property name="flat">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <widget class="QPushButton" name="forget_pswd">
-       <property name="font">
-        <font>
-         <underline>true</underline>
-        </font>
-       </property>
-       <property name="text">
-        <string>Забыли пароль?</string>
-       </property>
-       <property name="flat">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-    </layout>
+           </property>
+           <property name="text">
+            <string>Войти</string>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="autoExclusive">
+            <bool>false</bool>
+           </property>
+           <property name="flat">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="forget_pswd">
+           <property name="font">
+            <font>
+             <family>Roboto</family>
+             <pointsize>12</pointsize>
+             <weight>62</weight>
+             <italic>false</italic>
+             <bold>true</bold>
+             <underline>true</underline>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: black;
+background: transparent;</string>
+           </property>
+           <property name="text">
+            <string>Забыли пароль?</string>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </item>
   </layout>
  </widget>

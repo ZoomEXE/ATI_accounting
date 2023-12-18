@@ -4,7 +4,7 @@
 
 #include <QString>
 #include <QVector>
-#include "human.h"
+#include "depart.h"
 
 //class human;
 class organisation
@@ -18,6 +18,7 @@ public:
     QString city; //Местоположение организации
     QString vpMORF; //Военное представительство (при наличии)
     bool checkMyOrg; //Флаг - моя организация или нет?
+    QVector <depart> departList; //Список отелов (служб) с их сотрудниками
 };
 
 #endif // ORGANISATION_H

@@ -5,9 +5,11 @@
 #-------------------------------------------------
 include (C:\Qt_projects\ATI_accounting\xslx\src\xlsx\qtxlsx.pri)
 
-QT       += core gui sql #xlsx
+QT       += core gui sql axcontainer
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+#win32:RC_ICONS += file.ico
 
 TARGET = ATI_accounting
 TEMPLATE = app
@@ -33,7 +35,14 @@ SOURCES += \
     order.cpp \
     doc.cpp \
     human.cpp \
-    organisation.cpp
+    organisation.cpp \
+    additem.cpp \
+    scanviewer.cpp \
+    persaccount.cpp \
+    additembn.cpp \
+    tablewidgetitem.cpp \
+    depart.cpp \
+    orderdetails.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -42,11 +51,22 @@ HEADERS += \
     order.h \
     doc.h \
     human.h \
-    organisation.h
+    organisation.h \
+    additem.h \
+    scanviewer.h \
+    persaccount.h \
+    additembn.h \
+    tablewidgetitem.h \
+    depart.h \
+    orderdetails.h
 
 FORMS += \
         mainwindow.ui \
-        entry.ui
+        entry.ui \
+    additem.ui \
+    scanviewer.ui \
+    additembn.ui \
+    orderdetails.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -55,3 +75,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     resources.qrc
+
+win32: RC_ICONS = $$PWD/icons/ATS.ico

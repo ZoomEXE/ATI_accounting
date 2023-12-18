@@ -2,10 +2,10 @@
 #ifndef DOC_H
 #define DOC_H
 #include "product.h"
-#include "order.h"
+//#include "order.h"
 #include <QString>
 #include <QDate>
-
+#include <QVector>
 //class product;
 //class order;
 class doc
@@ -32,7 +32,10 @@ public:
     QString senderName; //ФИО отпустившего имущество
     QString recipientPosition; //Должность получившего имущество
     QString recipientName; //ФИО получившего имущество
-    order baseOrder; //Распоряжение на основании которого выписан первичный документ
+    QString baseOrder; //Распоряжение на основании которого выписан первичный документ
+    short type; //Тип документа
+
+    void clear();
 };
 
 #endif // DOC_H
