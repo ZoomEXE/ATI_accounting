@@ -703,8 +703,8 @@ void MainWindow::on_infoAboutOrg_triggered()
 
 void MainWindow::on_comboBoxfindTypePptn_activated(int index)
 {
-    //if(index == 0) ui->labelSprPptn->setText("Введите номенклатурный номер:");
-    //if(index == 1) ui->labelSprPptn->setText("Введите наименование:");
+    if(index == 0) ui->labelSprPptn->setText("Введите номенклатурный номер:");
+    if(index == 1) ui->labelSprPptn->setText("Введите наименование:");
 }
 
 //Поиск в справочнике АТИ по н/н и наименованию
@@ -765,7 +765,7 @@ void MainWindow::on_comboBoxfindTypePptn_activated(int index)
 
 //Поиск в справочнике ППТН
 void MainWindow::on_findInPptnButton_clicked()
-{/*
+{
 
     if(!baseDB.open()) {
         qDebug() << baseDB.lastError().text();
@@ -802,7 +802,7 @@ void MainWindow::on_findInPptnButton_clicked()
     ui->spr_ati_tableView->horizontalHeader()->setFont(regularFont);
     ui->spr_pptn_tableView->resizeColumnsToContents();
     ui->spr_pptn_tableView->show();
-    baseDB.close();*/
+    baseDB.close();
 }
 
 // Открытие вкладки импорта из Excel
@@ -2178,277 +2178,219 @@ void MainWindow::on_pushButton_clicked()
 //Формирование наряда в Excel
 void MainWindow::on_pushButtonDoneMakeOrder_clicked()
 {
-    bool emptyElement = false;
-    QString element = "";
+    if(redactFlag) {
+        on_deleteOrder_clicked();
+        ui->pushButtonDoneMakeOrder->setText("Сформировать");
+        redactFlag = false;
+    }
+    Document readyOrder ("Order.xlsx"); //Создание файла Excel для наряда
 
-    if(ui->lineEditOutputNumberOrder->text() == ""){
-        emptyElement= true;
-        element = "Введите исходящий номер!";
-    }
+    order tempOrd; // Создание временного объекта "Наряд" для переноса в БД и регистрации в журнале
 
-    if(ui->comboBoxTypeDocPrihod_3->currentText() == ""){
-        emptyElement= true;
-        element = "Выберите тип документа!";
-    }
-    if(ui->telefonogramm->text() == ""){
-        emptyElement= true;
-        element = "Введите номер телефонограммы!";
-    }
-    if(ui->comboBoxOrderRecipient->currentText() == ""){
-        emptyElement= true;
-        element = "Выберите получателя!";
-    }
-    if(ui->comboBoxOrderSender->currentText() == ""){
-        emptyElement= true;
-        element = "Выберите отправителя!";
-    }
+    readyOrder.write(6,1,"НАРЯД № " + ui->lineEditOutputNumberOrder->text());
+    tempOrd.name = "НАРЯД № " + ui->lineEditOutputNumberOrder->text();
+    tempOrd.numberOutput = ui->lineEditOutputNumberOrder->text();
 
-    if(ui->comboBoxTypeMoveOrder->currentText() == ""){
-        emptyElement= true;
-        element = "Выберите тип отправки!";
-    }
+    readyOrder.write(3, 12, "В подтверждение распоряжения ТЛГ № " + ui->telefonogramm->text() + " от " + ui->dateEdit_2->text() + " г.");
 
-    if(ui->osnovanie->text() == ""){
-        emptyElement= true;
-        element = "Введите основание!";
-    }
+    readyOrder.write(8, 11, ui->dateOutputCreateOrder->text());
+    tempOrd.dateOutput = ui->dateOutputCreateOrder->text();
 
-    if(ui->orderTarget->currentText() == ""){
-        emptyElement= true;
-        element = "Выберите цель операции!";
-    }
+    readyOrder.write(9, 11, ui->validOrderDate->text());
+    tempOrd.expirationDate = ui->validOrderDate->text();
 
-    if(ui->comboBoxShetaOfSender->currentText() == ""){
-        emptyElement= true;
-        element = "Выберите лицевой счет!";
-    }
+    readyOrder.write(14, 1, ui->orderTarget->currentText().left(2));
+    tempOrd.target = ui->orderTarget->currentText().left(2);
 
-    if(ui->tableWidgetMakeOrder->rowCount() == 0){
-        emptyElement= true;
-        element = "Добавьте имущество!";
-    }
+    readyOrder.write(14, 2, ui->osnovanie->text() + " от " + ui->dateEditBase->text());
+    tempOrd.base = ui->osnovanie->text() + " от " + ui->dateEditBase->text();
 
-    if(emptyElement) {
-        QMessageBox msg;
-        msg.setWindowTitle("Внимание!");
-        msg.setText(element);
-        msg.setIcon(QMessageBox::Warning);
-        msg.exec();
+    readyOrder.write(14, 5, ui->comboBoxOrderSender->currentText());
+    tempOrd.senders.push_back(ui->comboBoxOrderSender->currentText());
+
+    readyOrder.write(14, 7, ui->comboBoxOrderRecipient->currentText());
+    tempOrd.recipients.push_back(ui->comboBoxOrderRecipient->currentText());
+
+    //Добавление шаблона организации при формировании наряда с новым получателем
+    QSqlQuery query(baseDB);
+    if(!baseDB.open()) {
+        qDebug() << baseDB.lastError().text();
     }else{
-        if(redactFlag) {
-            on_deleteOrder_clicked();
-            ui->pushButtonDoneMakeOrder->setText("Сформировать");
-            redactFlag = false;
+        qDebug() << "It's OK!";
+    }
+
+    query.exec("SELECT name FROM organisations WHERE name = '" + ui->comboBoxOrderRecipient->currentText() + "'");
+    qDebug() << query.lastError();
+    query.next();
+    QString debug = query.value(0).toString();
+    if(query.value(0).toString() == ui->comboBoxOrderRecipient->currentText()) {
+
+    }else{
+        query.exec("INSERT INTO organisations (name) VALUES ('" + ui->comboBoxOrderRecipient->currentText() + "')");
+        qDebug() << query.lastError();
+    }
+    baseDB.close();
+    importOrgsAndHumans();
+
+    tempOrd.sendType = ui->comboBoxTypeMoveOrder->currentText();
+    readyOrder.write(120, 1, "Порядок отправки: " + tempOrd.sendType + ". Срок прибытия караула с приемщиком __________________ от воинской части ____________");
+
+    readyOrder.write(122, 1, ui->comboBox->currentText());
+    readyOrder.write(122, 4, ui->comboBox_6->currentText());
+    readyOrder.write(122, 7, ui->comboBox_7->currentText());
+    tempOrd.chief = ui->comboBox->currentText() + " " + ui->comboBox_6->currentText() + " " + ui->comboBox_7->currentText();
+
+    readyOrder.write(125, 1, ui->comboBox_3->currentText());
+    readyOrder.write(125, 4, ui->comboBox_5->currentText());
+    readyOrder.write(125, 7, ui->comboBox_8->currentText());
+    tempOrd.oficier = ui->comboBox_3->currentText() + " " + ui->comboBox_5->currentText() + " " + ui->comboBox_8->currentText();
+
+    tempOrd.completion = 0;
+
+    tempOrd.typeProduct = "ДО"; //Тип наряда ДО или ВДО
+
+    //Очистка наряда
+    for(int i = 0; i < 100; ++i)
+    {
+        for(int j = 2; j < 13; ++j)
+        {
+            readyOrder.write(18 + i, j, "");
         }
-        Document readyOrder ("Order.xlsx"); //Создание файла Excel для наряда
+    }
 
-        order tempOrd; // Создание временного объекта "Наряд" для переноса в БД и регистрации в журнале
+    //Заполнение наряда
+    int delIndex = 18;
+    QVector <product> tempProdContain;
+    for(int i = 0; i < ui->tableWidgetMakeOrder->rowCount(); ++i)
+    {
+        product tempProd;
+        readyOrder.write(18 + i, 2, ui->tableWidgetMakeOrder->item(i, 0)->text());
+        tempProd.name = ui->tableWidgetMakeOrder->item(i, 0)->text();
 
-        readyOrder.write(6,1,"НАРЯД № " + ui->lineEditOutputNumberOrder->text());
-        tempOrd.name = "НАРЯД № " + ui->lineEditOutputNumberOrder->text();
-        tempOrd.numberOutput = ui->lineEditOutputNumberOrder->text();
+        readyOrder.write(18 + i, 3, ui->tableWidgetMakeOrder->item(i, 1)->text());
+        tempProd.nomNumber = ui->tableWidgetMakeOrder->item(i, 1)->text();
 
-        readyOrder.write(3, 12, "В подтверждение распоряжения ТЛГ № " + ui->telefonogramm->text() + " от " + ui->dateEdit_2->text() + " г.");
+        readyOrder.write(18 + i, 7, ui->tableWidgetMakeOrder->item(i, 2)->text());
+        tempProd.measure = ui->tableWidgetMakeOrder->item(i, 2)->text();
 
-        readyOrder.write(8, 11, ui->dateOutputCreateOrder->text());
-        tempOrd.dateOutput = ui->dateOutputCreateOrder->text();
+        readyOrder.write(18 + i, 6, ui->tableWidgetMakeOrder->item(i, 3)->text());
+        tempProd.category = ui->tableWidgetMakeOrder->item(i, 3)->text().toInt();
 
-        readyOrder.write(9, 11, ui->validOrderDate->text());
-        tempOrd.expirationDate = ui->validOrderDate->text();
+        readyOrder.write(18 + i, 8, ui->tableWidgetMakeOrder->item(i, 4)->text());
+        tempProd.count = ui->tableWidgetMakeOrder->item(i, 4)->text().toDouble();
 
-        readyOrder.write(14, 1, ui->orderTarget->currentText().left(2));
-        tempOrd.target = ui->orderTarget->currentText().left(2);
+        readyOrder.write(18 + i, 4, ui->tableWidgetMakeOrder->item(i, 6)->text());
+        tempProd.factoryNumber = ui->tableWidgetMakeOrder->item(i, 6)->text();
 
-        readyOrder.write(14, 2, ui->osnovanie->text() + " от " + ui->dateEditBase->text());
-        tempOrd.base = ui->osnovanie->text() + " от " + ui->dateEditBase->text();
+        readyOrder.write(18 + i, 5, ui->tableWidgetMakeOrder->item(i, 5)->text());
+        tempProd.releaseDate = ui->tableWidgetMakeOrder->item(i, 5)->text();
 
-        readyOrder.write(14, 5, ui->comboBoxOrderSender->currentText());
-        tempOrd.senders.push_back(ui->comboBoxOrderSender->currentText());
+        tempProdContain.push_back(tempProd);
+        delIndex++;
+    }
+    tempOrd.items = tempProdContain;
 
-        readyOrder.write(14, 7, ui->comboBoxOrderRecipient->currentText());
-        tempOrd.recipients.push_back(ui->comboBoxOrderRecipient->currentText());
 
-        //Добавление шаблона организации при формировании наряда с новым получателем
-        QSqlQuery query(baseDB);
+    //Заполнение количества наименований
+
+    QString numerals[10] = {"", "одно", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять"};
+    QString tens[10] = {"", "", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто"};
+    QString expectations[10] = {"десять", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"};
+    QString words[10] = {"наименований", "наименование", "наименования", "наименования", "наименования", "наименований", "наименований", "наименований", "наименований", "наименований"};
+    int rows = ui->tableWidgetMakeOrder->rowCount();
+    QString rowNumber;
+
+    if(rows < 10) rowNumber = "Итого: " + QString::number(rows) + " (" + numerals[rows] + ") " + words[rows];
+    if(rows >= 10 && rows < 20) rowNumber = "Итого: " + QString::number(rows) + " (" +  expectations[rows % 10] + ") " + words[0];
+    if(rows >= 20) rowNumber =  "Итого: " + QString::number(rows) + " (" + tens[rows / 10] + " " + numerals[rows % 10] + ") " + words[rows % 10];
+
+    readyOrder.write(118,1, rowNumber);
+    //Скрытие лишних строк
+    for(int i = ui->tableWidgetMakeOrder->rowCount() + 18; i < 118; ++i)
+    {
+        readyOrder.setRowHidden(i,true);
+    }
+
+    //Внесение изменений в БД
+    for(int i = 0; i < ui->tableWidgetMakeOrder->rowCount(); ++i)
+    {
+        QString name = ui->tableWidgetMakeOrder->item(i, 0)->text();
+        QString nomNumber = ui->tableWidgetMakeOrder->item(i, 1)->text();
+        double count = ui->tableWidgetMakeOrder->item(i, 4)->text().toDouble();
+        QString tempSchet = ui->comboBoxShetaOfSender->currentText();
+
         if(!baseDB.open()) {
             qDebug() << baseDB.lastError().text();
         }else{
             qDebug() << "It's OK!";
         }
 
-        query.exec("SELECT name FROM organisations WHERE name = '" + ui->comboBoxOrderRecipient->currentText() + "'");
+        QString queryText = "SELECT id FROM lic_scheta WHERE title = \"" + tempSchet + "\"";
+        qDebug() << query.lastError();
+        QSqlQuery query(senderDB);
+        query.exec(queryText);
         qDebug() << query.lastError();
         query.next();
-        QString debug = query.value(0).toString();
-        if(query.value(0).toString() == ui->comboBoxOrderRecipient->currentText()) {
+        QString id = query.value(0).toString();
 
-        }else{
-            query.exec("INSERT INTO organisations (name) VALUES ('" + ui->comboBoxOrderRecipient->currentText() + "')");
-            qDebug() << query.lastError();
-        }
-        baseDB.close();
-        importOrgsAndHumans();
-
-        tempOrd.sendType = ui->comboBoxTypeMoveOrder->currentText();
-        readyOrder.write(120, 1, "Порядок отправки: " + tempOrd.sendType + ". Срок прибытия караула с приемщиком __________________ от воинской части ____________");
-
-        readyOrder.write(122, 1, ui->comboBox->currentText());
-        readyOrder.write(122, 4, ui->comboBox_6->currentText());
-        readyOrder.write(122, 7, ui->comboBox_7->currentText());
-        tempOrd.chief = ui->comboBox->currentText() + " " + ui->comboBox_6->currentText() + " " + ui->comboBox_7->currentText();
-
-        readyOrder.write(125, 1, ui->comboBox_3->currentText());
-        readyOrder.write(125, 4, ui->comboBox_5->currentText());
-        readyOrder.write(125, 7, ui->comboBox_8->currentText());
-        tempOrd.oficier = ui->comboBox_3->currentText() + " " + ui->comboBox_5->currentText() + " " + ui->comboBox_8->currentText();
-
-        tempOrd.completion = 0;
-
-        tempOrd.typeProduct = "ДО"; //Тип наряда ДО или ВДО
-
-        //Очистка наряда
-        for(int i = 0; i < 100; ++i)
-        {
-            for(int j = 2; j < 13; ++j)
-            {
-                readyOrder.write(18 + i, j, "");
-            }
-        }
-
-        //Заполнение наряда
-        int delIndex = 18;
-        QVector <product> tempProdContain;
-        for(int i = 0; i < ui->tableWidgetMakeOrder->rowCount(); ++i)
+        for(int rowMake = 0; rowMake < ui->tableWidgetMakeOrder->rowCount(); ++rowMake)
         {
             product tempProd;
-            readyOrder.write(18 + i, 2, ui->tableWidgetMakeOrder->item(i, 0)->text());
-            tempProd.name = ui->tableWidgetMakeOrder->item(i, 0)->text();
+            tempProd.name = ui->tableWidgetMakeOrder->item(rowMake, 0)->text();
+            tempProd.nomNumber = ui->tableWidgetMakeOrder->item(rowMake, 1)->text();
+            tempProd.measure = ui->tableWidgetMakeOrder->item(rowMake, 2)->text();
+            tempProd.category = ui->tableWidgetMakeOrder->item(rowMake, 3)->text().toInt();
+            tempProd.count = ui->tableWidgetMakeOrder->item(rowMake, 4)->text().toDouble();
+            tempProd.releaseDate = ui->tableWidgetMakeOrder->item(rowMake, 5)->text();
+            tempProd.factoryNumber = ui->tableWidgetMakeOrder->item(rowMake, 6)->text();
 
-            readyOrder.write(18 + i, 3, ui->tableWidgetMakeOrder->item(i, 1)->text());
-            tempProd.nomNumber = ui->tableWidgetMakeOrder->item(i, 1)->text();
-
-            readyOrder.write(18 + i, 7, ui->tableWidgetMakeOrder->item(i, 2)->text());
-            tempProd.measure = ui->tableWidgetMakeOrder->item(i, 2)->text();
-
-            readyOrder.write(18 + i, 6, ui->tableWidgetMakeOrder->item(i, 3)->text());
-            tempProd.category = ui->tableWidgetMakeOrder->item(i, 3)->text().toInt();
-
-            readyOrder.write(18 + i, 8, ui->tableWidgetMakeOrder->item(i, 4)->text());
-            tempProd.count = ui->tableWidgetMakeOrder->item(i, 4)->text().toDouble();
-
-            readyOrder.write(18 + i, 4, ui->tableWidgetMakeOrder->item(i, 6)->text());
-            tempProd.factoryNumber = ui->tableWidgetMakeOrder->item(i, 6)->text();
-
-            readyOrder.write(18 + i, 5, ui->tableWidgetMakeOrder->item(i, 5)->text());
-            tempProd.releaseDate = ui->tableWidgetMakeOrder->item(i, 5)->text();
-
-            tempProdContain.push_back(tempProd);
-            delIndex++;
-        }
-        tempOrd.items = tempProdContain;
-
-
-        //Заполнение количества наименований
-
-        QString numerals[10] = {"", "одно", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять"};
-        QString tens[10] = {"", "", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто"};
-        QString expectations[10] = {"десять", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"};
-        QString words[10] = {"наименований", "наименование", "наименования", "наименования", "наименования", "наименований", "наименований", "наименований", "наименований", "наименований"};
-        int rows = ui->tableWidgetMakeOrder->rowCount();
-        QString rowNumber;
-
-        if(rows < 10) rowNumber = "Итого: " + QString::number(rows) + " (" + numerals[rows] + ") " + words[rows];
-        if(rows >= 10 && rows < 20) rowNumber = "Итого: " + QString::number(rows) + " (" +  expectations[rows % 10] + ") " + words[0];
-        if(rows >= 20) rowNumber =  "Итого: " + QString::number(rows) + " (" + tens[rows / 10] + " " + numerals[rows % 10] + ") " + words[rows % 10];
-
-        readyOrder.write(118,1, rowNumber);
-        //Скрытие лишних строк
-        for(int i = ui->tableWidgetMakeOrder->rowCount() + 18; i < 118; ++i)
-        {
-            readyOrder.setRowHidden(i,true);
-        }
-
-        //Внесение изменений в БД
-        for(int i = 0; i < ui->tableWidgetMakeOrder->rowCount(); ++i)
-        {
-            QString name = ui->tableWidgetMakeOrder->item(i, 0)->text();
-            QString nomNumber = ui->tableWidgetMakeOrder->item(i, 1)->text();
-            double count = ui->tableWidgetMakeOrder->item(i, 4)->text().toDouble();
-            QString tempSchet = ui->comboBoxShetaOfSender->currentText();
-
-            if(!baseDB.open()) {
-                qDebug() << baseDB.lastError().text();
-            }else{
-                qDebug() << "It's OK!";
-            }
-
-            QString queryText = "SELECT id FROM lic_scheta WHERE title = \"" + tempSchet + "\"";
-            qDebug() << query.lastError();
-            QSqlQuery query(senderDB);
-            query.exec(queryText);
-            qDebug() << query.lastError();
-            query.next();
-            QString id = query.value(0).toString();
-
-            for(int rowMake = 0; rowMake < ui->tableWidgetMakeOrder->rowCount(); ++rowMake)
+            //
+            bool flag = false; //Флаг для фиксации наличия имущества в лицевом счете (true -  имущество необходимо обновить, false - имущество необходимо создать и отнять количество)
+            for(int i = 0; i < orderDataATI[tempSchet].size(); ++i)
             {
-                product tempProd;
-                tempProd.name = ui->tableWidgetMakeOrder->item(rowMake, 0)->text();
-                tempProd.nomNumber = ui->tableWidgetMakeOrder->item(rowMake, 1)->text();
-                tempProd.measure = ui->tableWidgetMakeOrder->item(rowMake, 2)->text();
-                tempProd.category = ui->tableWidgetMakeOrder->item(rowMake, 3)->text().toInt();
-                tempProd.count = ui->tableWidgetMakeOrder->item(rowMake, 4)->text().toDouble();
-                tempProd.releaseDate = ui->tableWidgetMakeOrder->item(rowMake, 5)->text();
-                tempProd.factoryNumber = ui->tableWidgetMakeOrder->item(rowMake, 6)->text();
-
-                //
-                bool flag = false; //Флаг для фиксации наличия имущества в лицевом счете (true -  имущество необходимо обновить, false - имущество необходимо создать и отнять количество)
-                for(int i = 0; i < orderDataATI[tempSchet].size(); ++i)
+                if(orderDataATI[tempSchet][i].name == tempProd.name && orderDataATI[tempSchet][i].nomNumber == tempProd.nomNumber && orderDataATI[tempSchet][i].category == tempProd.category)
                 {
-                    if(orderDataATI[tempSchet][i].name == tempProd.name && orderDataATI[tempSchet][i].nomNumber == tempProd.nomNumber && orderDataATI[tempSchet][i].category == tempProd.category)
-                    {
-                        double count = orderDataATI[tempSchet][i].count;
-                        QString cnt = QString::number(count, 'g', 10);
-                        flag = true; // Имущество есть на лицевом счете
-                        queryText = "UPDATE product_ati SET count = " + cnt + " WHERE name = \"" + tempProd.name + "\" AND nom_numb = \"" + tempProd.nomNumber + "\" AND category = " + QString::number(tempProd.category);
-                        query.exec(queryText);
-                        qDebug() << query.lastError() << endl << queryText;
-                    }
+                    double count = orderDataATI[tempSchet][i].count;
+                    QString cnt = QString::number(count, 'g', 10);
+                    flag = true; // Имущество есть на лицевом счете
+                    queryText = "UPDATE product_ati SET count = " + cnt + " WHERE name = \"" + tempProd.name + "\" AND nom_numb = \"" + tempProd.nomNumber + "\" AND category = " + QString::number(tempProd.category);
+                    query.exec(queryText);
+                    qDebug() << query.lastError() << endl << queryText;
                 }
-
-                if(!flag) {
-                    QString Text = "INSERT INTO product_ati (name, nom_numb, measure, count, category, id_lic_scheta) VALUES (\"" + tempProd.name + "\", \"" + tempProd.nomNumber + "\", \"" + tempProd.measure + "\", \"" + QString::number(tempProd.count * (-1), 'g', 10) + "\", \"" + QString::number(tempProd.category) + "\", \"" + id + "\")";
-                    query.exec(Text);
-                    qDebug() << query.lastError() << endl << Text;
-                }
-
             }
 
-            baseDB.close();
+            if(!flag) {
+                QString Text = "INSERT INTO product_ati (name, nom_numb, measure, count, category, id_lic_scheta) VALUES (\"" + tempProd.name + "\", \"" + tempProd.nomNumber + "\", \"" + tempProd.measure + "\", \"" + QString::number(tempProd.count * (-1), 'g', 10) + "\", \"" + QString::number(tempProd.category) + "\", \"" + id + "\")";
+                query.exec(Text);
+                qDebug() << query.lastError() << endl << Text;
+            }
+
         }
 
-        //Сохранение и открытие наряда
-        QString fileName = "Order-" + ui->lineEditOutputNumberOrder->text() + ".xlsx";
-        fileName.replace("/", "-");
-        QString orderDir = QDir::currentPath() + "/CreatedOrders/" + fileName;
-        readyOrder.saveAs(orderDir);
-
-        QString fileNameForUrl = orderDir;
-        orderDir.replace("/", "\\");
-
-        QDesktopServices::openUrl(QUrl::fromLocalFile(fileNameForUrl));
-
-        //Наряд на основании распоряжения ВДО
-        if(ui->checkBoxVDO->isChecked() == true){
-            tempOrd.tlg = "ДО";
-        }
-
-        addOrderToDB(tempOrd); // Добавление в БД наряда
-
-        ordersFromBD();
-
-        on_pushButtonCancelMakeOrder_clicked(); //Очистка окон после создания распоряжения
+        baseDB.close();
     }
+
+    //Сохранение и открытие наряда
+    QString fileName = "Order-" + ui->lineEditOutputNumberOrder->text() + ".xlsx";
+    fileName.replace("/", "-");
+    QString orderDir = QDir::currentPath() + "/CreatedOrders/" + fileName;
+    readyOrder.saveAs(orderDir);
+
+    QString fileNameForUrl = orderDir;
+    orderDir.replace("/", "\\");
+
+    QDesktopServices::openUrl(QUrl::fromLocalFile(fileNameForUrl));
+
+    //Наряд на основании распоряжения ВДО
+    if(ui->checkBoxVDO->isChecked() == true){
+        tempOrd.tlg = "ДО";
+    }
+
+    addOrderToDB(tempOrd); // Добавление в БД наряда
+
+    ordersFromBD();
+
+    on_pushButtonCancelMakeOrder_clicked(); //Очистка окон после создания распоряжения
 }
 
 //Нажатие кнопки далее
