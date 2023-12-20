@@ -19,7 +19,191 @@
    </iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">QPushButton {
+  font: 12pt &quot;Roboto&quot;;
+  border-radius: 2px;
+  padding: 10px 24px;
+  font-weight: 500;
+}
+
+QPushButton:hover {
+  background-color: rgba(47, 120, 231, 0.20)
+}
+
+QMenuBar {
+    background-color:#ffffff;
+}
+
+QMenuBar::item {
+   padding: 8px 16px;
+    background: transparent;
+}
+
+
+QMenuBar::item:selected { /* when selected using mouse or keyboard */
+    background:  rgba(47, 120, 231, 0.20);
+}
+
+QMenuBar::item:pressed {
+    background: rgba(47, 120, 231, 0.20);
+}
+
+
+
+
+
+
+QMenu {
+  background-color: #F3F3F3;
+  padding: 2px;
+  box-shadow: 2px 2px 4px -2px rgba(0, 0, 0, 0.10);
+}
+
+QMenu::item {
+    padding: 8px 16px;
+  
+}
+
+QMenu::item:selected {
+  background:  rgba(47, 120, 231, 0.20);
+  
+}
+
+QMenu::icon { /* appearance of a 'checked' icon */
+    background: transparent;
+    margin-left: 12px;
+  margin-right: 12px;
+}
+
+
+
+
+QLineEdit {
+  font: 12pt &quot;Roboto&quot;;
+  background: white;
+  padding: 0px 12px;
+  border-radius: 2px;
+  border: 1px solid rgba(204, 204, 204, 1)
+}
+
+QLineEdit:hover {
+   border: 1px solid rgba(47, 120, 231, 1);
+  background: white;
+}
+
+QLineEdit:focus {
+  border: 1px solid rgba(47, 120, 231, 1);
+  background: white;
+}
+
+
+
+
+QLabel {
+  font: 12pt &quot;Roboto&quot;;
+}
+
+QTabWidget {
+  font: 12pt &quot;Roboto&quot;;
+}
+
+QComboBox {
+  font:12pt &quot;Roboto&quot;;
+  background: white;
+  padding: 0px 12px;
+  border-radius: 2px;
+  border: 1px solid rgba(204, 204, 204, 1);
+}
+
+QComboBox:hover {
+    border: 1px solid rgba(47, 120, 231, 1);
+  background: white;
+}
+
+QComboBox:focus {
+  border: 1px solid rgba(47, 120, 231, 1);
+  background: white;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+ 	margin-right: 8px;
+    width: 16px;
+    border-left-color: darkgray;
+    border-left-style: solid;
+    border-bottom-right-radius: 2px;
+}
+
+QComboBox::down-arrow {
+	image: url(:/new/icons/icons/mdi_chevron-down.png);
+}
+
+QComboBox::down-arrow:on { 
+    top: 1px;
+}
+
+QComboBox QAbstractItemView {
+  border: 1px solid #D5D5D5;
+  background:  #FFFFFF;
+  selection-background-color: rgba(47, 120, 231, 1);
+}
+
+QDateEdit {
+  font:12pt &quot;Roboto&quot;;
+  background: White;
+  padding: 0px 12px;
+  border-radius: 2px;
+   border: 1px solid rgba(204, 204, 204, 1);
+}
+
+QDateEditx:hover {
+    border: 1px solid rgba(47, 120, 231, 1);
+  background: White;
+}
+
+QDateEdit:focus {
+  border: 1px solid rgba(47, 120, 231, 1);
+  background: White;
+}
+
+QDateEdit::drop-down {
+  subcontrol-origin: padding;
+    subcontrol-position: top right;
+  margin-right: 16px;
+  border: 1px solid transparent;
+}
+
+  QDateEdit::down-arrow {
+	image: url(:/icons/svg/mdi_chevron-down.svg);
+}
+
+QComboBox::down-arrow:on { 
+    top: 1px;
+}
+
+QTabWidget::pane { /* The tab widget frame */
+    border: 1px solid rgba(213, 213, 213, 1);
+  background: White;
+
+}
+
+/* Style the tab using the tab sub-control. Note that
+    it reads QTabBar _not_ QTabWidget */
+QTabBar::tab {
+    background: transparent;
+    border-top: 1px solid rgba(191, 191, 191, 1);
+  border-left: 1px solid rgba(191, 191, 191, 1);
+  border-right: 1px solid rgba(191, 191, 191, 1);
+    border-bottom-color: #C2C7CB; /* same as the pane color */
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    padding: 8px 12px;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+    background: rgba(255, 255, 255, 1);
+}</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <property name="font">
@@ -69,14 +253,18 @@
       </property>
       <property name="font">
        <font>
+        <family>Roboto</family>
         <pointsize>12</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>6</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -758,392 +946,383 @@
         <string>Наличие</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_26">
+        <property name="spacing">
+         <number>24</number>
+        </property>
+        <property name="leftMargin">
+         <number>165</number>
+        </property>
+        <property name="topMargin">
+         <number>24</number>
+        </property>
+        <property name="rightMargin">
+         <number>165</number>
+        </property>
+        <property name="bottomMargin">
+         <number>24</number>
+        </property>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_65">
+          <property name="spacing">
+           <number>24</number>
+          </property>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_109">
-            <item>
-             <widget class="QLabel" name="label_92">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>24</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Воинская часть:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QComboBox" name="selectVCh">
-              <property name="minimumSize">
-               <size>
-                <width>500</width>
-                <height>38</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>300</width>
-                <height>16777215</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+           <widget class="QFrame" name="">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
             </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>10</width>
-              <height>10</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_23">
-            <item>
-             <widget class="QLabel" name="label">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>24</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Тип имущества :</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QComboBox" name="comboBoxTypeProduct">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>300</width>
-                <height>38</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>300</width>
-                <height>16777215</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <item>
-               <property name="text">
-                <string>АТИ</string>
+            <layout class="QVBoxLayout" name="verticalLayout_25">
+             <property name="spacing">
+              <number>4</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_3">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
                </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>ППТН</string>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>24</height>
+                </size>
                </property>
-              </item>
-             </widget>
-            </item>
-           </layout>
+               <property name="font">
+                <font>
+                 <family>Roboto</family>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Лицевой счет:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="comboBoxScheta">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>38</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Roboto</family>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                </font>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
           </item>
           <item>
-           <spacer name="horizontalSpacer_49">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+           <widget class="QFrame" name="">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
             </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_17">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_25">
-            <item>
-             <widget class="QLabel" name="label_3">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>24</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Лицевой счет:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QComboBox" name="comboBoxScheta">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>500</width>
-                <height>38</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>300</width>
-                <height>300</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_4">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>10</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
+            <layout class="QVBoxLayout" name="verticalLayout_109">
+             <property name="spacing">
+              <number>4</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_92">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>24</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Roboto</family>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Воинская часть:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="selectVCh">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>38</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Roboto</family>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                </font>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_24">
-            <item>
-             <widget class="QLabel" name="label_2">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>24</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Категория (I - V):</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QComboBox" name="category_comboBox">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>300</width>
-                <height>38</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>300</width>
-                <height>16777215</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+           <widget class="QFrame" name="">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
             </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Expanding</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <spacer name="verticalSpacer_6">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_14">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_22">
-            <item>
-             <widget class="QLabel" name="labelFindInSklad">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>24</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>16</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Поиск материальных ценностей:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_15">
-              <item>
-               <widget class="QLineEdit" name="lineEditFindInSklad">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>38</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>12</pointsize>
-                 </font>
-                </property>
-                <property name="placeholderText">
-                 <string>Введите номенклатурный номер или наименование имущества</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="findInAtiInSkladButton">
-                <property name="minimumSize">
-                 <size>
-                  <width>160</width>
-                  <height>38</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>38</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>MS Shell Dlg 2</family>
-                  <pointsize>12</pointsize>
-                  <weight>9</weight>
-                  <italic>false</italic>
-                  <bold>false</bold>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(34, 122, 255);
-color: rgb(255, 255, 255);</string>
-                </property>
+            <layout class="QVBoxLayout" name="verticalLayout_23">
+             <property name="spacing">
+              <number>4</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>24</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Roboto</family>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Тип имущества :</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="comboBoxTypeProduct">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>38</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Roboto</family>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <item>
                 <property name="text">
-                 <string>Найти</string>
+                 <string>АТИ</string>
                 </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-           </layout>
+               </item>
+               <item>
+                <property name="text">
+                 <string>ППТН</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_24">
+             <property name="spacing">
+              <number>4</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_2">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>24</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Roboto</family>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Категория (I - V):</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="category_comboBox">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>300</width>
+                 <height>38</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Roboto</family>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                </font>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
           </item>
          </layout>
         </item>
         <item>
-         <spacer name="verticalSpacer_8">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
+         <layout class="QVBoxLayout" name="verticalLayout_22">
+          <item>
+           <widget class="QLineEdit" name="lineEditFindInSklad">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>38</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Roboto</family>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="placeholderText">
+             <string>Введите номенклатурный номер или наименование имущества</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="QTableView" name="tableAccount">
@@ -1159,8 +1338,26 @@ color: rgb(255, 255, 255);</string>
         <string>Справочник АТИ</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_6">
+        <property name="spacing">
+         <number>24</number>
+        </property>
+        <property name="leftMargin">
+         <number>165</number>
+        </property>
+        <property name="topMargin">
+         <number>24</number>
+        </property>
+        <property name="rightMargin">
+         <number>165</number>
+        </property>
+        <property name="bottomMargin">
+         <number>24</number>
+        </property>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_5">
+          <property name="spacing">
+           <number>4</number>
+          </property>
           <item>
            <widget class="QLabel" name="selectGoupAtiLabel">
             <property name="minimumSize">
@@ -1177,7 +1374,11 @@ color: rgb(255, 255, 255);</string>
             </property>
             <property name="font">
              <font>
+              <family>Roboto</family>
               <pointsize>12</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
              </font>
             </property>
             <property name="text">
@@ -1186,645 +1387,621 @@ color: rgb(255, 255, 255);</string>
            </widget>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout">
+           <widget class="QComboBox" name="comboBoxGroup_spr_ati">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>38</height>
+             </size>
+            </property>
+            <property name="sizeIncrement">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Roboto</family>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::DefaultContextMenu</enum>
+            </property>
+            <property name="inputMethodHints">
+             <set>Qt::ImhHiddenText</set>
+            </property>
+            <property name="editable">
+             <bool>false</bool>
+            </property>
+            <property name="insertPolicy">
+             <enum>QComboBox::InsertAlphabetically</enum>
+            </property>
             <item>
-             <widget class="QComboBox" name="comboBoxGroup_spr_ati">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>38</height>
-               </size>
-              </property>
-              <property name="sizeIncrement">
-               <size>
-                <width>0</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="contextMenuPolicy">
-               <enum>Qt::DefaultContextMenu</enum>
-              </property>
-              <property name="inputMethodHints">
-               <set>Qt::ImhHiddenText</set>
-              </property>
-              <property name="editable">
-               <bool>false</bool>
-              </property>
-              <property name="insertPolicy">
-               <enum>QComboBox::InsertAlphabetically</enum>
-              </property>
-              <item>
-               <property name="text">
-                <string>102 | Подвесные топливные баки</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>104 | Наземное оборудование и инструмент для самолетов</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>105 | Наземное оборудование и инструмент для самолетов</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>106 | Наземное оборудование и инструмент для самолетов</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>107 | Наземное оборудование и инструмент для вертолетов</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>108 | Наземное оборудование и инструмент общий для всех типов ЛА (верт.)</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>110 | Ведомость потребности и обеспеченности авиадвигателями</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>121 | Агрегаты летательных аппаратов</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>122 | Обогреватели, радиаторы,турбохолодильники, клапаны, регуляторы ре</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>123 | Фильтры и фильтрующие элементы к ним</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>127 | Авиаколеса</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>128 | Агрегаты управления тормозами колес и запчасти к колесам</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>129 | Авиарезина</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>137 | Воздушные винты самолетов (вертолетов) и лопасти</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>139 | Агрегаты зажигания авиационных двигателей, выключателей стартеров</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>141 | Ремонтно-монтажный инструмент</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>145 | Нормализованные детали к летательным аппаратам и их агрегатам</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>151 | Групповые комплекты для капитального ремонта агрегатов летательных аппаратов и двигателей</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>152 | Групповые комплекты для капитального ремонта агрегатов летательных аппаратов и двигателей</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>153 | Групповые комплекты для капитального ремонта фильтров</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>157 | Групповые комплекты для капитального ремонта авивколес, агрегатов управления тормозами колес и инерционных датчиков</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>158 | Групповые комплекты для капитального ремонта авивколес, агрегатов управления тормозами колес и инерционных датчиков</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>162 | Групповые комплекты для капитального ремонта агрегатов летательных аппаратов и двигателей</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>165 | Групповые комплекты к воздушным винтам</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>167 | Групповые комплекты к агрегатам зажигания</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>311 | Запчасти к изд. &quot;76&quot;,&quot;94&quot;,&quot;94Р&quot;,&quot;95&quot;,&quot;15&quot;,&quot;50&quot;,&quot;75&quot;</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>313 | Запчасти к изд.&quot;2М&quot;(23-11),&quot;2БМ&quot;(32-25),&quot;2БН&quot;(32-24),&quot;3&quot;(23-12),&quot;</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>314 | Запчасти к изд. &quot;01&quot;</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>315 | Запчасти к изд. &quot;02&quot;,&quot;84&quot;,&quot;22&quot;,&quot;39&quot;</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>317 | Запчасти к изд. 9-12</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>320 | Запчасти к изд. &quot;66&quot;,&quot;68&quot;,&quot;69&quot;</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>322 | Запчасти к изд. &quot;Т-8&quot;</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>327 | Запчасти к &quot;Т-10&quot;</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>331 | Запчасти изд. &quot;40&quot;</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>338 | Запчасти к изд. &quot;Л-29&quot;</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>345 | Запчасти к изд. &quot;Л-39&quot;</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>356 | Запчасти к изд. &quot;Т-6&quot;</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>357 | Запчасти к изд. &quot;С-32&quot;,&quot;С-32М&quot;,&quot;С-32М2&quot;,&quot;С-32МК&quot;,&quot;С-52&quot;,&quot;С-52У&quot;</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>365 | Запасные части изд. &quot;28Б&quot;,&quot;Л&quot;,&quot;И&quot;,&quot;У&quot;</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>390 | Запчасти к изд. &quot;143&quot;</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>403 | Запчасти к вертолету В-2</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>407 | Запчасти к изд. МИ-8, МИ-8МТ, металлич. и фторопластовые рукава</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>409 | Запчасти к изд. МИ-6, МИ-10</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>415 | Запчасти к изд. &quot;242&quot;,&quot;245&quot;,&quot;246&quot;,&quot;249&quot;</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>416 | Агрегаты трансмиссии, запчасти к изд.&quot;90&quot;</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>421 | Запчасти к изд. АН-12</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>433 | Запчасти к изд. АН-2</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>436 | Запчасти к самолету ИЛ-14</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>437 | Запчасти к самолету ИЛ-18</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>438 | Запчасти к изд. 76</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>440 | Запчасти к изд.ТУ-134Ш, ТУ-134, ТУ-134А</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>442 | Запчасти к АН-72</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>446 | Запчасти к АН-24, АН-26</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>500 | Запчасти к изд. &quot;500&quot;</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>600 | Самолетное радиоэлектронное оборудование (РЭО) с дополнением</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>601 | Электротехнические изделия</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>602 | Запчасти к самолетному РЭО (агрегаты и блоки) с дополнением</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>603 | Электротехнические изделия</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>604 | Запчасти к самолетному РЭО</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>605 | Мощные полупроводниковые приборы</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>610 | Аэронавигационное оборудование ЛА (самолетов, вертолетов)</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>611 | Электровакуумные приборы (ЭВП)</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>612 | Полупроводниковые приборы (ППП)</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>615 | Электрооборудование самолетов (вертолетов) с дополнением</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>616 | Контрольно-поверочная апаратура по электрооборудованию</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>620 | Самолетное противопожарное оборудование</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>625 | Запасные части к аэронавигационному оборудованию и установкам</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>626 | Табельные техн. сред. контроля и обучения и др.фотолаб. оборудов.</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>630 | Запасные части электрооборудования самолетов (вертолетов)</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>651 | Приборы СВЧ</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>652 | Приборы СВЧ</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>653 | Приборы СВЧ</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>654 | Приборы СВЧ</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>655 | Приборы СВЧ</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>663 | Запчасти к наземным средствам связи и светотехническому имуществу</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>664 | Штатно-табельные средства связи и РТО (номенклатура ВВС)</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>665 | Запчасти к радиосредствам (блоки и узлы)</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>666 | Штатно-табельные средства связи общего применения (НВС)</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>668 | Табельное метеорологическое оборудование</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>670 | Запчасти к метеорологическим приборам (расходные материалы к метеоимуществу</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>672 | Источники питания</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>673 | Телефонно-телеграфная аппаратура, ЗИП и продукция промышленных ср.</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>677 | Светотехническое имущество с дополнением</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>679 | Кабельные изделия</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>681 | Подвижные комплексы контроля</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>682 | Штатно-табельное фотооборудование с дополнением (самолетное и наземное)</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>683 | Авиационные тренажеры и ЗИПы к ним</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>684 | Запчасти к штатно-табельному фотооборудованию с дополнением</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>686 | Расходные аэрофотоматериалы с дополнением</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>687 | Самолетная (сервисная) контрольно-поверочная апаратура</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>688 | Запчасти к контрольно-поверочной аппаратуре (ЗИП)</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>689 | КПА к аэронавигационному оборудованию</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>690 | Реле слаботочные</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>692 | Радиоизмерительные приборы и образцовые средства измерений и поверки</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>693 | Образцовые средства измерений и поверочные установки</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>694 | Изделия квантовой электроники</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>695 | Электро-измерительные приборы (фондируемые)</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>696 | Магнитные носители</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>725 | Электроугольные изделия</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>730 | Предохранители</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>732 | Микросхемы интегральные спец. назначения</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>735 | Электролампы</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>761 | ЛТО, высотное и штурманское снаряжение</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>762 | ЛТО, высотное и штурманское снаряжение.</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>763 | ПДИ, спасательные средства и носимые аварийные запасы</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>764 | Запчасти к парашютно-десантному имуществу</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>765 | Кислородное самолетное имущество</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>767 | Палатки, тенты, АСИ</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>771 | Самолетные чехлы</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>772 | Чехлы герметичные для авиационных двигателей</string>
-               </property>
-              </item>
-             </widget>
+             <property name="text">
+              <string>102 | Подвесные топливные баки</string>
+             </property>
             </item>
-           </layout>
+            <item>
+             <property name="text">
+              <string>104 | Наземное оборудование и инструмент для самолетов</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>105 | Наземное оборудование и инструмент для самолетов</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>106 | Наземное оборудование и инструмент для самолетов</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>107 | Наземное оборудование и инструмент для вертолетов</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>108 | Наземное оборудование и инструмент общий для всех типов ЛА (верт.)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>110 | Ведомость потребности и обеспеченности авиадвигателями</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>121 | Агрегаты летательных аппаратов</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>122 | Обогреватели, радиаторы,турбохолодильники, клапаны, регуляторы ре</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>123 | Фильтры и фильтрующие элементы к ним</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>127 | Авиаколеса</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>128 | Агрегаты управления тормозами колес и запчасти к колесам</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>129 | Авиарезина</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>137 | Воздушные винты самолетов (вертолетов) и лопасти</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>139 | Агрегаты зажигания авиационных двигателей, выключателей стартеров</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>141 | Ремонтно-монтажный инструмент</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>145 | Нормализованные детали к летательным аппаратам и их агрегатам</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>151 | Групповые комплекты для капитального ремонта агрегатов летательных аппаратов и двигателей</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>152 | Групповые комплекты для капитального ремонта агрегатов летательных аппаратов и двигателей</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>153 | Групповые комплекты для капитального ремонта фильтров</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>157 | Групповые комплекты для капитального ремонта авивколес, агрегатов управления тормозами колес и инерционных датчиков</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>158 | Групповые комплекты для капитального ремонта авивколес, агрегатов управления тормозами колес и инерционных датчиков</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>162 | Групповые комплекты для капитального ремонта агрегатов летательных аппаратов и двигателей</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>165 | Групповые комплекты к воздушным винтам</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>167 | Групповые комплекты к агрегатам зажигания</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>311 | Запчасти к изд. &quot;76&quot;,&quot;94&quot;,&quot;94Р&quot;,&quot;95&quot;,&quot;15&quot;,&quot;50&quot;,&quot;75&quot;</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>313 | Запчасти к изд.&quot;2М&quot;(23-11),&quot;2БМ&quot;(32-25),&quot;2БН&quot;(32-24),&quot;3&quot;(23-12),&quot;</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>314 | Запчасти к изд. &quot;01&quot;</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>315 | Запчасти к изд. &quot;02&quot;,&quot;84&quot;,&quot;22&quot;,&quot;39&quot;</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>317 | Запчасти к изд. 9-12</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>320 | Запчасти к изд. &quot;66&quot;,&quot;68&quot;,&quot;69&quot;</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>322 | Запчасти к изд. &quot;Т-8&quot;</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>327 | Запчасти к &quot;Т-10&quot;</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>331 | Запчасти изд. &quot;40&quot;</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>338 | Запчасти к изд. &quot;Л-29&quot;</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>345 | Запчасти к изд. &quot;Л-39&quot;</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>356 | Запчасти к изд. &quot;Т-6&quot;</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>357 | Запчасти к изд. &quot;С-32&quot;,&quot;С-32М&quot;,&quot;С-32М2&quot;,&quot;С-32МК&quot;,&quot;С-52&quot;,&quot;С-52У&quot;</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>365 | Запасные части изд. &quot;28Б&quot;,&quot;Л&quot;,&quot;И&quot;,&quot;У&quot;</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>390 | Запчасти к изд. &quot;143&quot;</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>403 | Запчасти к вертолету В-2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>407 | Запчасти к изд. МИ-8, МИ-8МТ, металлич. и фторопластовые рукава</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>409 | Запчасти к изд. МИ-6, МИ-10</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>415 | Запчасти к изд. &quot;242&quot;,&quot;245&quot;,&quot;246&quot;,&quot;249&quot;</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>416 | Агрегаты трансмиссии, запчасти к изд.&quot;90&quot;</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>421 | Запчасти к изд. АН-12</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>433 | Запчасти к изд. АН-2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>436 | Запчасти к самолету ИЛ-14</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>437 | Запчасти к самолету ИЛ-18</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>438 | Запчасти к изд. 76</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>440 | Запчасти к изд.ТУ-134Ш, ТУ-134, ТУ-134А</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>442 | Запчасти к АН-72</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>446 | Запчасти к АН-24, АН-26</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>500 | Запчасти к изд. &quot;500&quot;</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>600 | Самолетное радиоэлектронное оборудование (РЭО) с дополнением</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>601 | Электротехнические изделия</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>602 | Запчасти к самолетному РЭО (агрегаты и блоки) с дополнением</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>603 | Электротехнические изделия</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>604 | Запчасти к самолетному РЭО</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>605 | Мощные полупроводниковые приборы</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>610 | Аэронавигационное оборудование ЛА (самолетов, вертолетов)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>611 | Электровакуумные приборы (ЭВП)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>612 | Полупроводниковые приборы (ППП)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>615 | Электрооборудование самолетов (вертолетов) с дополнением</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>616 | Контрольно-поверочная апаратура по электрооборудованию</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>620 | Самолетное противопожарное оборудование</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>625 | Запасные части к аэронавигационному оборудованию и установкам</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>626 | Табельные техн. сред. контроля и обучения и др.фотолаб. оборудов.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>630 | Запасные части электрооборудования самолетов (вертолетов)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>651 | Приборы СВЧ</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>652 | Приборы СВЧ</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>653 | Приборы СВЧ</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>654 | Приборы СВЧ</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>655 | Приборы СВЧ</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>663 | Запчасти к наземным средствам связи и светотехническому имуществу</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>664 | Штатно-табельные средства связи и РТО (номенклатура ВВС)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>665 | Запчасти к радиосредствам (блоки и узлы)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>666 | Штатно-табельные средства связи общего применения (НВС)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>668 | Табельное метеорологическое оборудование</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>670 | Запчасти к метеорологическим приборам (расходные материалы к метеоимуществу</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>672 | Источники питания</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>673 | Телефонно-телеграфная аппаратура, ЗИП и продукция промышленных ср.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>677 | Светотехническое имущество с дополнением</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>679 | Кабельные изделия</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>681 | Подвижные комплексы контроля</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>682 | Штатно-табельное фотооборудование с дополнением (самолетное и наземное)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>683 | Авиационные тренажеры и ЗИПы к ним</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>684 | Запчасти к штатно-табельному фотооборудованию с дополнением</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>686 | Расходные аэрофотоматериалы с дополнением</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>687 | Самолетная (сервисная) контрольно-поверочная апаратура</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>688 | Запчасти к контрольно-поверочной аппаратуре (ЗИП)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>689 | КПА к аэронавигационному оборудованию</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>690 | Реле слаботочные</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>692 | Радиоизмерительные приборы и образцовые средства измерений и поверки</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>693 | Образцовые средства измерений и поверочные установки</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>694 | Изделия квантовой электроники</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>695 | Электро-измерительные приборы (фондируемые)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>696 | Магнитные носители</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>725 | Электроугольные изделия</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>730 | Предохранители</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>732 | Микросхемы интегральные спец. назначения</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>735 | Электролампы</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>761 | ЛТО, высотное и штурманское снаряжение</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>762 | ЛТО, высотное и штурманское снаряжение.</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>763 | ПДИ, спасательные средства и носимые аварийные запасы</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>764 | Запчасти к парашютно-десантному имуществу</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>765 | Кислородное самолетное имущество</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>767 | Палатки, тенты, АСИ</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>771 | Самолетные чехлы</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>772 | Чехлы герметичные для авиационных двигателей</string>
+             </property>
+            </item>
+           </widget>
           </item>
          </layout>
         </item>
         <item>
-         <spacer name="verticalSpacer">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
+         <widget class="QLineEdit" name="lineEdit_sprAti">
+          <property name="minimumSize">
            <size>
-            <width>20</width>
-            <height>10</height>
+            <width>0</width>
+            <height>38</height>
            </size>
           </property>
-         </spacer>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_5">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_3">
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_2">
-              <item>
-               <widget class="QLineEdit" name="lineEdit_sprAti">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>38</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>12</pointsize>
-                 </font>
-                </property>
-                <property name="placeholderText">
-                 <string>Введите наименование или номенклатурный номер</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </item>
-         </layout>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>12</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="placeholderText">
+           <string>Введите наименование или номенклатурный номер</string>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QTableView" name="spr_ati_tableView">
@@ -1878,8 +2055,26 @@ color: rgb(255, 255, 255);</string>
         <string>Справочник ППТН</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_9">
+        <property name="spacing">
+         <number>24</number>
+        </property>
+        <property name="leftMargin">
+         <number>165</number>
+        </property>
+        <property name="topMargin">
+         <number>24</number>
+        </property>
+        <property name="rightMargin">
+         <number>165</number>
+        </property>
+        <property name="bottomMargin">
+         <number>24</number>
+        </property>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_10">
+          <property name="spacing">
+           <number>4</number>
+          </property>
           <item>
            <widget class="QLabel" name="selectGroupPptnLabel">
             <property name="minimumSize">
@@ -1896,7 +2091,11 @@ color: rgb(255, 255, 255);</string>
             </property>
             <property name="font">
              <font>
+              <family>Roboto</family>
               <pointsize>12</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
              </font>
             </property>
             <property name="text">
@@ -1905,227 +2104,61 @@ color: rgb(255, 255, 255);</string>
            </widget>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_3">
-            <item>
-             <widget class="QComboBox" name="comboBoxGroupPptn">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>38</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="findGroupPptnButton">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>160</width>
-                <height>38</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>38</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <family>MS Shell Dlg 2</family>
-                <pointsize>12</pointsize>
-                <weight>9</weight>
-                <italic>false</italic>
-                <bold>false</bold>
-               </font>
-              </property>
-              <property name="layoutDirection">
-               <enum>Qt::LeftToRight</enum>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(34, 122, 255);
-color: rgb(255, 255, 255);</string>
-              </property>
-              <property name="text">
-               <string>Показать группу</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
+           <widget class="QComboBox" name="comboBoxGroupPptn">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>38</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Roboto</family>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
         <item>
-         <spacer name="verticalSpacer_2">
-          <property name="font">
-           <font>
-            <pointsize>12</pointsize>
-           </font>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <property name="spacing">
+           <number>4</number>
           </property>
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>10</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_6">
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_8">
-            <item>
-             <widget class="QLabel" name="findTypePptnLabel">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>24</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>16</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Выберите критерий поиска:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QComboBox" name="comboBoxfindTypePptn">
-              <property name="minimumSize">
-               <size>
-                <width>300</width>
-                <height>38</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <item>
-               <property name="text">
-                <string>По номенклатурному номеру</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>По наименованию</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_7">
-            <item>
-             <widget class="QLabel" name="labelSprPptn">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>24</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>16</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Введите номенклатурный номер:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_4">
-              <item>
-               <widget class="QLineEdit" name="lineEdit_sprPptn">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>38</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>12</pointsize>
-                 </font>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="findInPptnButton">
-                <property name="minimumSize">
-                 <size>
-                  <width>160</width>
-                  <height>38</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>38</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>MS Shell Dlg 2</family>
-                  <pointsize>12</pointsize>
-                  <weight>9</weight>
-                  <italic>false</italic>
-                  <bold>false</bold>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(34, 122, 255);
-color: rgb(255, 255, 255);</string>
-                </property>
-                <property name="text">
-                 <string>Найти</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-           </layout>
+           <widget class="QLineEdit" name="lineEdit_sprPptn">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>38</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Roboto</family>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="inputMask">
+             <string/>
+            </property>
+            <property name="placeholderText">
+             <string>Введите наименование или номенклатурный номер</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -2178,7 +2211,11 @@ color: rgb(255, 255, 255);</string>
             </property>
             <property name="font">
              <font>
+              <family>Roboto</family>
               <pointsize>12</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
              </font>
             </property>
             <property name="text">
@@ -2198,7 +2235,11 @@ color: rgb(255, 255, 255);</string>
               </property>
               <property name="font">
                <font>
+                <family>Roboto</family>
                 <pointsize>12</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
                </font>
               </property>
              </widget>
@@ -2271,7 +2312,11 @@ color: rgb(255, 255, 255);</string>
               </property>
               <property name="font">
                <font>
+                <family>Roboto</family>
                 <pointsize>12</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
                </font>
               </property>
               <property name="text">
@@ -2295,7 +2340,11 @@ color: rgb(255, 255, 255);</string>
               </property>
               <property name="font">
                <font>
+                <family>Roboto</family>
                 <pointsize>12</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
                </font>
               </property>
              </widget>
@@ -2320,7 +2369,11 @@ color: rgb(255, 255, 255);</string>
               </property>
               <property name="font">
                <font>
+                <family>Roboto</family>
                 <pointsize>12</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
                </font>
               </property>
               <property name="text">
@@ -2347,7 +2400,11 @@ color: rgb(255, 255, 255);</string>
               </property>
               <property name="font">
                <font>
+                <family>Roboto</family>
                 <pointsize>12</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
                </font>
               </property>
               <item>
@@ -2394,7 +2451,11 @@ color: rgb(255, 255, 255);</string>
           </property>
           <property name="font">
            <font>
+            <family>Roboto</family>
             <pointsize>12</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="text">
@@ -2572,7 +2633,11 @@ color: rgb(255, 255, 255);</string>
          <widget class="QTabWidget" name="tabWidgetPrihod">
           <property name="font">
            <font>
+            <family>Roboto</family>
             <pointsize>12</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="currentIndex">
@@ -2600,7 +2665,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="text">
@@ -2624,7 +2693,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="showGroupSeparator" stdset="0">
@@ -2675,7 +2748,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="calendarPopup">
@@ -2725,7 +2802,11 @@ color: rgb(255, 255, 255);</string>
                  <widget class="QLabel" name="labelTypeMovePrihod">
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="text">
@@ -2749,7 +2830,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <item>
@@ -2777,7 +2862,11 @@ color: rgb(255, 255, 255);</string>
                  <widget class="QLabel" name="labelTypeProductPrihod">
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="text">
@@ -2801,7 +2890,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <item>
@@ -2829,7 +2922,11 @@ color: rgb(255, 255, 255);</string>
                  <widget class="QLabel" name="labelSenders">
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="text">
@@ -2853,7 +2950,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <item>
@@ -2906,7 +3007,11 @@ color: rgb(255, 255, 255);</string>
                <widget class="QLabel" name="labelFinderPrihod">
                 <property name="font">
                  <font>
+                  <family>Roboto</family>
                   <pointsize>12</pointsize>
+                  <weight>50</weight>
+                  <italic>false</italic>
+                  <bold>false</bold>
                  </font>
                 </property>
                 <property name="text">
@@ -2932,7 +3037,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="inputMethodHints">
@@ -3065,7 +3174,11 @@ color: rgb(255, 255, 255);</string>
               </property>
               <property name="font">
                <font>
+                <family>Roboto</family>
                 <pointsize>12</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
                </font>
               </property>
               <property name="currentIndex">
@@ -3098,7 +3211,11 @@ color: rgb(255, 255, 255);</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -3122,7 +3239,11 @@ color: rgb(255, 255, 255);</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -3146,7 +3267,11 @@ color: rgb(255, 255, 255);</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -3170,7 +3295,11 @@ color: rgb(255, 255, 255);</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -3198,7 +3327,11 @@ color: rgb(255, 255, 255);</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <item>
@@ -3234,7 +3367,11 @@ color: rgb(255, 255, 255);</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="editable">
@@ -3258,7 +3395,11 @@ color: rgb(255, 255, 255);</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <item>
@@ -3284,7 +3425,11 @@ color: rgb(255, 255, 255);</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="editable">
@@ -3406,7 +3551,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -3430,7 +3579,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -3454,7 +3607,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -3482,7 +3639,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                        </widget>
@@ -3503,7 +3664,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                        </widget>
@@ -3524,7 +3689,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                        </widget>
@@ -3549,7 +3718,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -3575,7 +3748,11 @@ color: rgb(34, 122, 255)</string>
                           </property>
                           <property name="font">
                            <font>
+                            <family>Roboto</family>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
+                            <italic>false</italic>
+                            <bold>false</bold>
                            </font>
                           </property>
                           <property name="text">
@@ -3599,7 +3776,11 @@ color: rgb(34, 122, 255)</string>
                           </property>
                           <property name="font">
                            <font>
+                            <family>Roboto</family>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
+                            <italic>false</italic>
+                            <bold>false</bold>
                            </font>
                           </property>
                           <property name="calendarPopup">
@@ -3627,7 +3808,11 @@ color: rgb(34, 122, 255)</string>
                           </property>
                           <property name="font">
                            <font>
+                            <family>Roboto</family>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
+                            <italic>false</italic>
+                            <bold>false</bold>
                            </font>
                           </property>
                           <property name="text">
@@ -3651,7 +3836,11 @@ color: rgb(34, 122, 255)</string>
                           </property>
                           <property name="font">
                            <font>
+                            <family>Roboto</family>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
+                            <italic>false</italic>
+                            <bold>false</bold>
                            </font>
                           </property>
                           <property name="calendarPopup">
@@ -4158,7 +4347,11 @@ color: rgb(255, 255, 255);</string>
           </property>
           <property name="font">
            <font>
+            <family>Roboto</family>
             <pointsize>12</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="tabPosition">
@@ -4189,7 +4382,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="text">
@@ -4213,7 +4410,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="showGroupSeparator" stdset="0">
@@ -4271,7 +4472,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="calendarPopup">
@@ -4321,7 +4526,11 @@ color: rgb(255, 255, 255);</string>
                  <widget class="QLabel" name="labelSenders_2">
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="text">
@@ -4345,7 +4554,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <item>
@@ -4428,7 +4641,11 @@ color: rgb(255, 255, 255);</string>
                  <widget class="QLabel" name="labelTypeMovePrihod_2">
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="text">
@@ -4452,7 +4669,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <item>
@@ -4480,7 +4701,11 @@ color: rgb(255, 255, 255);</string>
                  <widget class="QLabel" name="labelTypeProductPrihod_2">
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="text">
@@ -4504,7 +4729,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <item>
@@ -4562,7 +4791,11 @@ color: rgb(255, 255, 255);</string>
                  <widget class="QLabel" name="label_133">
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="text">
@@ -4586,7 +4819,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <item>
@@ -4639,7 +4876,11 @@ color: rgb(255, 255, 255);</string>
                <widget class="QLabel" name="labelFinderPrihod_2">
                 <property name="font">
                  <font>
+                  <family>Roboto</family>
                   <pointsize>12</pointsize>
+                  <weight>50</weight>
+                  <italic>false</italic>
+                  <bold>false</bold>
                  </font>
                 </property>
                 <property name="text">
@@ -4665,7 +4906,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="inputMethodHints">
@@ -4720,10 +4965,10 @@ color: rgb(255, 255, 255);</string>
               <attribute name="verticalHeaderVisible">
                <bool>false</bool>
               </attribute>
-              <attribute name="verticalHeaderDefaultSectionSize">
+              <attribute name="verticalHeaderMinimumSectionSize">
                <number>30</number>
               </attribute>
-              <attribute name="verticalHeaderMinimumSectionSize">
+              <attribute name="verticalHeaderDefaultSectionSize">
                <number>30</number>
               </attribute>
               <column>
@@ -4870,7 +5115,11 @@ color: rgb(255, 255, 255);</string>
               </property>
               <property name="font">
                <font>
+                <family>Roboto</family>
                 <pointsize>12</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
                </font>
               </property>
               <property name="currentIndex">
@@ -4954,7 +5203,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -4978,7 +5231,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -5002,7 +5259,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -5020,7 +5281,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -5038,7 +5303,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -5066,7 +5335,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="editable">
@@ -5116,7 +5389,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                        </widget>
@@ -5137,7 +5414,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                        </widget>
@@ -5152,7 +5433,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <item>
@@ -5213,7 +5498,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="calendarPopup">
@@ -5241,7 +5530,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -5267,7 +5560,11 @@ color: rgb(34, 122, 255)</string>
                           </property>
                           <property name="font">
                            <font>
+                            <family>Roboto</family>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
+                            <italic>false</italic>
+                            <bold>false</bold>
                            </font>
                           </property>
                           <property name="text">
@@ -5291,7 +5588,11 @@ color: rgb(34, 122, 255)</string>
                           </property>
                           <property name="font">
                            <font>
+                            <family>Roboto</family>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
+                            <italic>false</italic>
+                            <bold>false</bold>
                            </font>
                           </property>
                           <property name="calendarPopup">
@@ -5307,7 +5608,11 @@ color: rgb(34, 122, 255)</string>
                          <widget class="QLabel" name="label_20">
                           <property name="font">
                            <font>
+                            <family>Roboto</family>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
+                            <italic>false</italic>
+                            <bold>false</bold>
                            </font>
                           </property>
                           <property name="text">
@@ -5325,7 +5630,11 @@ color: rgb(34, 122, 255)</string>
                           </property>
                           <property name="font">
                            <font>
+                            <family>Roboto</family>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
+                            <italic>false</italic>
+                            <bold>false</bold>
                            </font>
                           </property>
                           <property name="calendarPopup">
@@ -5351,7 +5660,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -5414,7 +5727,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -5438,7 +5755,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -5462,7 +5783,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -5486,7 +5811,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -5514,7 +5843,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="editable">
@@ -5538,7 +5871,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="editable">
@@ -5562,7 +5899,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="editable">
@@ -5606,7 +5947,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                        </widget>
@@ -5672,7 +6017,11 @@ color: rgb(34, 122, 255)</string>
                           </property>
                           <property name="font">
                            <font>
+                            <family>Roboto</family>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
+                            <italic>false</italic>
+                            <bold>false</bold>
                            </font>
                           </property>
                           <property name="text">
@@ -5696,7 +6045,11 @@ color: rgb(34, 122, 255)</string>
                           </property>
                           <property name="font">
                            <font>
+                            <family>Roboto</family>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
+                            <italic>false</italic>
+                            <bold>false</bold>
                            </font>
                           </property>
                           <property name="calendarPopup">
@@ -6110,7 +6463,11 @@ color: rgb(255, 255, 255);</string>
               </property>
               <property name="font">
                <font>
+                <family>Roboto</family>
                 <pointsize>12</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
                </font>
               </property>
               <property name="currentIndex">
@@ -6194,7 +6551,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -6218,7 +6579,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -6230,7 +6595,11 @@ color: rgb(34, 122, 255)</string>
                        <widget class="QLabel" name="label_53">
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -6248,7 +6617,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -6272,7 +6645,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -6300,7 +6677,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="editable">
@@ -6339,7 +6720,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="placeholderText">
@@ -6363,7 +6748,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="calendarPopup">
@@ -6387,7 +6776,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="editable">
@@ -6451,7 +6844,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="placeholderText">
@@ -6479,7 +6876,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -6505,7 +6906,11 @@ color: rgb(34, 122, 255)</string>
                           </property>
                           <property name="font">
                            <font>
+                            <family>Roboto</family>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
+                            <italic>false</italic>
+                            <bold>false</bold>
                            </font>
                           </property>
                           <property name="text">
@@ -6535,7 +6940,11 @@ color: rgb(34, 122, 255)</string>
                           </property>
                           <property name="font">
                            <font>
+                            <family>Roboto</family>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
+                            <italic>false</italic>
+                            <bold>false</bold>
                            </font>
                           </property>
                           <property name="calendarPopup">
@@ -6561,7 +6970,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -6587,7 +7000,11 @@ color: rgb(34, 122, 255)</string>
                           </property>
                           <property name="font">
                            <font>
+                            <family>Roboto</family>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
+                            <italic>false</italic>
+                            <bold>false</bold>
                            </font>
                           </property>
                           <property name="text">
@@ -6611,7 +7028,11 @@ color: rgb(34, 122, 255)</string>
                           </property>
                           <property name="font">
                            <font>
+                            <family>Roboto</family>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
+                            <italic>false</italic>
+                            <bold>false</bold>
                            </font>
                           </property>
                           <property name="calendarPopup">
@@ -6670,7 +7091,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -6694,7 +7119,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -6718,7 +7147,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -6742,7 +7175,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -6770,7 +7207,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="placeholderText">
@@ -6794,7 +7235,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="editable">
@@ -6818,7 +7263,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="editable">
@@ -6842,7 +7291,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="editable">
@@ -6885,7 +7338,11 @@ color: rgb(34, 122, 255)</string>
                          <widget class="QLabel" name="label_130">
                           <property name="font">
                            <font>
+                            <family>Roboto</family>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
+                            <italic>false</italic>
+                            <bold>false</bold>
                            </font>
                           </property>
                           <property name="text">
@@ -6903,7 +7360,11 @@ color: rgb(34, 122, 255)</string>
                           </property>
                           <property name="font">
                            <font>
+                            <family>Roboto</family>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
+                            <italic>false</italic>
+                            <bold>false</bold>
                            </font>
                           </property>
                           <property name="calendarPopup">
@@ -7091,7 +7552,11 @@ color: rgb(34, 122, 255)</string>
                       </property>
                       <property name="font">
                        <font>
+                        <family>Roboto</family>
                         <pointsize>12</pointsize>
+                        <weight>50</weight>
+                        <italic>false</italic>
+                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="text">
@@ -7115,7 +7580,11 @@ color: rgb(34, 122, 255)</string>
                       </property>
                       <property name="font">
                        <font>
+                        <family>Roboto</family>
                         <pointsize>12</pointsize>
+                        <weight>50</weight>
+                        <italic>false</italic>
+                        <bold>false</bold>
                        </font>
                       </property>
                       <item>
@@ -7152,7 +7621,11 @@ color: rgb(34, 122, 255)</string>
                       </property>
                       <property name="font">
                        <font>
+                        <family>Roboto</family>
                         <pointsize>12</pointsize>
+                        <weight>50</weight>
+                        <italic>false</italic>
+                        <bold>false</bold>
                        </font>
                       </property>
                       <item>
@@ -7188,7 +7661,11 @@ color: rgb(34, 122, 255)</string>
                       </property>
                       <property name="font">
                        <font>
+                        <family>Roboto</family>
                         <pointsize>12</pointsize>
+                        <weight>50</weight>
+                        <italic>false</italic>
+                        <bold>false</bold>
                        </font>
                       </property>
                       <item>
@@ -7259,7 +7736,11 @@ color: rgb(34, 122, 255)</string>
                       </property>
                       <property name="font">
                        <font>
+                        <family>Roboto</family>
                         <pointsize>12</pointsize>
+                        <weight>50</weight>
+                        <italic>false</italic>
+                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="text">
@@ -7283,7 +7764,11 @@ color: rgb(34, 122, 255)</string>
                       </property>
                       <property name="font">
                        <font>
+                        <family>Roboto</family>
                         <pointsize>12</pointsize>
+                        <weight>50</weight>
+                        <italic>false</italic>
+                        <bold>false</bold>
                        </font>
                       </property>
                       <item>
@@ -7330,7 +7815,11 @@ color: rgb(34, 122, 255)</string>
                       </property>
                       <property name="font">
                        <font>
+                        <family>Roboto</family>
                         <pointsize>12</pointsize>
+                        <weight>50</weight>
+                        <italic>false</italic>
+                        <bold>false</bold>
                        </font>
                       </property>
                       <item>
@@ -7376,7 +7865,11 @@ color: rgb(34, 122, 255)</string>
                       </property>
                       <property name="font">
                        <font>
+                        <family>Roboto</family>
                         <pointsize>12</pointsize>
+                        <weight>50</weight>
+                        <italic>false</italic>
+                        <bold>false</bold>
                        </font>
                       </property>
                       <item>
@@ -7577,7 +8070,11 @@ color: rgb(255, 255, 255);</string>
                    <widget class="QLabel" name="labelFinderPrihod_3">
                     <property name="font">
                      <font>
+                      <family>Roboto</family>
                       <pointsize>12</pointsize>
+                      <weight>50</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
                      </font>
                     </property>
                     <property name="text">
@@ -7595,7 +8092,11 @@ color: rgb(255, 255, 255);</string>
                     </property>
                     <property name="font">
                      <font>
+                      <family>Roboto</family>
                       <pointsize>12</pointsize>
+                      <weight>50</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
                      </font>
                     </property>
                     <property name="editable">
@@ -7609,7 +8110,11 @@ color: rgb(255, 255, 255);</string>
                  <widget class="QLabel" name="label_90">
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="text">
@@ -7635,7 +8140,11 @@ color: rgb(255, 255, 255);</string>
                     </property>
                     <property name="font">
                      <font>
+                      <family>Roboto</family>
                       <pointsize>12</pointsize>
+                      <weight>50</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
                      </font>
                     </property>
                     <property name="inputMethodHints">
@@ -7688,7 +8197,11 @@ padding:40px;</string>
                  <widget class="QLabel" name="label_91">
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="text">
@@ -8013,7 +8526,11 @@ color: rgb(255, 255, 255);</string>
          <widget class="QTabWidget" name="tabWidgetRashod">
           <property name="font">
            <font>
+            <family>Roboto</family>
             <pointsize>12</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="currentIndex">
@@ -8041,7 +8558,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="text">
@@ -8065,7 +8586,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="showGroupSeparator" stdset="0">
@@ -8116,7 +8641,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="calendarPopup">
@@ -8166,7 +8695,11 @@ color: rgb(255, 255, 255);</string>
                  <widget class="QLabel" name="labelTypeMoveRashod">
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="text">
@@ -8190,7 +8723,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <item>
@@ -8218,7 +8755,11 @@ color: rgb(255, 255, 255);</string>
                  <widget class="QLabel" name="labelTypeProductRashod">
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="text">
@@ -8242,7 +8783,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <item>
@@ -8270,7 +8815,11 @@ color: rgb(255, 255, 255);</string>
                  <widget class="QLabel" name="labelRecipients">
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="text">
@@ -8294,7 +8843,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <item>
@@ -8352,7 +8905,11 @@ color: rgb(255, 255, 255);</string>
                <widget class="QLabel" name="labelFinderRashod">
                 <property name="font">
                  <font>
+                  <family>Roboto</family>
                   <pointsize>12</pointsize>
+                  <weight>50</weight>
+                  <italic>false</italic>
+                  <bold>false</bold>
                  </font>
                 </property>
                 <property name="text">
@@ -8378,7 +8935,11 @@ color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="font">
                    <font>
+                    <family>Roboto</family>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="inputMethodHints">
@@ -8472,7 +9033,11 @@ color: rgb(255, 255, 255);</string>
               </property>
               <property name="font">
                <font>
+                <family>Roboto</family>
                 <pointsize>12</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
                </font>
               </property>
               <property name="tabPosition">
@@ -8526,7 +9091,11 @@ color: rgb(255, 255, 255);</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -8550,7 +9119,11 @@ color: rgb(255, 255, 255);</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -8574,7 +9147,11 @@ color: rgb(255, 255, 255);</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -8598,7 +9175,11 @@ color: rgb(255, 255, 255);</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -8626,7 +9207,11 @@ color: rgb(255, 255, 255);</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <item>
@@ -8657,7 +9242,11 @@ color: rgb(255, 255, 255);</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                        </widget>
@@ -8678,7 +9267,11 @@ color: rgb(255, 255, 255);</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                        </widget>
@@ -8699,7 +9292,11 @@ color: rgb(255, 255, 255);</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                        </widget>
@@ -8818,7 +9415,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -8842,7 +9443,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -8866,7 +9471,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -8894,7 +9503,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                        </widget>
@@ -8915,7 +9528,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                        </widget>
@@ -8936,7 +9553,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                        </widget>
@@ -8961,7 +9582,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -8987,7 +9612,11 @@ color: rgb(34, 122, 255)</string>
                           </property>
                           <property name="font">
                            <font>
+                            <family>Roboto</family>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
+                            <italic>false</italic>
+                            <bold>false</bold>
                            </font>
                           </property>
                           <property name="text">
@@ -9011,7 +9640,11 @@ color: rgb(34, 122, 255)</string>
                           </property>
                           <property name="font">
                            <font>
+                            <family>Roboto</family>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
+                            <italic>false</italic>
+                            <bold>false</bold>
                            </font>
                           </property>
                           <property name="calendarPopup">
@@ -9039,7 +9672,11 @@ color: rgb(34, 122, 255)</string>
                           </property>
                           <property name="font">
                            <font>
+                            <family>Roboto</family>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
+                            <italic>false</italic>
+                            <bold>false</bold>
                            </font>
                           </property>
                           <property name="text">
@@ -9063,7 +9700,11 @@ color: rgb(34, 122, 255)</string>
                           </property>
                           <property name="font">
                            <font>
+                            <family>Roboto</family>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
+                            <italic>false</italic>
+                            <bold>false</bold>
                            </font>
                           </property>
                           <property name="calendarPopup">
@@ -9244,7 +9885,11 @@ color: rgb(34, 122, 255)</string>
                       </property>
                       <property name="font">
                        <font>
+                        <family>Roboto</family>
                         <pointsize>12</pointsize>
+                        <weight>50</weight>
+                        <italic>false</italic>
+                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="text">
@@ -9366,7 +10011,11 @@ color: rgb(34, 122, 255)</string>
                       </property>
                       <property name="font">
                        <font>
+                        <family>Roboto</family>
                         <pointsize>12</pointsize>
+                        <weight>50</weight>
+                        <italic>false</italic>
+                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="frameShape">
@@ -9869,7 +10518,11 @@ color: rgb(255, 255, 255);</string>
          <widget class="QTabWidget" name="tabWidgetOrganisations">
           <property name="font">
            <font>
+            <family>Roboto</family>
             <pointsize>12</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="currentIndex">
@@ -9884,7 +10537,11 @@ color: rgb(255, 255, 255);</string>
              <widget class="QLabel" name="labelFinderPrihod_4">
               <property name="font">
                <font>
+                <family>Roboto</family>
                 <pointsize>12</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
                </font>
               </property>
               <property name="text">
@@ -9908,7 +10565,11 @@ color: rgb(255, 255, 255);</string>
               </property>
               <property name="font">
                <font>
+                <family>Roboto</family>
                 <pointsize>12</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
                </font>
               </property>
               <property name="inputMethodHints">
@@ -9956,10 +10617,10 @@ color: rgb(255, 255, 255);</string>
               <attribute name="verticalHeaderVisible">
                <bool>false</bool>
               </attribute>
-              <attribute name="verticalHeaderDefaultSectionSize">
+              <attribute name="verticalHeaderMinimumSectionSize">
                <number>30</number>
               </attribute>
-              <attribute name="verticalHeaderMinimumSectionSize">
+              <attribute name="verticalHeaderDefaultSectionSize">
                <number>30</number>
               </attribute>
               <column>
@@ -10144,7 +10805,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -10168,7 +10833,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -10192,7 +10861,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -10216,7 +10889,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -10240,7 +10917,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -10264,7 +10945,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -10292,7 +10977,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="readOnly">
@@ -10316,7 +11005,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="readOnly">
@@ -10340,7 +11033,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="readOnly">
@@ -10364,7 +11061,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="readOnly">
@@ -10388,7 +11089,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="readOnly">
@@ -10412,7 +11117,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="readOnly">
@@ -10434,7 +11143,11 @@ color: rgb(34, 122, 255)</string>
                     </property>
                     <property name="font">
                      <font>
+                      <family>Roboto</family>
                       <pointsize>12</pointsize>
+                      <weight>50</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
                      </font>
                     </property>
                     <property name="text">
@@ -10512,7 +11225,11 @@ color: rgb(34, 122, 255)</string>
                       </property>
                       <property name="font">
                        <font>
+                        <family>Roboto</family>
                         <pointsize>12</pointsize>
+                        <weight>50</weight>
+                        <italic>false</italic>
+                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="text">
@@ -10536,7 +11253,11 @@ color: rgb(34, 122, 255)</string>
                       </property>
                       <property name="font">
                        <font>
+                        <family>Roboto</family>
                         <pointsize>12</pointsize>
+                        <weight>50</weight>
+                        <italic>false</italic>
+                        <bold>false</bold>
                        </font>
                       </property>
                      </widget>
@@ -10561,7 +11282,11 @@ color: rgb(34, 122, 255)</string>
                       </property>
                       <property name="font">
                        <font>
+                        <family>Roboto</family>
                         <pointsize>12</pointsize>
+                        <weight>50</weight>
+                        <italic>false</italic>
+                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="text">
@@ -10585,7 +11310,11 @@ color: rgb(34, 122, 255)</string>
                       </property>
                       <property name="font">
                        <font>
+                        <family>Roboto</family>
                         <pointsize>12</pointsize>
+                        <weight>50</weight>
+                        <italic>false</italic>
+                        <bold>false</bold>
                        </font>
                       </property>
                      </widget>
@@ -10698,7 +11427,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -10722,7 +11455,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -10746,7 +11483,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -10770,7 +11511,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -10794,7 +11539,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -10818,7 +11567,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -10842,7 +11595,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="text">
@@ -10870,7 +11627,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="readOnly">
@@ -10894,7 +11655,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="readOnly">
@@ -10918,7 +11683,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="readOnly">
@@ -10942,7 +11711,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="readOnly">
@@ -10966,7 +11739,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="readOnly">
@@ -10990,7 +11767,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="readOnly">
@@ -11014,7 +11795,11 @@ color: rgb(34, 122, 255)</string>
                         </property>
                         <property name="font">
                          <font>
+                          <family>Roboto</family>
                           <pointsize>12</pointsize>
+                          <weight>50</weight>
+                          <italic>false</italic>
+                          <bold>false</bold>
                          </font>
                         </property>
                         <property name="readOnly">
@@ -12261,7 +13046,11 @@ color: rgb(255, 255, 255);</string>
             </property>
             <property name="font">
              <font>
+              <family>Roboto</family>
               <pointsize>12</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
              </font>
             </property>
             <property name="text">
@@ -12281,7 +13070,11 @@ color: rgb(255, 255, 255);</string>
               </property>
               <property name="font">
                <font>
+                <family>Roboto</family>
                 <pointsize>12</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
                </font>
               </property>
               <property name="readOnly">
@@ -12334,7 +13127,11 @@ color: rgb(255, 255, 255);</string>
            <widget class="QLabel" name="label_89">
             <property name="font">
              <font>
+              <family>Roboto</family>
               <pointsize>12</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
              </font>
             </property>
             <property name="text">
@@ -12525,7 +13322,7 @@ color: rgb(255, 255, 255);</string>
      <x>0</x>
      <y>0</y>
      <width>1860</width>
-     <height>32</height>
+     <height>36</height>
     </rect>
    </property>
    <property name="minimumSize">

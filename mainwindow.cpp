@@ -29,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //Активация кнопок поиска по нажатию клавиши Enter
     ui->pushButtonFindPrihod_3->setShortcut(Qt::Key_Return);
 
-    ui->findInAtiInSkladButton->setShortcut(Qt::Key_Return);
+    //ui->findInAtiInSkladButton->setShortcut(Qt::Key_Return);
 
     //ui->pushButtonFindPrihod_2->setShortcut(Qt::Key_Return);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -703,8 +703,8 @@ void MainWindow::on_infoAboutOrg_triggered()
 
 void MainWindow::on_comboBoxfindTypePptn_activated(int index)
 {
-    if(index == 0) ui->labelSprPptn->setText("Введите номенклатурный номер:");
-    if(index == 1) ui->labelSprPptn->setText("Введите наименование:");
+    /*if(index == 0) ui->labelSprPptn->setText("Введите номенклатурный номер:");
+    if(index == 1) ui->labelSprPptn->setText("Введите наименование:");*/
 }
 
 //Поиск в справочнике АТИ по н/н и наименованию
@@ -777,7 +777,7 @@ void MainWindow::on_findInPptnButton_clicked()
     QString text;
     QSqlQueryModel *modelFind = new QSqlQueryModel;
     // Поиск по н/н
-    if(ui->comboBoxfindTypePptn->currentIndex() == 0) {
+    /*if(ui->comboBoxfindTypePptn->currentIndex() == 0) {
         text = "SELECT * FROM spr_pptn WHERE nomkl_nom like " + ui->lineEdit_sprPptn->text();
         query.exec(text);
         qDebug() << query.lastError();
@@ -790,7 +790,7 @@ void MainWindow::on_findInPptnButton_clicked()
         qDebug() << query.lastError();
         while(query.next())
             qDebug() << query.value(1).toString();
-    }
+    }*/
     //Отображение результатов
     modelFind->setQuery(query);
     modelFind->setHeaderData(0,Qt::Horizontal, "Номенкл. номер");
