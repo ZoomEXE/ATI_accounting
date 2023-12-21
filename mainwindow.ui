@@ -56,7 +56,6 @@ QMenuBar::item:pressed {
 QMenu {
   background-color: #F3F3F3;
   padding: 2px;
-  box-shadow: 2px 2px 4px -2px rgba(0, 0, 0, 0.10);
 }
 
 QMenu::item {
@@ -263,7 +262,7 @@ QTabBar::tab:selected, QTabBar::tab:hover {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>10</number>
+       <number>0</number>
       </property>
       <property name="iconSize">
        <size>
@@ -287,7 +286,7 @@ QTabBar::tab:selected, QTabBar::tab:hover {
        <bool>false</bool>
       </property>
       <property name="tabBarAutoHide">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <widget class="QWidget" name="tab_22">
        <attribute name="title">
@@ -608,7 +607,7 @@ color: #D5D5D5;
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_13">
              <property name="spacing">
-              <number>24</number>
+              <number>16</number>
              </property>
              <property name="leftMargin">
               <number>0</number>
@@ -1080,7 +1079,7 @@ border-radius: 4px;</string>
            </size>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="styleSheet">
            <string notr="true">QWidget {	
@@ -14188,8 +14187,6 @@ color: rgb(255, 255, 255);</string>
     </widget>
     <addaction name="menu_2"/>
     <addaction name="orders"/>
-    <addaction name="action_prihod"/>
-    <addaction name="action_rashod"/>
    </widget>
    <widget class="QMenu" name="menu_3">
     <property name="font">
@@ -14238,14 +14235,34 @@ color: rgb(255, 255, 255);</string>
      </font>
     </property>
     <property name="title">
-     <string>Номенклатор</string>
+     <string>Справочники</string>
     </property>
     <addaction name="spr_ati"/>
     <addaction name="spr_pptn_2"/>
    </widget>
+   <widget class="QMenu" name="menu_7">
+    <property name="title">
+     <string>Расчеты</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_8">
+    <property name="title">
+     <string>Отчеты</string>
+    </property>
+    <addaction name="action"/>
+   </widget>
+   <widget class="QMenu" name="menu_9">
+    <property name="title">
+     <string>Планы</string>
+    </property>
+    <addaction name="action_2"/>
+   </widget>
    <addaction name="menu"/>
-   <addaction name="menu_4"/>
+   <addaction name="menu_7"/>
+   <addaction name="menu_8"/>
+   <addaction name="menu_9"/>
    <addaction name="menu_6"/>
+   <addaction name="menu_4"/>
    <addaction name="menu_5"/>
    <addaction name="menu_3"/>
   </widget>
@@ -14369,17 +14386,17 @@ color: rgb(255, 255, 255);</string>
   </action>
   <action name="spr_ati">
    <property name="text">
-    <string>АТИ</string>
+    <string>Номенклатор АТИ</string>
    </property>
   </action>
   <action name="spr_pptn_2">
    <property name="text">
-    <string>ППТН</string>
+    <string>Номенклатор ППТН</string>
    </property>
   </action>
   <action name="import_Excel">
    <property name="text">
-    <string>Импортировать из Excel</string>
+    <string>Импорт из Excel</string>
    </property>
   </action>
   <action name="orders">
@@ -14405,6 +14422,16 @@ color: rgb(255, 255, 255);</string>
   <action name="connectBD">
    <property name="text">
     <string>Базы данных</string>
+   </property>
+  </action>
+  <action name="action">
+   <property name="text">
+    <string>Отчет-заявки</string>
+   </property>
+  </action>
+  <action name="action_2">
+   <property name="text">
+    <string>План снабжения</string>
    </property>
   </action>
  </widget>

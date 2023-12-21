@@ -578,9 +578,9 @@ void MainWindow::on_action_sklad_triggered()
 
 void MainWindow::on_action_remont_triggered()
 {
-    if (check_available_tab("Отправлены на ремонт"))
+    if (check_available_tab("В ремонте"))
     {
-        new_tab("Отправлены в ремонт");
+        new_tab("В ремонте");
     }
 }
 
