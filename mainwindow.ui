@@ -264,7 +264,7 @@ QTabBar::tab:selected, QTabBar::tab:hover {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -396,7 +396,7 @@ QTabBar::tab:selected, QTabBar::tab:hover {
            </widget>
           </item>
           <item>
-           <widget class="QFrame" name="">
+           <widget class="QFrame" name="frame">
             <property name="maximumSize">
              <size>
               <width>16777215</width>
