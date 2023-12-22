@@ -216,7 +216,7 @@ QTabBar::tab:selected, QTabBar::tab:hover {
 	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
 }</string>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
+   <layout class="QVBoxLayout" name="verticalLayout_96">
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="sizePolicy">
@@ -262,7 +262,7 @@ QTabBar::tab:selected, QTabBar::tab:hover {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>10</number>
+       <number>9</number>
       </property>
       <property name="iconSize">
        <size>
@@ -378,6 +378,12 @@ border-radius: 8px;</string>
            </item>
            <item>
             <widget class="Line" name="seporate_line">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>1</height>
+              </size>
+             </property>
              <property name="styleSheet">
               <string notr="true">background-color: rgb(234, 234, 234);</string>
              </property>
@@ -661,6 +667,12 @@ border-radius: 8px;</string>
                 </item>
                 <item>
                  <widget class="Line" name="line_13">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>1</height>
+                   </size>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">background-color: rgb(234, 234, 234);</string>
                   </property>
@@ -880,6 +892,12 @@ border-radius: 8px;</string>
                 </item>
                 <item>
                  <widget class="Line" name="line_14">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>1</height>
+                   </size>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">background-color: rgb(234, 234, 234);</string>
                   </property>
@@ -1174,6 +1192,12 @@ QTabWidget::pane {
               </item>
               <item>
                <widget class="Line" name="line_6">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>1</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">background-color: rgb(234, 234, 234);</string>
                 </property>
@@ -11347,7 +11371,7 @@ color: rgb(255, 255, 255);</string>
        <attribute name="title">
         <string>Организации</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_84">
+       <layout class="QHBoxLayout" name="horizontalLayout_80">
         <item>
          <widget class="QTabWidget" name="tabWidgetOrganisations">
           <property name="font">
@@ -11366,273 +11390,291 @@ color: rgb(255, 255, 255);</string>
            <attribute name="title">
             <string>Реестр организаций</string>
            </attribute>
-           <widget class="QLabel" name="labelFinderPrihod_4">
-            <property name="geometry">
-             <rect>
-              <x>9</x>
-              <y>9</y>
-              <width>50</width>
-              <height>19</height>
-             </rect>
+           <layout class="QVBoxLayout" name="verticalLayout_84">
+            <property name="spacing">
+             <number>24</number>
             </property>
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>12</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
+            <property name="leftMargin">
+             <number>165</number>
             </property>
-            <property name="text">
-             <string>Поиск:</string>
+            <property name="topMargin">
+             <number>24</number>
             </property>
-           </widget>
-           <widget class="QLineEdit" name="lineEditFindOrgs">
-            <property name="geometry">
-             <rect>
-              <x>9</x>
-              <y>34</y>
-              <width>166</width>
-              <height>38</height>
-             </rect>
+            <property name="rightMargin">
+             <number>165</number>
             </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>38</height>
-             </size>
+            <property name="bottomMargin">
+             <number>24</number>
             </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>38</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Roboto</family>
-              <pointsize>12</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="inputMethodHints">
-             <set>Qt::ImhNone</set>
-            </property>
-            <property name="placeholderText">
-             <string>Введите наименование организации</string>
-            </property>
-            <property name="clearButtonEnabled">
-             <bool>true</bool>
-            </property>
-           </widget>
-           <widget class="QTableWidget" name="tableWidgetOrgs">
-            <property name="geometry">
-             <rect>
-              <x>9</x>
-              <y>78</y>
-              <width>256</width>
-              <height>192</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="layoutDirection">
-             <enum>Qt::LeftToRight</enum>
-            </property>
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
-            <property name="editTriggers">
-             <set>QAbstractItemView::NoEditTriggers</set>
-            </property>
-            <property name="sortingEnabled">
-             <bool>true</bool>
-            </property>
-            <attribute name="horizontalHeaderCascadingSectionResizes">
-             <bool>true</bool>
-            </attribute>
-            <attribute name="horizontalHeaderHighlightSections">
-             <bool>false</bool>
-            </attribute>
-            <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-             <bool>true</bool>
-            </attribute>
-            <attribute name="horizontalHeaderStretchLastSection">
-             <bool>true</bool>
-            </attribute>
-            <attribute name="verticalHeaderVisible">
-             <bool>false</bool>
-            </attribute>
-            <attribute name="verticalHeaderMinimumSectionSize">
-             <number>30</number>
-            </attribute>
-            <attribute name="verticalHeaderDefaultSectionSize">
-             <number>30</number>
-            </attribute>
-            <column>
-             <property name="text">
-              <string>Наименование</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Населенный пункт</string>
-             </property>
-            </column>
-           </widget>
-           <widget class="QWidget" name="">
-            <layout class="QHBoxLayout" name="horizontalLayout_94">
-             <item>
-              <spacer name="horizontalSpacer_51">
-               <property name="font">
-                <font>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QPushButton" name="buttonDelOrg_2">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>38</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>38</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <family>MS Shell Dlg 2</family>
-                 <pointsize>12</pointsize>
-                 <weight>9</weight>
-                 <italic>false</italic>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(160, 10, 10);
-color: rgb(255, 255, 255);</string>
-               </property>
+            <item>
+             <widget class="QLineEdit" name="lineEditFindOrgs">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>38</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>38</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Roboto</family>
+                <pointsize>12</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="inputMethodHints">
+               <set>Qt::ImhNone</set>
+              </property>
+              <property name="placeholderText">
+               <string>Введите наименование организации</string>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTableWidget" name="tableWidgetOrgs">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="editTriggers">
+               <set>QAbstractItemView::NoEditTriggers</set>
+              </property>
+              <property name="sortingEnabled">
+               <bool>true</bool>
+              </property>
+              <attribute name="horizontalHeaderCascadingSectionResizes">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="horizontalHeaderHighlightSections">
+               <bool>false</bool>
+              </attribute>
+              <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="verticalHeaderVisible">
+               <bool>false</bool>
+              </attribute>
+              <attribute name="verticalHeaderMinimumSectionSize">
+               <number>30</number>
+              </attribute>
+              <attribute name="verticalHeaderDefaultSectionSize">
+               <number>30</number>
+              </attribute>
+              <column>
                <property name="text">
-                <string>Удалить</string>
+                <string>Наименование</string>
                </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="buttonChangeOrg_2">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>38</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>38</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <family>MS Shell Dlg 2</family>
-                 <pointsize>12</pointsize>
-                 <weight>9</weight>
-                 <italic>false</italic>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(34, 122, 255);
-color: rgb(255, 255, 255);</string>
-               </property>
+              </column>
+              <column>
                <property name="text">
-                <string>Изменить</string>
+                <string>Населенный пункт</string>
                </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
+              </column>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_94">
+              <item>
+               <spacer name="horizontalSpacer_51">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="buttonDelOrg_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>38</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>38</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>MS Shell Dlg 2</family>
+                  <pointsize>12</pointsize>
+                  <weight>9</weight>
+                  <italic>false</italic>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(160, 10, 10);
+color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Удалить</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="buttonChangeOrg_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>38</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>38</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>MS Shell Dlg 2</family>
+                  <pointsize>12</pointsize>
+                  <weight>9</weight>
+                  <italic>false</italic>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(34, 122, 255);
+color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Изменить</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
           </widget>
           <widget class="QWidget" name="tabListOrgs">
            <attribute name="title">
             <string>Подробные данные организации</string>
            </attribute>
-           <widget class="QWidget" name="">
-            <layout class="QVBoxLayout" name="verticalLayout_98">
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_95">
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <property name="spacing">
+             <number>12</number>
+            </property>
+            <property name="leftMargin">
+             <number>165</number>
+            </property>
+            <property name="topMargin">
+             <number>24</number>
+            </property>
+            <property name="rightMargin">
+             <number>165</number>
+            </property>
+            <property name="bottomMargin">
+             <number>24</number>
+            </property>
+            <item>
+             <widget class="QFrame" name="frame_21">
+              <property name="styleSheet">
+               <string notr="true">QFrame {
+background-color: rgb(243, 243, 243);
+border-radius: 8px;
+}</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_89">
+               <property name="spacing">
+                <number>8</number>
+               </property>
+               <property name="leftMargin">
+                <number>16</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>16</number>
+               </property>
+               <property name="bottomMargin">
+                <number>16</number>
+               </property>
                <item>
-                <layout class="QVBoxLayout" name="verticalLayout_88">
-                 <item>
-                  <widget class="QLabel" name="label_69">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <family>MS Shell Dlg 2</family>
-                     <pointsize>10</pointsize>
-                     <weight>9</weight>
-                     <italic>false</italic>
-                     <bold>false</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+                <widget class="QLabel" name="label_69">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>38</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>38</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Roboto</family>
+                   <pointsize>12</pointsize>
+                   <weight>50</weight>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font: 12pt &quot;Roboto&quot;;
 color: rgb(34, 122, 255)</string>
-                   </property>
-                   <property name="text">
-                    <string>Основная информация</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="Line" name="line_9">
-                   <property name="font">
-                    <font>
-                     <pointsize>12</pointsize>
-                    </font>
-                   </property>
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
+                 </property>
+                 <property name="text">
+                  <string>Основная информация</string>
+                 </property>
+                </widget>
                </item>
                <item>
                 <layout class="QHBoxLayout" name="horizontalLayout_63">
+                 <property name="spacing">
+                  <number>12</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
                  <item>
                   <layout class="QVBoxLayout" name="verticalLayout_86">
+                   <property name="spacing">
+                    <number>24</number>
+                   </property>
                    <item>
                     <widget class="QLabel" name="label_34">
                      <property name="minimumSize">
@@ -11805,6 +11847,9 @@ color: rgb(34, 122, 255)</string>
                  </item>
                  <item>
                   <layout class="QVBoxLayout" name="verticalLayout_87">
+                   <property name="spacing">
+                    <number>24</number>
+                   </property>
                    <item>
                     <widget class="QLineEdit" name="nameOrg">
                      <property name="minimumSize">
@@ -11978,10 +12023,62 @@ color: rgb(34, 122, 255)</string>
                 </layout>
                </item>
                <item>
-                <widget class="QLabel" name="label_66">
+                <spacer name="verticalSpacer_4">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="frame_22">
+              <property name="styleSheet">
+               <string notr="true">QFrame {
+background-color: rgb(243, 243, 243);
+border-radius: 8px;
+}</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_91">
+               <property name="spacing">
+                <number>8</number>
+               </property>
+               <property name="leftMargin">
+                <number>16</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>16</number>
+               </property>
+               <property name="bottomMargin">
+                <number>16</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_78">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
+                   <height>38</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
                    <height>38</height>
                   </size>
                  </property>
@@ -11994,255 +12091,103 @@ color: rgb(34, 122, 255)</string>
                    <bold>false</bold>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">font: 12pt &quot;Roboto&quot;;
+color: rgb(34, 122, 255)</string>
+                 </property>
                  <property name="text">
-                  <string/>
+                  <string>Информация о сотруднике</string>
                  </property>
                 </widget>
                </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_96">
-               <item>
-                <layout class="QVBoxLayout" name="verticalLayout_89">
-                 <item>
-                  <widget class="QLabel" name="label_70">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <family>MS Shell Dlg 2</family>
-                     <pointsize>10</pointsize>
-                     <weight>9</weight>
-                     <italic>false</italic>
-                     <bold>false</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(34, 122, 255)</string>
-                   </property>
-                   <property name="text">
-                    <string>Подразделения и сотрудники</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="Line" name="line_10">
-                   <property name="font">
-                    <font>
-                     <pointsize>12</pointsize>
-                    </font>
-                   </property>
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <layout class="QVBoxLayout" name="verticalLayout_90">
-                 <item>
-                  <widget class="QLabel" name="labelChooseOrg_2">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <family>Roboto</family>
-                     <pointsize>12</pointsize>
-                     <weight>50</weight>
-                     <italic>false</italic>
-                     <bold>false</bold>
-                    </font>
-                   </property>
-                   <property name="text">
-                    <string>Выберите подразделение:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QComboBox" name="comboboxSelectDepart">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <family>Roboto</family>
-                     <pointsize>12</pointsize>
-                     <weight>50</weight>
-                     <italic>false</italic>
-                     <bold>false</bold>
-                    </font>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <layout class="QVBoxLayout" name="verticalLayout_91">
-                 <item>
-                  <widget class="QLabel" name="labelChooseOrg_3">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <family>Roboto</family>
-                     <pointsize>12</pointsize>
-                     <weight>50</weight>
-                     <italic>false</italic>
-                     <bold>false</bold>
-                    </font>
-                   </property>
-                   <property name="text">
-                    <string>Выберите сотрудника:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QComboBox" name="comboboxSelectWorker">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <family>Roboto</family>
-                     <pointsize>12</pointsize>
-                     <weight>50</weight>
-                     <italic>false</italic>
-                     <bold>false</bold>
-                    </font>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <spacer name="verticalSpacer_12">
-                   <property name="font">
-                    <font>
-                     <pointsize>12</pointsize>
-                    </font>
-                   </property>
-                   <property name="orientation">
-                    <enum>Qt::Vertical</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>20</width>
-                     <height>40</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QWidget" name="">
-            <layout class="QVBoxLayout" name="verticalLayout_99">
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_97">
-               <item>
-                <layout class="QVBoxLayout" name="verticalLayout_94">
-                 <item>
-                  <widget class="QLabel" name="label_78">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <family>MS Shell Dlg 2</family>
-                     <pointsize>10</pointsize>
-                     <weight>9</weight>
-                     <italic>false</italic>
-                     <bold>false</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(34, 122, 255)</string>
-                   </property>
-                   <property name="text">
-                    <string>Информация о сотруднике</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="Line" name="line_11">
-                   <property name="font">
-                    <font>
-                     <pointsize>12</pointsize>
-                    </font>
-                   </property>
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
                <item>
                 <layout class="QHBoxLayout" name="horizontalLayout_67">
+                 <property name="spacing">
+                  <number>12</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
                  <item>
                   <layout class="QVBoxLayout" name="verticalLayout_92">
+                   <property name="spacing">
+                    <number>24</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="labelChooseOrg_2">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Roboto</family>
+                       <pointsize>12</pointsize>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Выберите подразделение:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="labelChooseOrg_3">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Roboto</family>
+                       <pointsize>12</pointsize>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Выберите сотрудника:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="Line" name="line_10">
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>1</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(234, 234, 234);</string>
+                     </property>
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                    </widget>
+                   </item>
                    <item>
                     <widget class="QLabel" name="label_71">
                      <property name="minimumSize">
@@ -12443,6 +12388,84 @@ color: rgb(34, 122, 255)</string>
                  </item>
                  <item>
                   <layout class="QVBoxLayout" name="verticalLayout_93">
+                   <property name="spacing">
+                    <number>24</number>
+                   </property>
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <item>
+                    <widget class="QComboBox" name="comboboxSelectDepart">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Roboto</family>
+                       <pointsize>12</pointsize>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="comboboxSelectWorker">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Roboto</family>
+                       <pointsize>12</pointsize>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="Line" name="line_9">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>1</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(234, 234, 234);</string>
+                     </property>
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                    </widget>
+                   </item>
                    <item>
                     <widget class="QLineEdit" name="workerPosition">
                      <property name="minimumSize">
@@ -12643,72 +12666,400 @@ color: rgb(34, 122, 255)</string>
                  </item>
                 </layout>
                </item>
+               <item>
+                <spacer name="verticalSpacer_12">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
               </layout>
-             </item>
-             <item>
-              <spacer name="verticalSpacer_4">
-               <property name="font">
-                <font>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
-           </widget>
-           <widget class="Line" name="line_20">
-            <property name="geometry">
-             <rect>
-              <x>428</x>
-              <y>10</y>
-              <width>16</width>
-              <height>648</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-           </widget>
+             </widget>
+            </item>
+           </layout>
           </widget>
           <widget class="QWidget" name="tabAddOrg">
            <attribute name="title">
             <string>Добавить организацию</string>
            </attribute>
-           <widget class="Line" name="line_19">
-            <property name="geometry">
-             <rect>
-              <x>909</x>
-              <y>9</y>
-              <width>16</width>
-              <height>668</height>
-             </rect>
+           <layout class="QHBoxLayout" name="horizontalLayout_81">
+            <property name="spacing">
+             <number>12</number>
             </property>
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
+            <property name="leftMargin">
+             <number>165</number>
             </property>
-           </widget>
-           <widget class="QWidget" name="">
-            <layout class="QVBoxLayout" name="verticalLayout_133">
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_129">
+            <property name="topMargin">
+             <number>24</number>
+            </property>
+            <property name="rightMargin">
+             <number>165</number>
+            </property>
+            <property name="bottomMargin">
+             <number>24</number>
+            </property>
+            <item>
+             <widget class="QFrame" name="frame_24">
+              <property name="styleSheet">
+               <string notr="true">QFrame {
+background-color: rgb(243, 243, 243);
+border-radius: 8px;
+}</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_95">
+               <property name="spacing">
+                <number>8</number>
+               </property>
+               <property name="leftMargin">
+                <number>16</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>16</number>
+               </property>
+               <property name="bottomMargin">
+                <number>16</number>
+               </property>
                <item>
-                <layout class="QVBoxLayout" name="verticalLayout_130">
+                <widget class="QLabel" name="label_79">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>38</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>38</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font: 12pt &quot;Roboto&quot;;
+color: rgb(34, 122, 255)</string>
+                 </property>
+                 <property name="text">
+                  <string>Основная информация</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_71">
+                 <property name="spacing">
+                  <number>12</number>
+                 </property>
                  <item>
-                  <widget class="QLabel" name="label_113">
+                  <layout class="QVBoxLayout" name="verticalLayout_103">
+                   <property name="spacing">
+                    <number>24</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="label_80">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Наименование:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_81">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Населенный пункт:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_82">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Почтовый индекс:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_83">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>ИНН:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_84">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Номер телефона:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_86">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Военное представительство:</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_104">
+                   <property name="spacing">
+                    <number>24</number>
+                   </property>
+                   <item>
+                    <widget class="QLineEdit" name="addNameOrg">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="placeholderText">
+                      <string>Введите наименование организации...</string>
+                     </property>
+                     <property name="clearButtonEnabled">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="addCityOrg">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="placeholderText">
+                      <string>Введите населенный пункт, в котором расположена организация...</string>
+                     </property>
+                     <property name="clearButtonEnabled">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="addPostcodeOrg">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="placeholderText">
+                      <string>Введите почтовый индекс организации...</string>
+                     </property>
+                     <property name="clearButtonEnabled">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="addInnOrg">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="placeholderText">
+                      <string>Введите ИНН организации...</string>
+                     </property>
+                     <property name="clearButtonEnabled">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="addPhonenumberOrg">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="placeholderText">
+                      <string>Введите контактный номер телефона организации...</string>
+                     </property>
+                     <property name="clearButtonEnabled">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="addVpMORFOrg">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="placeholderText">
+                      <string>Введите наименование военного представительства...</string>
+                     </property>
+                     <property name="clearButtonEnabled">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_42">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_83">
+                 <property name="spacing">
+                  <number>12</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <spacer name="horizontalSpacer_56">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="buttonCancelAddOrg">
                    <property name="minimumSize">
                     <size>
                      <width>0</width>
@@ -12721,28 +13072,184 @@ color: rgb(34, 122, 255)</string>
                      <height>38</height>
                     </size>
                    </property>
+                   <property name="font">
+                    <font>
+                     <family>MS Shell Dlg 2</family>
+                     <pointsize>12</pointsize>
+                     <weight>9</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
+                    </font>
+                   </property>
                    <property name="styleSheet">
-                    <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(34, 122, 255)</string>
+                    <string notr="true">background-color:rgb(234, 33, 6);
+color: rgb(255, 255, 255);</string>
                    </property>
                    <property name="text">
-                    <string>Информация о сотруднике</string>
+                    <string>Отмена</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="Line" name="line_18">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                  <widget class="QPushButton" name="buttonSaveOrg">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>38</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>38</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>MS Shell Dlg 2</family>
+                     <pointsize>12</pointsize>
+                     <weight>9</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(0, 160,10);
+color: rgb(255, 255, 255);</string>
+                   </property>
+                   <property name="text">
+                    <string>Сохранить</string>
                    </property>
                   </widget>
                  </item>
                 </layout>
                </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="frame_23">
+              <property name="styleSheet">
+               <string notr="true">QFrame {
+background-color: rgb(243, 243, 243);
+border-radius: 8px;
+}</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_90">
+               <property name="spacing">
+                <number>8</number>
+               </property>
+               <property name="leftMargin">
+                <number>16</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>16</number>
+               </property>
+               <property name="bottomMargin">
+                <number>16</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_113">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>38</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>38</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font: 12pt &quot;Roboto&quot;;
+color: rgb(34, 122, 255)</string>
+                 </property>
+                 <property name="text">
+                  <string>Информация о сотруднике</string>
+                 </property>
+                </widget>
+               </item>
                <item>
                 <layout class="QHBoxLayout" name="horizontalLayout_82">
+                 <property name="spacing">
+                  <number>12</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>24</number>
+                 </property>
                  <item>
                   <layout class="QVBoxLayout" name="verticalLayout_131">
+                   <property name="spacing">
+                    <number>24</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="labelChooseOrg_7">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Выберите подразделение:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="labelChooseOrg_8">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Выберите сотрудника:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="Line" name="line_11">
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>1</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(234, 234, 234);</string>
+                     </property>
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                    </widget>
+                   </item>
                    <item>
                     <widget class="QLabel" name="label_114">
                      <property name="minimumSize">
@@ -12880,6 +13387,81 @@ color: rgb(34, 122, 255)</string>
                  </item>
                  <item>
                   <layout class="QVBoxLayout" name="verticalLayout_132">
+                   <property name="spacing">
+                    <number>24</number>
+                   </property>
+                   <item>
+                    <widget class="QComboBox" name="comboboxEditDepart">
+                     <property name="minimumSize">
+                      <size>
+                       <width>300</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="editable">
+                      <bool>true</bool>
+                     </property>
+                     <property name="currentText">
+                      <string/>
+                     </property>
+                     <property name="modelColumn">
+                      <number>0</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="comboboxEditWorker">
+                     <property name="minimumSize">
+                      <size>
+                       <width>300</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>38</height>
+                      </size>
+                     </property>
+                     <property name="inputMethodHints">
+                      <set>Qt::ImhNone</set>
+                     </property>
+                     <property name="currentText">
+                      <string/>
+                     </property>
+                     <property name="currentIndex">
+                      <number>-1</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="Line" name="line_12">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>1</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(234, 234, 234);</string>
+                     </property>
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                    </widget>
+                   </item>
                    <item>
                     <widget class="QLineEdit" name="addWorkerPosition">
                      <property name="minimumSize">
@@ -13036,10 +13618,219 @@ color: rgb(34, 122, 255)</string>
                    </item>
                   </layout>
                  </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_88">
+                   <property name="spacing">
+                    <number>24</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_78">
+                     <property name="spacing">
+                      <number>4</number>
+                     </property>
+                     <item>
+                      <widget class="QPushButton" name="buttonAddDepart">
+                       <property name="minimumSize">
+                        <size>
+                         <width>38</width>
+                         <height>38</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>38</width>
+                         <height>38</height>
+                        </size>
+                       </property>
+                       <property name="autoFillBackground">
+                        <bool>false</bool>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="icon">
+                        <iconset resource="resources.qrc">
+                         <normaloff>:/icons/mdi_plus-box.png</normaloff>:/icons/mdi_plus-box.png</iconset>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>38</width>
+                         <height>38</height>
+                        </size>
+                       </property>
+                       <property name="flat">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="buttonRemoveDepart">
+                       <property name="minimumSize">
+                        <size>
+                         <width>38</width>
+                         <height>38</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>38</width>
+                         <height>38</height>
+                        </size>
+                       </property>
+                       <property name="autoFillBackground">
+                        <bool>false</bool>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="icon">
+                        <iconset resource="resources.qrc">
+                         <normaloff>:/icons/mdi_close-box.png</normaloff>:/icons/mdi_close-box.png</iconset>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>38</width>
+                         <height>38</height>
+                        </size>
+                       </property>
+                       <property name="flat">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_79">
+                     <property name="spacing">
+                      <number>4</number>
+                     </property>
+                     <item>
+                      <widget class="QPushButton" name="buttonAddWorker">
+                       <property name="minimumSize">
+                        <size>
+                         <width>38</width>
+                         <height>38</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>38</width>
+                         <height>38</height>
+                        </size>
+                       </property>
+                       <property name="autoFillBackground">
+                        <bool>false</bool>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="icon">
+                        <iconset resource="resources.qrc">
+                         <normaloff>:/icons/mdi_plus-box.png</normaloff>:/icons/mdi_plus-box.png</iconset>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>30</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="flat">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="buttonRemoveWorker">
+                       <property name="minimumSize">
+                        <size>
+                         <width>38</width>
+                         <height>38</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>38</width>
+                         <height>38</height>
+                        </size>
+                       </property>
+                       <property name="autoFillBackground">
+                        <bool>false</bool>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="icon">
+                        <iconset resource="resources.qrc">
+                         <normaloff>:/icons/mdi_close-box.png</normaloff>:/icons/mdi_close-box.png</iconset>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>38</width>
+                         <height>38</height>
+                        </size>
+                       </property>
+                       <property name="flat">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <widget class="Line" name="line_17">
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>1</height>
+                      </size>
+                     </property>
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="verticalSpacer_18">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </item>
                 </layout>
                </item>
                <item>
+                <spacer name="verticalSpacer_19">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
                 <layout class="QHBoxLayout" name="horizontalLayout_84">
+                 <property name="spacing">
+                  <number>12</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>96</number>
+                 </property>
                  <item>
                   <spacer name="horizontalSpacer_57">
                    <property name="orientation">
@@ -13077,7 +13868,7 @@ color: rgb(34, 122, 255)</string>
                     </font>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background-color: rgb(160, 10, 10);
+                    <string notr="true">background-color:rgb(234, 33, 6);
 color: rgb(255, 255, 255);</string>
                    </property>
                    <property name="text">
@@ -13120,745 +13911,9 @@ color: rgb(255, 255, 255);</string>
                 </layout>
                </item>
               </layout>
-             </item>
-             <item>
-              <spacer name="verticalSpacer_18">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_83">
-               <item>
-                <spacer name="horizontalSpacer_56">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QPushButton" name="buttonCancelAddOrg">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>38</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>38</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>MS Shell Dlg 2</family>
-                   <pointsize>12</pointsize>
-                   <weight>9</weight>
-                   <italic>false</italic>
-                   <bold>false</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color: rgb(160, 10, 10);
-color: rgb(255, 255, 255);</string>
-                 </property>
-                 <property name="text">
-                  <string>Отмена</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="buttonSaveOrg">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>38</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>38</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>MS Shell Dlg 2</family>
-                   <pointsize>12</pointsize>
-                   <weight>9</weight>
-                   <italic>false</italic>
-                   <bold>false</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color: rgb(0, 160,10);
-color: rgb(255, 255, 255);</string>
-                 </property>
-                 <property name="text">
-                  <string>Сохранить</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QWidget" name="">
-            <layout class="QVBoxLayout" name="verticalLayout_128">
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_126">
-               <item>
-                <widget class="QLabel" name="label_112">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>38</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>38</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(34, 122, 255)</string>
-                 </property>
-                 <property name="text">
-                  <string>Подразделения и сотрудники</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="Line" name="line_17">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_125">
-               <item>
-                <widget class="QLabel" name="labelChooseOrg_7">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>38</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>38</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Выберите подразделение:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_80">
-                 <item>
-                  <widget class="QComboBox" name="comboboxEditDepart">
-                   <property name="minimumSize">
-                    <size>
-                     <width>300</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="editable">
-                    <bool>true</bool>
-                   </property>
-                   <property name="currentText">
-                    <string/>
-                   </property>
-                   <property name="modelColumn">
-                    <number>0</number>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_78">
-                   <item>
-                    <widget class="QPushButton" name="buttonAddDepart">
-                     <property name="minimumSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="resources.qrc">
-                       <normaloff>:/new/icons/icons/add.png</normaloff>:/new/icons/icons/add.png</iconset>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="flat">
-                      <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QPushButton" name="buttonRemoveDepart">
-                     <property name="minimumSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="resources.qrc">
-                       <normaloff>:/new/icons/icons/remove.png</normaloff>:/new/icons/icons/remove.png</iconset>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="flat">
-                      <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <spacer name="horizontalSpacer_54">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                  </layout>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_127">
-               <item>
-                <widget class="QLabel" name="labelChooseOrg_8">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>38</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>38</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Выберите сотрудника:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_81">
-                 <item>
-                  <widget class="QComboBox" name="comboboxEditWorker">
-                   <property name="minimumSize">
-                    <size>
-                     <width>300</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="inputMethodHints">
-                    <set>Qt::ImhNone</set>
-                   </property>
-                   <property name="currentText">
-                    <string/>
-                   </property>
-                   <property name="currentIndex">
-                    <number>-1</number>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_79">
-                   <item>
-                    <widget class="QPushButton" name="buttonAddWorker">
-                     <property name="minimumSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="resources.qrc">
-                       <normaloff>:/new/icons/icons/add.png</normaloff>:/new/icons/icons/add.png</iconset>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="flat">
-                      <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QPushButton" name="buttonRemoveWorker">
-                     <property name="minimumSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="resources.qrc">
-                       <normaloff>:/new/icons/icons/remove.png</normaloff>:/new/icons/icons/remove.png</iconset>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="flat">
-                      <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <spacer name="horizontalSpacer_55">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                  </layout>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <spacer name="verticalSpacer_19">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QWidget" name="">
-            <layout class="QVBoxLayout" name="verticalLayout_101">
-             <property name="leftMargin">
-              <number>0</number>
-             </property>
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_102">
-               <item>
-                <widget class="QLabel" name="label_79">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>38</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>38</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(34, 122, 255)</string>
-                 </property>
-                 <property name="text">
-                  <string>Основная информация</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="Line" name="line_12">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_71">
-               <item>
-                <layout class="QVBoxLayout" name="verticalLayout_103">
-                 <item>
-                  <widget class="QLabel" name="label_80">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>Наименование:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="label_81">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>Населенный пункт:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="label_82">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>Почтовый индекс:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="label_83">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>ИНН:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="label_84">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>Номер телефона:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="label_86">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>Военное представительство:</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <layout class="QVBoxLayout" name="verticalLayout_104">
-                 <item>
-                  <widget class="QLineEdit" name="addNameOrg">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Введите наименование организации...</string>
-                   </property>
-                   <property name="clearButtonEnabled">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="addCityOrg">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Введите населенный пункт, в котором расположена организация...</string>
-                   </property>
-                   <property name="clearButtonEnabled">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="addPostcodeOrg">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Введите почтовый индекс организации...</string>
-                   </property>
-                   <property name="clearButtonEnabled">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="addInnOrg">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Введите ИНН организации...</string>
-                   </property>
-                   <property name="clearButtonEnabled">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="addPhonenumberOrg">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Введите контактный номер телефона организации...</string>
-                   </property>
-                   <property name="clearButtonEnabled">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="addVpMORFOrg">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>38</height>
-                    </size>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Введите наименование военного представительства...</string>
-                   </property>
-                   <property name="clearButtonEnabled">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="checkBoxMyOrg">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>38</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>Моя организация</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_85">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>38</height>
-                </size>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </widget>
         </item>
@@ -13868,291 +13923,314 @@ color: rgb(34, 122, 255)</string>
        <attribute name="title">
         <string>Подключенные БД</string>
        </attribute>
-       <widget class="QWidget" name="">
-        <layout class="QVBoxLayout" name="verticalLayout_105" stretch="0,0">
-         <property name="spacing">
-          <number>2</number>
-         </property>
-         <property name="sizeConstraint">
-          <enum>QLayout::SetMinimumSize</enum>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="label_88">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>24</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Roboto</family>
-             <pointsize>12</pointsize>
-             <weight>50</weight>
-             <italic>false</italic>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Выберите файл (файлы)  БД:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_72">
-           <item>
-            <widget class="QLineEdit" name="lineEdit_2">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>38</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Roboto</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <italic>false</italic>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="readOnly">
-              <bool>true</bool>
-             </property>
-             <property name="placeholderText">
-              <string>Выберите базы данных, которые необходимо подключить</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="importExcelpushButton_2">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>38</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>38</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>MS Shell Dlg 2</family>
-               <pointsize>12</pointsize>
-               <weight>9</weight>
-               <italic>false</italic>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(34, 122, 255);
+       <layout class="QVBoxLayout" name="verticalLayout_270">
+        <property name="spacing">
+         <number>24</number>
+        </property>
+        <property name="leftMargin">
+         <number>165</number>
+        </property>
+        <property name="topMargin">
+         <number>24</number>
+        </property>
+        <property name="rightMargin">
+         <number>165</number>
+        </property>
+        <property name="bottomMargin">
+         <number>24</number>
+        </property>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_105" stretch="0,0">
+          <property name="spacing">
+           <number>2</number>
+          </property>
+          <property name="sizeConstraint">
+           <enum>QLayout::SetMinimumSize</enum>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_88">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Roboto</family>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Выберите файл (файлы)  БД:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_72">
+            <property name="spacing">
+             <number>12</number>
+            </property>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_2">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>38</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Roboto</family>
+                <pointsize>12</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+              <property name="placeholderText">
+               <string>Выберите базы данных, которые необходимо подключить</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="importExcelpushButton_2">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>38</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>38</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>MS Shell Dlg 2</family>
+                <pointsize>12</pointsize>
+                <weight>9</weight>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(34, 122, 255);
 color: rgb(255, 255, 255);</string>
-             </property>
+              </property>
+              <property name="text">
+               <string>Обзор</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_269">
+          <property name="spacing">
+           <number>4</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_89">
+            <property name="font">
+             <font>
+              <family>Roboto</family>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Подключенные базы данных:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTableWidget" name="tableWidgetConnectedBD">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::SingleSelection</enum>
+            </property>
+            <property name="selectionBehavior">
+             <enum>QAbstractItemView::SelectRows</enum>
+            </property>
+            <attribute name="horizontalHeaderStretchLastSection">
+             <bool>true</bool>
+            </attribute>
+            <attribute name="verticalHeaderCascadingSectionResizes">
+             <bool>false</bool>
+            </attribute>
+            <column>
              <property name="text">
-              <string>Обзор</string>
+              <string>Воинская часть</string>
              </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="">
-        <layout class="QVBoxLayout" name="verticalLayout_106">
-         <item>
-          <widget class="QLabel" name="label_89">
-           <property name="font">
-            <font>
-             <family>Roboto</family>
-             <pointsize>12</pointsize>
-             <weight>50</weight>
-             <italic>false</italic>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Подключенные базы данных:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QTableWidget" name="tableWidgetConnectedBD">
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="editTriggers">
-            <set>QAbstractItemView::NoEditTriggers</set>
-           </property>
-           <property name="selectionMode">
-            <enum>QAbstractItemView::SingleSelection</enum>
-           </property>
-           <property name="selectionBehavior">
-            <enum>QAbstractItemView::SelectRows</enum>
-           </property>
-           <attribute name="horizontalHeaderStretchLastSection">
-            <bool>true</bool>
-           </attribute>
-           <attribute name="verticalHeaderCascadingSectionResizes">
-            <bool>false</bool>
-           </attribute>
-           <column>
-            <property name="text">
-             <string>Воинская часть</string>
+            </column>
+            <column>
+             <property name="text">
+              <string>Состояние</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Путь до БД</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_73">
+          <item>
+           <spacer name="horizontalSpacer_53">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
             </property>
-           </column>
-           <column>
-            <property name="text">
-             <string>Состояние</string>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
-           </column>
-           <column>
-            <property name="text">
-             <string>Путь до БД</string>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
             </property>
-           </column>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="">
-        <layout class="QHBoxLayout" name="horizontalLayout_73">
-         <item>
-          <spacer name="horizontalSpacer_53">
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QPushButton" name="deleteBD">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>38</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>38</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>MS Shell Dlg 2</family>
-             <pointsize>12</pointsize>
-             <weight>9</weight>
-             <italic>false</italic>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(160, 10, 10);
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="changeBD">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>38</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>38</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>MS Shell Dlg 2</family>
+              <pointsize>12</pointsize>
+              <weight>9</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(34, 122, 255);
 color: rgb(255, 255, 255);</string>
-           </property>
-           <property name="text">
-            <string> Удалить БД </string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="changeBD">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>38</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>38</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>MS Shell Dlg 2</family>
-             <pointsize>12</pointsize>
-             <weight>9</weight>
-             <italic>false</italic>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(34, 122, 255);
+            </property>
+            <property name="text">
+             <string> Изменить БД </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="deleteBD">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>38</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>38</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>MS Shell Dlg 2</family>
+              <pointsize>12</pointsize>
+              <weight>9</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(160, 10, 10);
 color: rgb(255, 255, 255);</string>
-           </property>
-           <property name="text">
-            <string> Изменить БД </string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="useBD">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>38</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>MS Shell Dlg 2</family>
-             <pointsize>12</pointsize>
-             <weight>9</weight>
-             <italic>false</italic>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(0, 160,10);
+            </property>
+            <property name="text">
+             <string> Удалить БД </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="useBD">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>38</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>MS Shell Dlg 2</family>
+              <pointsize>12</pointsize>
+              <weight>9</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(0, 160,10);
 color: rgb(255, 255, 255);</string>
-           </property>
-           <property name="text">
-            <string> Использовать БД </string>
-           </property>
-           <property name="checkable">
-            <bool>false</bool>
-           </property>
-           <property name="checked">
-            <bool>false</bool>
-           </property>
-           <property name="flat">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
+            </property>
+            <property name="text">
+             <string> Использовать БД </string>
+            </property>
+            <property name="checkable">
+             <bool>false</bool>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>

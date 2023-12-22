@@ -3719,7 +3719,7 @@ void MainWindow::on_buttonChangeOrg_2_clicked()
     ui->addPhonenumberOrg->setText(tempOrg.phoneNumber);
     ui->addVpMORFOrg->setText(tempOrg.vpMORF);
 
-    ui->checkBoxMyOrg->setChecked(tempOrg.checkMyOrg);
+    /*ui->checkBoxMyOrg->setChecked(tempOrg.checkMyOrg);*/
     ui->comboboxEditDepart->clear();
     for (int i = 0; i < tempOrg.departList.size(); ++i) {
         ui->comboboxEditDepart->addItem(tempOrg.departList[i].name);

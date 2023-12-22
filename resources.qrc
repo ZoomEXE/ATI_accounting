@@ -166,5 +166,8 @@
         <file>icons/mdi_triangle.png</file>
         <file>icons/mdi_wrench-cog-outline.png</file>
     </qresource>
-    <qresource prefix="/"/>
+    <qresource prefix="/">
+        <file>icons/mdi_close-box.png</file>
+        <file>icons/mdi_plus-box.png</file>
+    </qresource>
 </RCC>
