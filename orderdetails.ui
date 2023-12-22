@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1436</width>
-    <height>648</height>
+    <width>1689</width>
+    <height>1040</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="font">
    <font>
@@ -41,6 +47,9 @@ font: 12pt &quot;Times New Roman&quot;;
       <font>
        <family>Times New Roman</family>
        <pointsize>12</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
       </font>
      </property>
      <property name="text">
@@ -57,6 +66,9 @@ font: 12pt &quot;Times New Roman&quot;;
       <font>
        <family>Times New Roman</family>
        <pointsize>12</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
       </font>
      </property>
      <property name="text">
@@ -73,6 +85,9 @@ font: 12pt &quot;Times New Roman&quot;;
       <font>
        <family>Times New Roman</family>
        <pointsize>12</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
        <underline>true</underline>
       </font>
      </property>
@@ -128,6 +143,9 @@ font-weight: bold;
         <font>
          <family>Times New Roman</family>
          <pointsize>12</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -144,6 +162,9 @@ font-weight: bold;
         <font>
          <family>Times New Roman</family>
          <pointsize>12</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
          <underline>true</underline>
         </font>
        </property>
@@ -177,6 +198,9 @@ font-weight: bold;
         <font>
          <family>Times New Roman</family>
          <pointsize>12</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -199,6 +223,9 @@ font-weight: bold;
         <font>
          <family>Times New Roman</family>
          <pointsize>12</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
          <underline>true</underline>
         </font>
        </property>
@@ -240,6 +267,9 @@ font-weight: bold;
       <font>
        <family>Times New Roman</family>
        <pointsize>12</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
       </font>
      </property>
      <property name="text">
@@ -276,19 +306,22 @@ font-weight: bold;
      <property name="editTriggers">
       <set>QAbstractItemView::NoEditTriggers</set>
      </property>
-     <attribute name="horizontalHeaderDefaultSectionSize">
-      <number>200</number>
+     <attribute name="horizontalHeaderCascadingSectionResizes">
+      <bool>false</bool>
      </attribute>
      <attribute name="horizontalHeaderMinimumSectionSize">
       <number>50</number>
      </attribute>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>200</number>
+     </attribute>
      <attribute name="horizontalHeaderStretchLastSection">
       <bool>true</bool>
      </attribute>
-     <attribute name="verticalHeaderDefaultSectionSize">
+     <attribute name="verticalHeaderMinimumSectionSize">
       <number>75</number>
      </attribute>
-     <attribute name="verticalHeaderMinimumSectionSize">
+     <attribute name="verticalHeaderDefaultSectionSize">
       <number>75</number>
      </attribute>
      <column>
@@ -298,27 +331,27 @@ font-weight: bold;
      </column>
      <column>
       <property name="text">
-       <string>Основание</string>
+       <string>Основание для совершения операции</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>Грузоотправитель</string>
+       <string>Грузоотправитель и его почтовый адрес</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>Грузополучатель</string>
+       <string>Грузополучатель и его почтовый адрес</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>Дата</string>
+       <string>Вид и номер транспорта</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>Действителен до</string>
+       <string>Наименование, номер и дата транспортного документа</string>
       </property>
      </column>
     </widget>
@@ -358,7 +391,7 @@ font-weight: bold;
      </attribute>
      <column>
       <property name="text">
-       <string>Наименование</string>
+       <string>Наименование МЦ (индекс, номер чертежа)</string>
       </property>
       <property name="textAlignment">
        <set>AlignCenter</set>
@@ -374,15 +407,7 @@ font-weight: bold;
      </column>
      <column>
       <property name="text">
-       <string>Заводской номер</string>
-      </property>
-      <property name="textAlignment">
-       <set>AlignCenter</set>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Категория</string>
+       <string>Заводской (иной) номер</string>
       </property>
       <property name="textAlignment">
        <set>AlignCenter</set>
@@ -398,6 +423,14 @@ font-weight: bold;
      </column>
      <column>
       <property name="text">
+       <string>Категория</string>
+      </property>
+      <property name="textAlignment">
+       <set>AlignCenter</set>
+      </property>
+     </column>
+     <column>
+      <property name="text">
        <string>Ед. изм.</string>
       </property>
       <property name="textAlignment">
@@ -406,7 +439,7 @@ font-weight: bold;
      </column>
      <column>
       <property name="text">
-       <string>Выдать</string>
+       <string>Выдать (передать)</string>
       </property>
       <property name="textAlignment">
        <set>AlignCenter</set>
@@ -414,10 +447,25 @@ font-weight: bold;
      </column>
      <column>
       <property name="text">
-       <string>Выдано</string>
+       <string>Выдано (передано)</string>
       </property>
       <property name="textAlignment">
        <set>AlignCenter</set>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Вид (код) ремонта (обработки)</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Срок исполнения</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Отметка о выполненных работах</string>
       </property>
      </column>
      <column>
@@ -444,6 +492,9 @@ font-weight: bold;
         <font>
          <family>Times New Roman</family>
          <pointsize>12</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -457,6 +508,9 @@ font-weight: bold;
         <font>
          <family>Times New Roman</family>
          <pointsize>12</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -470,6 +524,9 @@ font-weight: bold;
         <font>
          <family>Times New Roman</family>
          <pointsize>12</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -498,6 +555,9 @@ font-weight: bold;
       <font>
        <family>Times New Roman</family>
        <pointsize>12</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
        <underline>true</underline>
       </font>
      </property>
@@ -512,6 +572,9 @@ font-weight: bold;
       <font>
        <family>Times New Roman</family>
        <pointsize>12</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
       </font>
      </property>
      <property name="text">
@@ -541,6 +604,9 @@ font-weight: bold;
       <font>
        <family>Times New Roman</family>
        <pointsize>12</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
        <underline>true</underline>
       </font>
      </property>
@@ -555,6 +621,9 @@ font-weight: bold;
       <font>
        <family>Times New Roman</family>
        <pointsize>12</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
       </font>
      </property>
      <property name="text">
@@ -568,6 +637,9 @@ font-weight: bold;
       <font>
        <family>Times New Roman</family>
        <pointsize>12</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
       </font>
      </property>
      <property name="text">
@@ -592,6 +664,28 @@ font-weight: bold;
         </size>
        </property>
       </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  color: #FFFFFF;
+  background-color: rgb(55, 55, 255);
+}
+
+QPushButton:hover {
+  background-color: rgba(55, 55, 255, 1);
+}
+
+QPushButton:disabled {
+  color: rgba(170, 170, 170, 1);
+  background-color: rgba(213, 213, 213, 1);
+}</string>
+       </property>
+       <property name="text">
+        <string>Редактировать</string>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushButtonSave">
