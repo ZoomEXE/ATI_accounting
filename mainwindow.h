@@ -31,6 +31,7 @@
 #include "scanviewer.h"
 #include "tablewidgetitem.h"
 #include "orderdetails.h"
+#include "prodinfo.h"
 //#include "tablewidgetitem.h"
 
 //#include <QtSql>
@@ -138,7 +139,7 @@ private slots:
 
     void on_checkBoxAllDocumentsRashod_stateChanged(int arg1);
 
-    void on_orders_triggered();
+    //void on_orders_triggered();
 
     void importBD();
     void on_pushButtonNextPrihod_2_clicked();
@@ -182,13 +183,11 @@ private slots:
 
     void on_buttonChangeOrg_clicked();
 
-    void on_pushButtonNextOrder_clicked();
-
-    void on_pushButtonBackOrder_clicked();
+    //void on_pushButtonNextOrder_clicked();
 
     void on_pushButtonCancelOrder_clicked();
 
-    void on_pushButtonCancelOderMC_clicked();
+    //void on_pushButtonCancelOderMC_clicked();
 
     void on_pushButtonDoneOrder_clicked();
 
@@ -215,10 +214,6 @@ private slots:
     void on_pushButton_clicked();
 
     void on_pushButtonDoneMakeOrder_clicked();
-
-    void on_pushButtonNextPrihod_3_clicked();
-
-    void on_pushButtonBackMakeOrder_clicked();
 
     void on_tableWidgetOrderSenderATI_cellDoubleClicked(int row, int column);
 
@@ -338,6 +333,20 @@ private slots:
     void on_comboboxSelectWorker_activated(const QString &arg1);
 
     void on_comboBox_9_activated(const QString &arg1);
+
+    void on_tableAccount_doubleClicked(const QModelIndex &index);
+
+    void on_lineEditFindInSklad_textChanged(const QString &arg1);
+
+    void on_lineEditFindInSklad_textEdited(const QString &arg1);
+
+    void on_action_triggered();
+
+    void on_rasporReestr_triggered();
+
+    void on_regRaspr_triggered();
+
+    void on_formRaspr_triggered();
 
 private:
     Ui::MainWindow *ui;

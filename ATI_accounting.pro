@@ -3,7 +3,7 @@
 # Project created by QtCreator 2021-04-01T22:51:36
 #
 #-------------------------------------------------
-include (D:\GitHub\Ati_accounting\xslx\src\xlsx\qtxlsx.pri)
+include (C:\Qt_projects\Ati_accounting\xslx\src\xlsx\qtxlsx.pri)
 
 QT       += core gui sql axcontainer
 
@@ -31,6 +31,7 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
         entry.cpp \
+    prodinfo.cpp \
         product.cpp \
     order.cpp \
     doc.cpp \
@@ -47,6 +48,7 @@ SOURCES += \
 HEADERS += \
         mainwindow.h \
         entry.h \
+    prodinfo.h \
         product.h \
     order.h \
     doc.h \
@@ -64,6 +66,7 @@ FORMS += \
         mainwindow.ui \
         entry.ui \
     additem.ui \
+    prodinfo.ui \
     scanviewer.ui \
     additembn.ui \
     orderdetails.ui

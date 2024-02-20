@@ -9,6 +9,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //Текущая дата и месяц в списках возле календаря
+    ui->dateLabel->setText(QDate::currentDate().toString("dd.MM.yyyy"));
+    ui->monthLabel->setText(QDate::currentDate().toString("MMMM yyyy"));
     //Добавление контекстного меню в таблицу распоряжений
     ui->tableWidgetOrders->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(ui->tableWidgetOrders, SIGNAL(customContextMenuRequested(QPoint)), this,
@@ -220,6 +223,7 @@ void MainWindow:: openOrderDetails() {
 
     OrderDetails *openOrdDetails = new OrderDetails(tempOrd, this);
     openOrdDetails->setModal(true);
+    openOrdDetails->showMaximized();
     connect(openOrdDetails, SIGNAL(dataToMainWindow(int, product)), SLOT(dataFromAddItem(int, product)));
     openOrdDetails->exec();
 }
@@ -600,71 +604,15 @@ void MainWindow::on_action_rashod_triggered()
     }
 }
 
-//Открыть вкладку "Распоряжения"
+/*//Открыть вкладку "Распоряжения"
 void MainWindow::on_orders_triggered()
 {
     if (check_available_tab("Распоряжения"))
     {
         new_tab("Распоряжения");
-        on_pushButtonCancelMakeOrder_clicked(); //Стереть все данные из инпутов
-        //on_pushButtonCancelOrder_3_clicked();
-        ui->tabWidgetProvodPrihod_3->setCurrentIndex(0); //Фокус на вкладке основной информации при формировании нарядов
-        ui->dateEditEndOrder->setDate(QDate::currentDate()); //Установка текущей даты в реестре нарядов
 
-        ui->comboBoxTypeDocPrihod_3->lineEdit()->setPlaceholderText("Выберите тип документа");
-        ui->comboBoxTypeDocPrihod_3->setCurrentIndex(-1);
-
-        ui->orderTarget->lineEdit()->setPlaceholderText("Выберите цель операции");
-        ui->orderTarget->setCurrentIndex(-1);
-
-        //ui->orderTargetVDO->lineEdit()->setPlaceholderText("Выберите цель операции");
-        //ui->orderTargetVDO->setCurrentIndex(-1);
-
-        ui->comboBoxOrderSender->lineEdit()->setPlaceholderText("Выберите отправителя");
-        ui->comboBoxOrderSender->setCurrentIndex(-1);
-
-        ui->comboBoxOrderRecipient->lineEdit()->setPlaceholderText("Выберите получателя");
-        ui->comboBoxOrderRecipient->setCurrentIndex(-1);
-
-        ui->comboBoxTypeMoveOrder->lineEdit()->setPlaceholderText("Выберите порядок отправки");
-        ui->comboBoxTypeMoveOrder->setCurrentIndex(-1);
-
-        //Проверка сроков нарядов
-        for(int i = 0; i < ui->tableWidgetOrders->rowCount(); ++i){
-            QVariant orderDate = ui->tableWidgetOrders->item(i, 5)->data(Qt::DisplayRole);
-            QDate order = orderDate.toDate(), current = QDate::currentDate();
-            if(order < current) {
-                ui->tableWidgetOrders->item(i, 9)->setText("Просрочен");
-                ui->tableWidgetOrders->item(i, 9)->setTextColor(Qt::red);
-            }
-        }
-
-        if(!baseDB.open()) {
-            qDebug() << baseDB.lastError().text();
-        }else{
-            qDebug() << "It's OK!";
-        }
-
-        QSqlQuery query(baseDB);
-        query.exec("SELECT * FROM spr_ati");
-        QString text;
-        QSqlQueryModel *modelFind = new QSqlQueryModel;
-            qDebug() << query.lastError();
-
-        //Отображение результатов
-        modelFind->setQuery(query);
-        modelFind->setHeaderData(0,Qt::Horizontal, "Номенкл. номер");
-        modelFind->setHeaderData(1,Qt::Horizontal, "Наименование");
-        modelFind->setHeaderData(2,Qt::Horizontal, "Ед. измерения");
-        modelFind->setHeaderData(3,Qt::Horizontal, "Примечание");
-        ui->tableViewNomklVDO->setModel(modelFind);
-        QFont regularFont ("MS Shell Dig 2", 9,QFont::Bold);
-        ui->tableViewNomklVDO->horizontalHeader()->setFont(regularFont);
-        ui->tableViewNomklVDO->resizeColumnsToContents();
-        ui->tableViewNomklVDO->show();
-        baseDB.close();
     }
-}
+}*/
 
 //Открыть вкладку "Организации"
 void MainWindow::on_organisations_triggered()
@@ -1618,27 +1566,9 @@ void MainWindow::on_buttonChangeOrg_clicked()
     ui->tabWidgetOrganisations->setCurrentIndex(1);
 }
 
-//Нажатие кнопки "Далее" на вкладке регистрации распоряжения (Основная информация)
-void MainWindow::on_pushButtonNextOrder_clicked()
-{
-
-    ui->tabWidgetRegOrder->setCurrentIndex(1);
-}
-
-//Нажатие кнопки "Назад" на вкладке регистрации распоряжения (Перечень МЦ)
-void MainWindow::on_pushButtonBackOrder_clicked()
-{
-    ui->tabWidgetRegOrder->setCurrentIndex(0);
-}
 
 //Нажатие кнопки "Отмена" на вкладке регистрации распоряжения (Основная информация)
 void MainWindow::on_pushButtonCancelOrder_clicked()
-{
-    on_pushButtonCancelOderMC_clicked();
-}
-
-//Нажатие кнопки "Отмена" на вкладке регистрации распоряжения (Перечень МЦ)
-void MainWindow::on_pushButtonCancelOderMC_clicked()
 {
     ui->comboBoxTypeOrder->setCurrentIndex(0);
     ui->lineEditOutputOrder->clear();
@@ -1652,8 +1582,8 @@ void MainWindow::on_pushButtonCancelOderMC_clicked()
     ui->tableWidgetOrderVDO->clearContents();
     ui->tableWidgetOrderVDO->setRowCount(0);
 
-    ui->tabWidgetRegOrder->setCurrentIndex(0);
-    ui->tabWidgetOrders->setCurrentIndex(0);
+    //ui->tabWidgetRegOrder->setCurrentIndex(0);
+    //ui->tabWidgetOrders->setCurrentIndex(0);
 
     ui->pushButtonDoneMakeOrder->setText("Сформировать");
     ui->pushButtonDoneOrder->setText("Зарегистрировать");
@@ -1821,7 +1751,7 @@ void MainWindow::on_pushButtonDoneOrder_clicked()
     ordersFromBD();
 
     //Очистка вкладки регистрации
-    on_pushButtonCancelOderMC_clicked();
+    on_pushButtonCancelOrder_clicked();
 
 }
 
@@ -2393,18 +2323,6 @@ void MainWindow::on_pushButtonDoneMakeOrder_clicked()
     on_pushButtonCancelMakeOrder_clicked(); //Очистка окон после создания распоряжения
 }
 
-//Нажатие кнопки далее
-void MainWindow::on_pushButtonNextPrihod_3_clicked()
-{
-    ui->tabWidgetProvodPrihod_3->setCurrentIndex(1);
-}
-
-// Нажатие кнопки назад
-void MainWindow::on_pushButtonBackMakeOrder_clicked()
-{
-    ui->tabWidgetProvodPrihod_3->setCurrentIndex(0);
-}
-
 // Нажатие кнопки отмена
 void MainWindow::on_pushButtonCancelMakeOrder_clicked()
 {
@@ -2433,7 +2351,7 @@ void MainWindow::on_pushButtonCancelMakeOrder_clicked()
     ui->validOrderDate->setDate(currDate);
 
     //Переключение на вкладку "Выписанные распоряжения"
-    ui->tabWidgetOrders->setCurrentIndex(0);
+    //ui->tabWidgetOrders->setCurrentIndex(0);
 }
 
 //Двойной щелчок по элементу таблицы для добавления имущества в наряд
@@ -2776,7 +2694,7 @@ void MainWindow::on_lineEditOutputNumberOrder_textChanged(const QString &arg1)
     QPalette pal = ui->lineEditOutputNumberOrder->palette();
     pal.setColor(QPalette::Text, Qt::black);
     ui->lineEditOutputNumberOrder->setPalette(pal);
-    ui->pushButtonNextPrihod_3->setEnabled(true);
+    //ui->pushButtonNextPrihod_3->setEnabled(true);
     ui->tab_20->setEnabled(true);
     if(!redactFlag){
         for(int i = 0; i < orders.size(); ++i) {
@@ -2784,7 +2702,7 @@ void MainWindow::on_lineEditOutputNumberOrder_textChanged(const QString &arg1)
                 pal = ui->lineEditOutputNumberOrder->palette();
                 pal.setColor(QPalette::Text, Qt::red);
                 ui->lineEditOutputNumberOrder->setPalette(pal);
-                ui->pushButtonNextPrihod_3->setEnabled(false);
+                //ui->pushButtonNextPrihod_3->setEnabled(false);
                 ui->tab_20->setEnabled(false);
 
                 QMessageBox msg;
@@ -3392,7 +3310,7 @@ void MainWindow::on_lineEditFindOrderItem_textChanged(const QString &arg1)
 
 void MainWindow::on_tabWidgetOrders_currentChanged(int index)
 {
-    if (index == 1) ui->tabWidgetRegOrder->setCurrentIndex(0);
+    //if (index == 1) ui->tabWidgetRegOrder->setCurrentIndex(0);
     if (index == 2) ui->tabWidgetProvodPrihod_3->setCurrentIndex(0);
 }
 
@@ -3879,4 +3797,272 @@ void MainWindow::on_comboBox_9_activated(const QString &arg1)
                 }
             }
         }
+}
+//Открытие формы 10 по двойному щелчку
+void MainWindow::on_tableAccount_doubleClicked(const QModelIndex &index)
+{
+    /*product temp;
+    int row = index.row();
+    temp.name = index.data(0).toString();
+    temp.nomNumber = ui->tableAccount->model()->index(row, 1, QModelIndex()).data(0).toString();
+    temp.measure = ui->tableAccount->model()->index(row, 2, QModelIndex()).data(0).toString();
+    temp.category = ui->tableAccount->model()->index(row, 3, QModelIndex()).data(0).toInt();
+    temp.count = ui->tableAccount->model()->index(row, 4, QModelIndex()).data(0).toDouble();
+    temp.type117 = ui->tableAccount->model()->index(row, 5, QModelIndex()).data(0).toString();
+
+    QSqlQuery query(currDB);
+
+
+    QString text;
+    if(temp.nomNumber != "") {
+        text = "SELECT * FROM product_ati WHERE name = '" + temp.name + "' OR nom_numb = '" + temp.nomNumber + "'";
+    }else{
+        text = "SELECT * FROM product_ati WHERE name = '" + temp.name + "'";
+    }
+    query.exec(text);
+    QVector <product> tempProds;
+    //tempProds.push_back(temp);
+    while(query.next()) {
+        QSqlQuery query2(currDB);
+        product temp2;
+        text = "SELECT * FROM lic_scheta WHERE id = '" + query.value(9).toString() + "'";
+        query2.exec(text);
+        query2.next();
+
+        temp2.name = query.value(1).toString();
+        temp2.nomNumber = query.value(2).toString();
+        temp2.measure = query.value(4).toString();
+        temp2.category = query.value(7).toInt();
+        temp2.count = query.value(5).toDouble();
+        temp2.type117 = query2.value(1).toString();
+        tempProds.push_back(temp2);
+    }
+
+    QVector <doc> tempDocs;
+
+    text = "SELECT category, count, id_docs FROM product_docs WHERE name = '" + temp.name + "' OR nom_numb = '" + temp.nomNumber + "'";
+    query.exec(text);
+
+    while(query.next()) {
+        text = "SELECT * FROM docs WHERE id = '" + query.value(2).toString() + "'";
+        QSqlQuery query2(currDB);
+        query2.exec(text);
+        query2.next();
+
+        doc tempDoc;
+        tempDoc.name = query2.value(1).toString();
+        tempDoc.numberOutput = query2.value(2).toString();
+        tempDoc.dateOutput = QDate::fromString(query2.value(3).toString());
+        tempDoc.numberInput = query2.value(4).toString();
+        tempDoc.dateInput = QDate::fromString(query2.value(5).toString());
+        tempDoc.base = query2.value(6).toString();
+        tempDoc.senderOrg = query2.value(9).toString();
+        tempDoc.recipientOrg = query2.value(10).toString();
+        tempDoc.type = query2.value(11).toInt();
+
+        product tempProd;
+        tempProd.category = query.value(0).toInt();
+        tempProd.count = query.value(1).toDouble();
+
+        tempDoc.items.push_back(tempProd);
+        tempDocs.push_back(tempDoc);
+    }
+
+
+    ProdInfo *form10 = new ProdInfo(tempProds, tempDocs, this);
+    form10->setModal(true);
+    form10->exec();
+*/}
+
+
+//Поиск среди наличия
+void MainWindow::on_lineEditFindInSklad_textChanged(const QString &arg1)
+{
+    QString searchText = ui->lineEditFindInSklad->text();
+    QString currText = ui->comboBoxScheta->currentText();
+    QVector <QPair<product, QString>> currentSchet;
+
+    if(currText == "Все лицевые счета"){
+        for(QMap <QString, QVector<product>>::iterator it = dataATI.begin(); it != dataATI.end(); it++) {
+            for(int i = 0; i < it.value().size(); ++i) {
+                product tempProd = it.value()[i];
+                if(searchText.left(2) == "17") {
+                    if(findSubStr(searchText, tempProd.nomNumber)) {
+                        //QPair <product, QString> = qMakePair
+                        currentSchet.push_back(qMakePair(tempProd, it.key()));
+                    }
+                }else{
+                    if(findSubStr(searchText, tempProd.name)) {
+                        currentSchet.push_back(qMakePair(tempProd, it.key()));
+                    }
+                }
+            }
+        }
+
+    }else{
+        for(int i = 0; i < dataATI[currText].size(); ++i) {
+            product tempProd = dataATI[currText][i];
+            if(searchText.left(2) == "17") {
+                if(findSubStr(searchText, tempProd.nomNumber)) {
+                    currentSchet.push_back(qMakePair(tempProd, currText));
+                }
+            }else{
+                if(findSubStr(searchText, tempProd.name)) {
+                    currentSchet.push_back(qMakePair(tempProd, currText));
+                }
+            }
+        }
+    }
+    int len = currentSchet.size();
+
+    //ui->tableAccount->clear();
+    //ui->tableAccount->setRowCount(len);
+    QStringList wordListNames;
+
+    QStandardItemModel *modelAccount = new QStandardItemModel();
+
+        for (int i = 0; i < len; ++i)
+    {
+        /*ui->tableAccount->setItem(i, 0, new QTableWidgetItem(currentSchet[i].name));
+        ui->tableAccount->setItem(i, 1, new QTableWidgetItem(currentSchet[i].nomNumber));
+        ui->tableAccount->setItem(i, 2, new QTableWidgetItem(currentSchet[i].measure));
+        ui->tableAccount->setItem(i, 3, new QTableWidgetItem(QString::number(currentSchet[i].category)));
+        ui->tableAccount->setItem(i, 4, new QTableWidgetItem(QString::number(currentSchet[i].count)));
+        ui->tableAccount->setItem(i, 5, new QTableWidgetItem(QString::number(currentSchet[i].price)));*/
+
+        QList<QStandardItem*> lst;
+        QStandardItem *item = new QStandardItem(currentSchet[i].first.name);
+        QStandardItem *item1 = new QStandardItem(currentSchet[i].first.nomNumber);
+        QStandardItem *item2 = new QStandardItem(currentSchet[i].first.measure);
+        QStandardItem *item3 = new QStandardItem(QString::number(currentSchet[i].first.category));
+        QStandardItem *item4 = new QStandardItem(QString::number(currentSchet[i].first.count));
+        QStandardItem *item5 = new QStandardItem(currentSchet[i].second);
+
+        lst <<item<<item1<<item2<<item3<<item4<<item5;
+        modelAccount->appendRow(lst);
+
+        wordListNames.append(currentSchet[i].first.name + " | " + currentSchet[i].first.nomNumber);
+    }
+        modelAccount->setHeaderData(0,Qt::Horizontal, "Наименование");
+        modelAccount->setHeaderData(1,Qt::Horizontal, "Ном. номер");
+        modelAccount->setHeaderData(2,Qt::Horizontal, "Ед. изм.");
+        modelAccount->setHeaderData(3,Qt::Horizontal, "Категория");
+        modelAccount->setHeaderData(4,Qt::Horizontal, "Количество");
+        modelAccount->setHeaderData(5,Qt::Horizontal, "Лицевой счет");
+
+    QCompleter *completer = new QCompleter(wordListNames, this);
+    completer->setCaseSensitivity(Qt::CaseInsensitive);
+    ui->lineEditFindOrderItem->setCompleter(completer);
+
+    /*QStringList headers;
+    headers.append("Наименование");
+    headers.append("Номенклатурный номер");
+    headers.append("Ед. изм.");
+    headers.append("Категория");
+    headers.append("Количество");
+    headers.append("Лицевой счет");
+    ui->tableAccount->setHorizontalHeaderLabels(headers);
+*/
+
+    ui->tableAccount->setModel(modelAccount);
+    ui->tableAccount->resizeColumnsToContents();
+    ui->tableAccount->horizontalHeader()->setStretchLastSection(true);
+    ui->tableAccount->resizeColumnsToContents();
+    ui->tableAccount->show();
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+}
+
+
+void MainWindow::on_lineEditFindInSklad_textEdited(const QString &arg1)
+{
+
+}
+
+void MainWindow::on_action_triggered()
+{
+
+}
+
+void MainWindow::on_rasporReestr_triggered()
+{
+    if (check_available_tab("Реестр распоряжений"))
+    {
+        new_tab("Реестр распоряжений");
+
+        on_pushButtonCancelMakeOrder_clicked(); //Стереть все данные из инпутов
+        //on_pushButtonCancelOrder_3_clicked();
+        ui->tabWidgetProvodPrihod_3->setCurrentIndex(0); //Фокус на вкладке основной информации при формировании нарядов
+        ui->dateEditEndOrder->setDate(QDate::currentDate()); //Установка текущей даты в реестре нарядов
+
+        ui->comboBoxTypeDocPrihod_3->lineEdit()->setPlaceholderText("Выберите тип документа");
+        ui->comboBoxTypeDocPrihod_3->setCurrentIndex(-1);
+
+        ui->orderTarget->lineEdit()->setPlaceholderText("Выберите цель операции");
+        ui->orderTarget->setCurrentIndex(-1);
+
+        //ui->orderTargetVDO->lineEdit()->setPlaceholderText("Выберите цель операции");
+        //ui->orderTargetVDO->setCurrentIndex(-1);
+
+        ui->comboBoxOrderSender->lineEdit()->setPlaceholderText("Выберите отправителя");
+        ui->comboBoxOrderSender->setCurrentIndex(-1);
+
+        ui->comboBoxOrderRecipient->lineEdit()->setPlaceholderText("Выберите получателя");
+        ui->comboBoxOrderRecipient->setCurrentIndex(-1);
+
+        ui->comboBoxTypeMoveOrder->lineEdit()->setPlaceholderText("Выберите порядок отправки");
+        ui->comboBoxTypeMoveOrder->setCurrentIndex(-1);
+
+        //Проверка сроков нарядов
+        for(int i = 0; i < ui->tableWidgetOrders->rowCount(); ++i){
+            QVariant orderDate = ui->tableWidgetOrders->item(i, 5)->data(Qt::DisplayRole);
+            QDate order = orderDate.toDate(), current = QDate::currentDate();
+            if(order < current) {
+                ui->tableWidgetOrders->item(i, 9)->setText("Просрочен");
+                ui->tableWidgetOrders->item(i, 9)->setTextColor(Qt::red);
+            }
+        }
+
+        if(!baseDB.open()) {
+            qDebug() << baseDB.lastError().text();
+        }else{
+            qDebug() << "It's OK!";
+        }
+
+        QSqlQuery query(baseDB);
+        query.exec("SELECT * FROM spr_ati");
+        QString text;
+        QSqlQueryModel *modelFind = new QSqlQueryModel;
+            qDebug() << query.lastError();
+
+        //Отображение результатов
+        modelFind->setQuery(query);
+        modelFind->setHeaderData(0,Qt::Horizontal, "Номенкл. номер");
+        modelFind->setHeaderData(1,Qt::Horizontal, "Наименование");
+        modelFind->setHeaderData(2,Qt::Horizontal, "Ед. измерения");
+        modelFind->setHeaderData(3,Qt::Horizontal, "Примечание");
+        ui->tableViewNomklVDO->setModel(modelFind);
+        QFont regularFont ("MS Shell Dig 2", 9,QFont::Bold);
+        ui->tableViewNomklVDO->horizontalHeader()->setFont(regularFont);
+        ui->tableViewNomklVDO->resizeColumnsToContents();
+        ui->tableViewNomklVDO->show();
+        baseDB.close();
+    }
+}
+
+void MainWindow::on_regRaspr_triggered()
+{
+    if (check_available_tab("Регистрация распоряжения"))
+    {
+        new_tab("Регистрация распоряжения");
+    }
+}
+
+
+void MainWindow::on_formRaspr_triggered()
+{
+    if (check_available_tab("Формирование распоряжения"))
+    {
+        new_tab("Формирование распоряжения");
+    }
 }
